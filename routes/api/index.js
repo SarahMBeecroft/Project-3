@@ -1,7 +1,11 @@
 const router = require("express").Router();
-const beerRoutes = require("./beers");
+const users = require("./users");
+const beers = require("./beers");
+const comments = require("./comments");
 
-// Beer routes
-router.use("/beers", beerRoutes);
+// saved routes
+router.use("/users", users);
+router.use("/beers", beers);
+router.use("/comments", comments);
 
 module.exports = router;
