@@ -77,5 +77,5 @@ module.exports = {
         db.Comment.findByIdAndDelete(req.params.id).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
-    },
+    }
 };
