@@ -6,6 +6,11 @@ module.exports = {
     /* ***** */
     // Users //
     /* ***** */
+    createUser: function (req, res) {
+        db.User.create(req.body).
+        then((dbRes) => { res.json(dbRes); }).
+        catch((err) => { res.status(422).json(err); });
+},
     findUsers: function (req, res) {
         // pass an empty object ({}) in req.query to find all users.
         // pass {username: the_username} or {email: the_email} to search by username or email
@@ -19,7 +24,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     updateUser: function (req, res) {
-        db.User.findByIdAndUpdate(req.params.id).
+        db.User.findByIdAndUpdate(req.params.id, req.body).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },
@@ -31,6 +36,11 @@ module.exports = {
     /* ***** */
     // Beers //
     /* ***** */
+    createBeer: function (req, res) {
+        db.Beer.create(req.body).
+        then((dbRes) => { res.json(dbRes); }).
+        catch((err) => { res.status(422).json(err); });
+},
     findBeer: function (req, res) {
         // pass an empty object ({}) in req.query to find all beers.
         db.Beer.find(req.query).
@@ -44,7 +54,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     updateBeer: function (req, res) {
-        db.Beer.findByIdAndUpdate(req.params.id).
+        db.Beer.findByIdAndUpdate(req.params.id, req.body).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },
@@ -56,6 +66,11 @@ module.exports = {
     /* ******** */
     // Comments //
     /* ******** */
+    createComment: function (req, res) {
+        db.Comment.create(req.body).
+        then((dbRes) => { res.json(dbRes); }).
+        catch((err) => { res.status(422).json(err); });
+},
     findComments: function (req, res) {
         // pass an empty object ({}) in req.query to find all comments.
         db.Comment.find(req.query).
@@ -69,7 +84,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     updateComment: function (req, res) {
-        db.Comment.findByIdAndUpdate(req.params.id).
+        db.Comment.findByIdAndUpdate(req.params.id, req.body).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },
