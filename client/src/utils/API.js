@@ -68,6 +68,7 @@ export default {
     },
 
     // Search external beer API
+    // Using the Open Beer Database for now.  Not confident we'll find a more up-to-date provider; anything new seems to be paywalled.
     searchBeerAPI: function(query) {
         return axios.get(
             `https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${query}`
