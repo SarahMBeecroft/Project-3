@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
+import Style from '../../components/BeerStyle';
+import ABV from '../../components/BeerABV';
 
 class SearchBeers extends Component {
   // Creates state
@@ -17,7 +19,8 @@ class SearchBeers extends Component {
         <Jumbotron>
           <h1>Hop to It</h1>
         </Jumbotron>
-    
+        <Style></Style>
+        <ABV></ABV>
       </Container>
     );
   }
