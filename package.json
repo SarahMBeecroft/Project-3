@@ -21,6 +21,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.6.5"
+    "mongoose": "^5.6.5",
+    "react-autocomplete": "^1.8.1"
   }
 }
