@@ -131,7 +131,7 @@ class Style extends Component {
       } else {
         suggestionsListComponent = (
           <div class="no-suggestions">
-            <em>No suggestions, sorry!</em>
+            <em>No suggestions, sorry!!</em>
           </div>
         );
       }
