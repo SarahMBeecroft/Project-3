@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import './style.css';
 import PropTypes from 'prop-types';
 
 class Style extends Component {
@@ -131,7 +130,9 @@ class Style extends Component {
       } else {
         suggestionsListComponent = (
           <div class="no-suggestions">
-            <em>No suggestions, sorry!!</em>
+          
+            <em>No suggestions, try another search term!</em>
+
           </div>
         );
       }
