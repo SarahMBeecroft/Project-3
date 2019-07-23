@@ -1,15 +1,15 @@
 const router = require("express").Router();
 const dbCon = require("../../controllers/dbcontroller");
 
-// "/api/beers"
+// "/api/users"
 router.route("/").
-  get(dbCon.findBeer).
-  post(dbCon.createBeer);
+  get(dbCon.findUsers).
+  post(dbCon.createUser);
 
-// "/api/beers/:id"
+// "/api/users/:id"
 router.route("/:id").
-  get(dbCon.findBeerByID).
-  put(dbCon.updateBeer).
-  delete(dbCon.removeBeer);
+  get(dbCon.findUserByID).
+  put(dbCon.updateUser).
+  delete(dbCon.removeUser);
 
 module.exports = router;

@@ -1,21 +1,38 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './pages/Login';
+import Search from './pages/Search';
+import Results from './pages/Results';
+import myBeers from './pages/myBeers';
+import NavBar from './components/NavBar';
+import AvatarImg from './components/AvatarImg';
+import ResponsiveDrawer from './components/Drawer';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+// import noMatch from './pages/noMatch';
+import './App.css'
+
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <AvatarImg />
+        <ResponsiveDrawer />
+        <Switch>
+          {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
+          <Route exact path='/' component={Search} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/search' component={Search} />
+          <Route exact path='/results' component={Results} />
+          <Route exact path='/mybeers' component={myBeers} />
+          <Route exact path='/mybeers/:id' component={myBeers} />
+          {/* <Route component={noMatch} /> */}
+        </Switch>
+      {/* Footer can go here */}
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
