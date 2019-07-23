@@ -1,15 +1,15 @@
-// const router = require("express").Router();
-// const beersController = require("../../controllers/beersController");
+const router = require("express").Router();
+const dbCon = require("../../controllers/dbcontroller");
 
-// // Matches with "/api/beers"
-// router.route("/")
-//   .get(beersController.findAll)
-//   .post(beersController.create);
+// "/api/beers"
+router.route("/").
+  get(dbCon.findBeer).
+  post(dbCon.createBeer);
 
-// // Matches with "/api/beers/:id"
-// router.route("/:id")
-//   .get(beersController.findById)
-//   .put(beersController.update)
-//   .delete(beersController.remove);
+// "/api/beers/:id"
+router.route("/:id").
+  get(dbCon.findBeerByID).
+  put(dbCon.updateBeer).
+  delete(dbCon.removeBeer);
 
-// module.exports = router;
+module.exports = router;

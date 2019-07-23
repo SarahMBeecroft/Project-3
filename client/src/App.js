@@ -1,21 +1,50 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import reduxThunk from 'redux-thunk';
+import axios from 'axios';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+import Search from './pages/Search';
+import Results from './pages/Results';
+import myBeers from './pages/myBeers';
+import AppContainer from './components/AppContainer';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
+import reducers from './reducers';
+import authGuard from './components/HOCs/authGuard';
+// import noMatch from './pages/noMatch';
+import './App.css'
+
+axios.defaults.withCredentials = true;
+
+function App() {
+  return (
+    <Provider store={createStore(reducers, {}, applyMiddleware(reduxThunk))}>
+    <Router>
+    <AppContainer>
+      <div>
+        {/* Navbar can go here */}
+        <Switch>
+          {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
+          <Route exact path='/' component={Search} />
+          <Route exact path='/signup' component={SignUp} />
+          <Route exact path='/signin' component={SignIn} />
+          <Route exact path="/dashboard" component={authGuard(Dashboard)} />
+          <Route exact path='/search' component={Search} />
+          <Route exact path='/results' component={Results} />
+          <Route exact path='/mybeers' component={myBeers} />
+          <Route exact path='/mybeers/:id' component={myBeers} />
+          {/* <Route component={noMatch} /> */}
+        </Switch>
+      {/* Footer can go here */}
       </div>
-    );
-  }
+      </AppContainer>
+    </Router>
+    </Provider>
+  );
 }
 
 export default App;
