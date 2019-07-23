@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
 import Style from '../../components/BeerStyle';
-import Fragment from '../../components/BeerStyle';
 import ABV from '../../components/BeerABV';
 
 class SearchBeers extends Component {
