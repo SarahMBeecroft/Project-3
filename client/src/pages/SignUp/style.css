@@ -1,0 +1,46 @@
+nav{
+  background-color:#90AA6B;
+}
+.nav-wrapper{
+  margin:0 10px 10px 10px;
+  
+}
+.nav{
+  float:right;
+  text-align:right;
+}
+
+.nav-link{
+font-size: 1.5rem;
+}
+
+form{
+  padding-right:2rem;
+}
+
+fieldset{
+  border:none;
+  
+}
+
+label{
+  font-size:1.5rem;
+}
+
+.alert{
+  font-size:1.5rem;
+}
+
+.text-center{
+  float:right;
+  margin-left:2.5rem;
+}
+
+.signinbtn{
+  background-color:#91A275
+}
+.googlebtn{
+  background-color:#db3236;
+
+
+}
