@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
-const Zip = props => {
+const TestSearch = props => {
   return (
       <form>
           <div className='form-group'>
               <input className='col-12 form-control'
                   value={props.search}
                   type='text'
-                  name='searchZip'
+                  name='testSearch'
                   onChange={props.handleInputChange}
               />
           </div>
@@ -19,4 +19,4 @@ const Zip = props => {
   )
 }
 
-export default Zip
+export default TestSearch
