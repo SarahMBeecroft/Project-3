@@ -4,8 +4,13 @@ import { Container, Row, Col } from '../../components/Grid';
 import Style from '../../components/BeerStyle';
 import ABV from '../../components/BeerABV';
 import Zip from '../../components/ZipCode';
+import API from '../../utils/API';
 import './style.css';
+import TestSearch from '../../components/TestSearch/TestSearch';
 
+
+
+// Currently set up to use test search field component
 class SearchBeers extends Component {
   // Creates state
   state = {
@@ -15,6 +20,44 @@ class SearchBeers extends Component {
     message: ''
   };
 
+  // Takes value from search input 
+  handleInputChange = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  // Function to handle form submit
+  handleFormSubmit = event => {
+    // Prevents page from reloading 
+    event.preventDefault();
+    // Connects to brewerydb api with search value
+    API.searchBeerAPI(this.state.search)
+      .then(res => {
+        if (res.data.items === 'error') {
+          throw new Error(res.data.items);
+        } else {
+          // Stores responses in array
+          let results = res.data.items
+          // Maps through the array 
+          console.log(results);
+
+          results = results.map(result => {
+            // Stores book data in new object 
+            result = {
+              key: result.id,
+              id: result.id,
+              name: result.name,
+              description: result.description,
+              abv: result.abv,
+            }
+            console.log(result);
+
+            return result;
+          })
+        }
+      })
+  };
+
+  // Renders content onto main search page
   render() {
     return (
       <Container fluid>
@@ -92,10 +135,13 @@ class SearchBeers extends Component {
             "22"
           ]}
         />
-        <h1>Zip Code:</h1>
-      <Zip
-      suggestions={["1", "2", "3"
-      ]} />
+      <h1>Zip Code:</h1>
+      <Zip></Zip>
+      <h1>Test Search Field:</h1>
+      <TestSearch
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
+      />
       </Container>
     );
   }
