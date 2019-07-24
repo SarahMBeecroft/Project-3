@@ -48,7 +48,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hoptoitdb");
 // app.use(express.static("public"));
 
 
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
