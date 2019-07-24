@@ -77,7 +77,7 @@ export default {
             // `https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${query}`
             
             // For brewery db API, key needs to be in this format at end of query
-            'http://api.brewerydb.com/v2/search?&format=json&q=' + query + '&key='+ key
+            'http://api.brewerydb.com/v2/search?&format=json&q=' + query + '&key=' + key
         );
     }
 };
