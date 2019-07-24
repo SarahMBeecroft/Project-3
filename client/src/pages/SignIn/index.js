@@ -78,7 +78,7 @@ class SignIn extends Component {
          
             <div className="text-center">
               <div className="alert alert-primary">
-                Or sign in using third-party services
+                Or sign in using your Google account
             </div>
            
               <GoogleLogin

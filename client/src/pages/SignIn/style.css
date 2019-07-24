@@ -29,6 +29,7 @@ label{
 
 .alert{
   font-size:1.5rem;
+  margin-bottom:1.5rem;
 }
 
 .text-center{
@@ -39,8 +40,8 @@ label{
 .signinbtn{
   background-color:#91A275
 }
+
 .googlebtn{
   background-color:#db3236;
-
-
+  margin-top:2 rem;
 }

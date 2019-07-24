@@ -75,7 +75,7 @@ class SignUp extends Component {
          
             <div className="text-center">
               <div className="alert alert-primary">
-              Or sign up using third-party services
+              Or sign up using your Google account
             </div>
            
             <GoogleLogin 
