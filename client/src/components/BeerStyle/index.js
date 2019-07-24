@@ -1,76 +1,161 @@
-import React from 'react';
-import './style.css';
+import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-class Style extends React.Component {
-  constructor(){
-   super();
-  
-   this.state = {
-         displayMenu: false,
-       };
-  
-    this.showDropdownMenu = this.showDropdownMenu.bind(this);
-    this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-  
+class Style extends Component {
+  static propTypes = {
+    suggestions: PropTypes.instanceOf(Array)
   };
-  
-  showDropdownMenu(event) {
-      event.preventDefault();
-      this.setState({ displayMenu: true }, () => {
-      document.addEventListener('click', this.hideDropdownMenu);
-      });
-    }
-  
-    hideDropdownMenu() {
-      this.setState({ displayMenu: false }, () => {
-        document.removeEventListener('click', this.hideDropdownMenu);
-      });
-  
-    }
-  
-    render() {
-      return (
-          <div  className="dropdown1">
-           <div className="button1" onClick={this.showDropdownMenu}> Beer Style </div>
-  
-            { this.state.displayMenu ? (
-            <ul>   
-           <li className='style1'>American-Style Amber/Red Ale</li>
-           <li className='style2'>American-Style India Black Ale</li>
-           <li className='style3'>American-Style Brown Ale</li>
-           <li className='style4'>American-Style Cream Ale or Lager</li>
-           <li className='style5'>American-Style Imperial Stout</li> 
-           <li className='style6'>American-Style India Pale Ale</li>
-           <li className='style7'>American-Style Lager</li>   
-           <li className='style8'>American-Style Pale Ale</li>
-           <li className='style9'>American-Style Stout</li>
-           <li className='style10'>Baltic-Style Porter</li>
-           <li className='style11'>Belgian-Style Fruit Lambic</li>
-           <li className='style12'>Belgian-Style Pale Ale</li>
-           <li className='style13'>Belgian-Style Quadrupel</li>
-           <li className='style14'>Belgian-Style White</li>
-           <li className='style15'>Fruit Beer</li>
-           <li className='style16'>German-Style Oktoberfest</li>
-           <li className='style17'>Imperial or Double India Pale Ale</li>
-           <li className='style18'>Imperial or Double Red Ale</li>
-           <li className='style19'>Irish-Style Red Ale</li>
-           <li className='style20'>Light American Wheat Ale or Lager</li>
-           <li className='style21'>Other Belgian-Style Ales</li>
-           <li className='style22'>South German-Style Hefeweizen</li>
-           <li className='style23'>Traditional German-Style Bock</li>
-           <li className='style24'>Vienna-Style Lager</li>
-            </ul>
-          ):
-          (
-            null
-          )
-          }
-  
-         </div>
-  
-      );
-    }
+
+  static defaultProps = {
+    suggestions: []
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // The active selection's index
+      activeSuggestion: 0,
+      // The suggestions that match the user's input
+      filteredSuggestions: [],
+      // Whether or not the suggestion list is shown
+      showSuggestions: false,
+      // What the user has entered
+      userInput: ""
+    };
   }
-  
-  export default Style;
+
+  // Event fired when the input value is changed
+  onChange = e => {
+    const { suggestions } = this.props;
+    const userInput = e.currentTarget.value;
+
+    // Filter our suggestions that don't contain the user's input
+    const filteredSuggestions = suggestions.filter(
+      suggestion =>
+        suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+    );
+
+    // Update the user input and filtered suggestions, reset the active
+    // suggestion and make sure the suggestions are shown
+    this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions,
+      showSuggestions: true,
+      userInput: e.currentTarget.value
+    });
+  };
+
+  // Event fired when the user clicks on a suggestion
+  onClick = e => {
+    // Update the user input and reset the rest of the state
+    this.setState({
+      activeSuggestion: 0,
+      filteredSuggestions: [],
+      showSuggestions: false,
+      userInput: e.currentTarget.innerText
+    });
+  };
+
+  // Event fired when the user presses a key down
+  onKeyDown = e => {
+    const { activeSuggestion, filteredSuggestions } = this.state;
+
+    // User pressed the enter key, update the input and close the
+    // suggestions
+    if (e.keyCode === 13) {
+      this.setState({
+        activeSuggestion: 0,
+        showSuggestions: false,
+        userInput: filteredSuggestions[activeSuggestion]
+      });
+    }
+    // User pressed the up arrow, decrement the index
+    else if (e.keyCode === 38) {
+      if (activeSuggestion === 0) {
+        return;
+      }
+
+      this.setState({ activeSuggestion: activeSuggestion - 1 });
+    }
+    // User pressed the down arrow, increment the index
+    else if (e.keyCode === 40) {
+      if (activeSuggestion - 1 === filteredSuggestions.length) {
+        return;
+      }
+
+      this.setState({ activeSuggestion: activeSuggestion + 1 });
+    }
+  };
+
+  render() {
+    const {
+      onChange,
+      onClick,
+      onKeyDown,
+      state: {
+        activeSuggestion,
+        filteredSuggestions,
+        showSuggestions,
+        userInput
+      }
+    } = this;
+
+    let suggestionsListComponent;
+
+    if (showSuggestions && userInput) {
+      if (filteredSuggestions.length) {
+        suggestionsListComponent = (
+          <ul className="suggestions">
+            {filteredSuggestions.map((suggestion, index) => {
+              let className;
+
+              // Flag the active suggestion with a class
+              if (index === activeSuggestion) {
+                className = "suggestion-active";
+              }
+
+              return (
+                <li
+                  className={className}
+                  key={suggestion}
+                  onClick={onClick}
+                >
+                  {suggestion}
+                </li>
+              );
+            })}
+          </ul>
+        );
+      } else {
+        suggestionsListComponent = (
+          <div className="no-suggestions">
+          
+            <em>No suggestions, try another search term!</em>
+
+          </div>
+        );
+      }
+    }
+
+    return (
+      <Fragment>
+        <input
+          type="text"
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          value={userInput}
+        />
+        {suggestionsListComponent}
+
+      </Fragment>
+    );
+  }
+}
+
+export default Style;
+
+
+
+
 
