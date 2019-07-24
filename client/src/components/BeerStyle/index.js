@@ -147,6 +147,7 @@ class Style extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
+
       </Fragment>
     );
   }
