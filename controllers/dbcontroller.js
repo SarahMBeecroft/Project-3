@@ -15,7 +15,10 @@ module.exports = {
         // pass an empty object ({}) in req.query to find all users.
         // pass {username: the_username} or {email: the_email} to search by username or email
         db.User.find(req.query).
-            then((dbRes) => { res.json(dbRes); }).
+            then((dbRes) => {
+                console.log(dbRes);
+                res.json(dbRes);
+            }).
             catch((err) => { res.status(422).json(err); });
     },
     findUserByID: function (req, res) {
