@@ -1,7 +1,11 @@
 import axios from "axios";
 
 // Sets up key variable for API call, sandbox keys are stored locally in .env
+<<<<<<< HEAD
 const key = 'process.env.BREWERYDB_KEY';
+=======
+const key = process.env.REACT_APP_YOUR_API_KEY_NAME;
+>>>>>>> 46f56e3282cba2af275a2b87c52fda3891baaa91
 
 // Oy, this is a lot.  Dunno if we can split into one file per collection?
 // I think it might be accessed like 'API.users.getUsers()' if we did
