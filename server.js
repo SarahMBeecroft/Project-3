@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const cors = require('cors');
+const routes = require("./routes");
 // Require cookie packages
 var cookieParser = require("cookie-parser");
 
@@ -58,6 +60,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/users', require('./routes/users'));
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
