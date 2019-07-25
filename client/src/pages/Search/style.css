@@ -1,6 +1,12 @@
+/* Form CSS */
+
 body {
   font-family: sans-serif;
   margin-left: 50px;
+}
+
+h1 {
+  color: #4d4d4d;
 }
 
 input {
@@ -31,7 +37,7 @@ input {
 
 .suggestion-active,
 .suggestions li:hover {
-  background-color: #008f68;
+  background-color: #91A275;
   color: white;
   cursor: pointer;
   font-weight: 700;

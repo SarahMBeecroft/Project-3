@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import './style.css';
 import PropTypes from 'prop-types';
 
 class Style extends Component {
@@ -107,7 +106,7 @@ class Style extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul class="suggestions">
+          <ul className="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
               let className;
 
@@ -130,15 +129,17 @@ class Style extends Component {
         );
       } else {
         suggestionsListComponent = (
-          <div class="no-suggestions">
-            <em>No suggestions, sorry!</em>
+          <div className="no-suggestions">
+          
+            <em>No suggestions, try another search term!</em>
+
           </div>
         );
       }
     }
 
     return (
-      <Fragment>
+      <div className="dropdown2">
         <input
           type="text"
           onChange={onChange}
@@ -146,7 +147,7 @@ class Style extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
-      </Fragment>
+      </div>
     );
   }
 }
