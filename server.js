@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const cors = require('cors');
+const routes = require("./routes");
 // Require cookie packages
 var cookieParser = require("cookie-parser");
 
@@ -48,7 +50,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hoptoitdb");
 // app.use(express.static("public"));
 
 
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
@@ -58,6 +60,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/users', require('./routes/users'));
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

@@ -32,14 +32,13 @@ class SearchBeers extends Component {
     // Connects to brewerydb api with search value
     API.searchBeerAPI(this.state.search)
       .then(res => {
-        if (res.data.items === 'error') {
-          throw new Error(res.data.items);
+        if (res.data.data === 'error') {
+          throw new Error(res.data.data);
         } else {
           // Stores responses in array
-          let results = res.data.items
-          // Maps through the array 
+          let results = res.data.data;
           console.log(results);
-
+          // Maps through the array 
           results = results.map(result => {
             // Stores book data in new object 
             result = {
@@ -52,7 +51,7 @@ class SearchBeers extends Component {
             console.log(result);
 
             return result;
-          })
+          });
         }
       })
   };

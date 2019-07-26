@@ -106,7 +106,7 @@ class Style extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul class="suggestions">
+          <ul className="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
               let className;
 
@@ -129,7 +129,7 @@ class Style extends Component {
         );
       } else {
         suggestionsListComponent = (
-          <div class="no-suggestions">
+          <div className="no-suggestions">
           
             <em>No suggestions, try another search term!</em>
 
@@ -139,7 +139,7 @@ class Style extends Component {
     }
 
     return (
-      <Fragment>
+      <div className="dropdown2">
         <input
           type="text"
           onChange={onChange}
@@ -147,8 +147,7 @@ class Style extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
-
-      </Fragment>
+      </div>
     );
   }
 }
