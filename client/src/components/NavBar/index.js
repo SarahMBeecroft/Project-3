@@ -57,9 +57,9 @@ class NavBar extends Component {
             <div class="navMenu">
                 {/* Dropdown Contents */}
                 <ul id="dropdown1" class="dropdown-content">
-                    <li><a href='#'>My Beers</a></li>
-                    <li><a href='#'>Top Beers</a></li>
-                    <li><a href='#'>Logout</a></li>
+                    <li><a href='/mybeers'>My Beers</a></li>
+                    <li><a href='/topbeers'>Top Beers</a></li>
+                    <li><a href='/signin'>Logout</a></li>
                 </ul>
 
                 {/* Nav Contents */}
