@@ -67,15 +67,22 @@ class NavBar extends Component {
                     <div class="nav-wrapper">
                         <a href="#" class="brand-logo right"><AvatarImg /></a>
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="/"><i class="material-icons right">home</i></a></li>
+                            <li><a href="/">
+                                {/* <i class="material-icons right">home</i> */}
+                                Home
+                                </a></li>
                             
                             <li><a ref={Dropdown => {
                                 this.Dropdown = Dropdown;
-                                }} class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">account_circle
-                                </i>
+                                }} class="dropdown-trigger" href="#!" data-target="dropdown1">
+                                    {/* <i class="material-icons right">account_circle</i> */}
+                                    Profile
                                 </a>
                             </li>
-                            <li><a href="/search"><i class="material-icons right">search</i></a></li>
+                            <li><a href="/search">
+                                {/* <i class="material-icons right">search</i> */}
+                                Search
+                                </a></li>
                         </ul>
                     </div>
                 </nav>
