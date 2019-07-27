@@ -55,9 +55,9 @@ class NavBar extends Component {
     render() {
         return (
             <div>
-                <div class="navMenu">
+                <div className="navMenu">
                     {/* Dropdown Contents */}
-                    <ul id="dropdown1" class="dropdown-content">
+                    <ul id="dropdown1" className="dropdown-content">
                         <li><a href='/mybeers'>My Beers</a></li>
                         <li><a href='/topbeers'>Top Beers</a></li>
                         <li><a href='/signin'>Logout</a></li>
@@ -65,9 +65,9 @@ class NavBar extends Component {
 
                     {/* Nav Contents */}
                     <nav>
-                        <div class="nav-wrapper">
-                            <a href="#" class="brand-logo right"><AvatarImg /></a>
-                            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <div className="nav-wrapper">
+                            <a href="#" className="brand-logo right"></a>
+                            <ul id="nav-mobile" className="left hide-on-med-and-down">
                                 <li><a href="/">
                                     {/* <i class="material-icons right">home</i> */}
                                     Home
@@ -75,7 +75,7 @@ class NavBar extends Component {
 
                                 <li><a ref={Dropdown => {
                                     this.Dropdown = Dropdown;
-                                }} class="dropdown-trigger" href="#!" data-target="dropdown1">
+                                }} className="dropdown-trigger" href="#!" data-target="dropdown1">
                                     {/* <i class="material-icons right">account_circle</i> */}
                                     Profile
                                 </a>
