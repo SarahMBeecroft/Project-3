@@ -54,44 +54,44 @@ class NavBar extends Component {
 
     render() {
         return (
-            <div class="navMenu">
-                {/* Dropdown Contents */}
-                <ul id="dropdown1" class="dropdown-content">
-                    <li><a href='/mybeers'>My Beers</a></li>
-                    <li><a href='/topbeers'>Top Beers</a></li>
-                    <li><a href='/signin'>Logout</a></li>
-                </ul>
+            <div>
+                <div class="navMenu">
+                    {/* Dropdown Contents */}
+                    <ul id="dropdown1" class="dropdown-content">
+                        <li><a href='/mybeers'>My Beers</a></li>
+                        <li><a href='/topbeers'>Top Beers</a></li>
+                        <li><a href='/signin'>Logout</a></li>
+                    </ul>
 
-                {/* Nav Contents */}
-                <nav>
-                    <div class="nav-wrapper">
-                        <a href="#" class="brand-logo right"><AvatarImg /></a>
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="/">
-                                {/* <i class="material-icons right">home</i> */}
-                                Home
+                    {/* Nav Contents */}
+                    <nav>
+                        <div class="nav-wrapper">
+                            <a href="#" class="brand-logo right"><AvatarImg /></a>
+                            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                                <li><a href="/">
+                                    {/* <i class="material-icons right">home</i> */}
+                                    Home
                                 </a></li>
-                            
-                            <li><a ref={Dropdown => {
-                                this.Dropdown = Dropdown;
+
+                                <li><a ref={Dropdown => {
+                                    this.Dropdown = Dropdown;
                                 }} class="dropdown-trigger" href="#!" data-target="dropdown1">
                                     {/* <i class="material-icons right">account_circle</i> */}
                                     Profile
                                 </a>
-                            </li>
-                            <li><a href="/search">
-                                {/* <i class="material-icons right">search</i> */}
-                                Search
+                                </li>
+                                <li><a href="/search">
+                                    {/* <i class="material-icons right">search</i> */}
+                                    Search
                                 </a></li>
-                        </ul>
-                    </div>
-                </nav>
+                            </ul>
+                        </div>
+                    </nav>
 
-
-
-
+                </div>
 
             </div>
+
 
         )
     }
