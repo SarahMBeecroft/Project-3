@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
 import Style from '../../components/BeerStyle';
-import ABV from '../../components/BeerABV';
-import Zip from '../../components/ZipCode';
 import API from '../../utils/API';
 import './style.css';
-import TestSearch from '../../components/TestSearch/TestSearch';
 
 /*******************
  * 
@@ -49,7 +46,7 @@ class SearchBeers extends Component {
           console.log(results);
           // Maps through the array 
           results = results.map(result => {
-            // Stores book data in new object 
+            // Stores beer data in new object 
             result = {
               key: result.id,
               id: result.id,
@@ -72,84 +69,59 @@ class SearchBeers extends Component {
         <Jumbotron>
           <h1>Hop to It</h1>
         </Jumbotron>
-        <h1>Beer Style:</h1>
+        <h4>What kind of beer are you looking for?</h4>
         <Style
-          suggestions={[
-            "Ale",
-            "India Pale Ale",
-            "IPA",
-            "Pale Ale",
-            "Pilsner",
-            "Porter",
-            "Wheat Beer",
-            "Bitter",
-            "Brown Ale",
-            "Saison",
-            "Dunkel",
-            "Bock",
-            "Pale Lager",
-            "Lambic",
-            "Kolsch",
-            "Barley Wine",
-            "Gose",
-            "Scotch Ale",
-            "Tripel",
-            "Dubbel",
-            "Irish Red Ale",
-            "Marzen",
-            "Cream Ale",
-            "Schwarzbier",
-            "Old Ale",
-            "Berliner Weisse",
-            "Doppelbock",
-            "Steam Beer",
-            "Hefeweizen",
-            "Stout",
-            "Sour",
-            "Lager", 
-            "Amber Ale",
-            "Rye Beer",
-            "Vienna Lager",
-            "Flanders Red Ale",
-            "Trappist Beer",
-            "Belgian",
-            "Imperial Stout"
-          ]}
-        />
-        <h1>Beer ABV % (Optional):</h1>
-        <ABV
-          suggestions={[
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9", 
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22"
-          ]}
-        />
-      <h1>Zip Code:</h1>
-      <Zip></Zip>
-      <h1>Test Search Field:</h1>
-      <TestSearch
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
-      />
+        />
+          {/* // suggestions={[
+          //   "Ale",
+          //   "India Pale Ale",
+          //   "IPA",
+          //   "Pale Ale",
+          //   "Pilsner",
+          //   "Porter",
+          //   "Wheat Beer",
+          //   "Bitter",
+          //   "Brown Ale",
+          //   "Saison",
+          //   "Dunkel",
+          //   "Bock",
+          //   "Pale Lager",
+          //   "Lambic",
+          //   "Kolsch",
+          //   "Barley Wine",
+          //   "Gose",
+          //   "Scotch Ale",
+          //   "Tripel",
+          //   "Dubbel",
+          //   "Irish Red Ale",
+          //   "Marzen",
+          //   "Cream Ale",
+          //   "Schwarzbier",
+          //   "Old Ale",
+          //   "Berliner Weisse",
+          //   "Doppelbock",
+          //   "Steam Beer",
+          //   "Hefeweizen",
+          //   "Stout",
+          //   "Sour",
+          //   "Lager", 
+          //   "Amber Ale",
+          //   "Rye Beer",
+          //   "Vienna Lager",
+          //   "Flanders Red Ale",
+          //   "Trappist Beer",
+          //   "Belgian",
+          //   "Imperial Stout"
+          // ]}
+      {/* <h1>Zip Code:</h1>
+      <Zip></Zip>
+      <h1>Test Search Field:</h1> */}
+      {/* <TestSearch
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
+      /> */}
       </Container>
     );
   }

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import AvatarImg from '../AvatarImg';
+import NavBar from '../NavBar';
 
-import Header from '../Header';
+// import Header from '../Header';
 import * as actions from '../../actions';
+// import ResponsiveDrawer from '../Drawer';
 
 class AppContainer extends Component {
   componentDidMount() {
@@ -12,7 +15,8 @@ class AppContainer extends Component {
   render() {
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
+        <NavBar />
         <div className="container">
         { this.props.children }
         </div>

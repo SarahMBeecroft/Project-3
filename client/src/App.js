@@ -4,6 +4,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk';
 import axios from 'axios';
+import AvatarImg from './components/AvatarImg';
+// import ResponsiveDrawer from './components/Drawer';
+
 
 
 import Search from './pages/Search';
@@ -27,6 +30,7 @@ function App() {
     <AppContainer>
       <div>
         {/* Navbar can go here */}
+        
         <Switch>
           {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
           <Route exact path='/' component={Search} />

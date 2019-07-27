@@ -40,7 +40,7 @@ class SignIn extends Component {
       <Container fluid>
         <div className= "row">
           
-        <div className="col s6">
+        <div className="col s6 field1">
        
             <form onSubmit={handleSubmit(this.onSubmit)}>
               <fieldset>
@@ -74,7 +74,7 @@ class SignIn extends Component {
            
 
 
-          <div className="col s6">  
+          <div className="col s6 field1">  
          
             <div className="text-center">
               <div className="alert alert-primary">
