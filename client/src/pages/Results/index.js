@@ -13,9 +13,11 @@ class BeerResults extends Component {
   render() {
     return (
       <Container fluid>
-        <Jumbotron>
-          <h1>Hop to It</h1>
-        </Jumbotron>
+        <div className="row">
+          <div className="col s6">
+            
+          </div>
+        </div>
     
       </Container>
     );

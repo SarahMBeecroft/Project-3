@@ -5,7 +5,6 @@ import NavBar from '../NavBar';
 
 // import Header from '../Header';
 import * as actions from '../../actions';
-// import ResponsiveDrawer from '../Drawer';
 
 class AppContainer extends Component {
   componentDidMount() {

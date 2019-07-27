@@ -20,7 +20,7 @@ export default function AvatarImg() {
 
   return (
     <Grid container justify="right" alignItems="right">
-      <Avatar alt="Hop To IT!" src="https://i.ibb.co/pwm7RC0/icon1.jpg" className={classes.bigAvatar} />
+      <Avatar alt="Hop To IT!" src="img/icon2.png" className={classes.bigAvatar} />
     </Grid>
   );
 }
