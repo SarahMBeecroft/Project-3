@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import AvatarImg from '../AvatarImg';
 import './style.css';
+import M from "materialize-css";
+
 
 
 import * as actions from '../../actions';
@@ -27,27 +29,60 @@ class NavBar extends Component {
     //     </ul>
     //   </div>
     // </nav>
+    componentDidMount() {
+        const options = {
+            // hover: true,
+            closeOnClick: true,
+            alignment: "right",
+            onOpenStart: () => {
+                console.log("onOpenStart");
+            },
+            onOpenEnd: () => {
+                console.log("onOpenEnd");
+            },
+            onCloseStart: () => {
+                console.log("onCloseStart");
+            },
+            onCloseEnd: () => {
+                console.log("onCloseEnd");
+            },
+            inDuration: 300,
+            outDuration: 200
+        };
+        M.Dropdown.init(this.Dropdown, options);
+    }
 
     render() {
         return (
             <div class="navMenu">
+                {/* Dropdown Contents */}
                 <ul id="dropdown1" class="dropdown-content">
-                    <li><a href='#'>One</a></li>
-                    <li><a href='#'>Two</a></li>
-                    <li><a href='#'>Three</a></li>
+                    <li><a href='#'>My Beers</a></li>
+                    <li><a href='#'>Top Beers</a></li>
+                    <li><a href='#'>Logout</a></li>
                 </ul>
+
+                {/* Nav Contents */}
                 <nav>
                     <div class="nav-wrapper">
                         <a href="#" class="brand-logo right"><AvatarImg /></a>
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
                             <li><a href="/"><i class="material-icons right">home</i></a></li>
-                            {/* <li><a href="/mybeers">My Beers</a></li> */}
-                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+                            
+                            <li><a ref={Dropdown => {
+                                this.Dropdown = Dropdown;
+                                }} class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">account_circle
+                                </i>
+                                </a>
+                            </li>
                             <li><a href="/search"><i class="material-icons right">search</i></a></li>
                         </ul>
                     </div>
                 </nav>
-                
+
+
+
+
 
             </div>
 
