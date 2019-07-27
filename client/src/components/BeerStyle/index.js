@@ -1,6 +1,39 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+
+const Style = props => {
+  return (
+      <form>
+          <div className='form-group'>
+              <input className='col-12 form-control'
+                  value={props.search}
+                  type='text'
+                  name='beerSearch'
+                  onChange={props.handleInputChange}
+              />
+          </div>
+          <br></br>
+          <button type='submit' className='submitBtn btn btn-primary' onClick={props.handleFormSubmit}>
+              Submit
+          </button>
+      </form>
+  )
+}
+
+export default Style
+
+
+
+
+
+
+
+
+
+
+
+/* Drop down logic, iceboxing for now 
 class Style extends Component {
   static propTypes = {
     suggestions: PropTypes.instanceOf(Array)
@@ -153,6 +186,8 @@ class Style extends Component {
 }
 
 export default Style;
+
+*/
 
 
 
