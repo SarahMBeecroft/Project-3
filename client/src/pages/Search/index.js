@@ -8,7 +8,16 @@ import API from '../../utils/API';
 import './style.css';
 import TestSearch from '../../components/TestSearch/TestSearch';
 
-
+/*******************
+ * 
+ * To create the query, each text input in the form will need to prepend the parameter
+ * you are searching for to its associated state variable : 'q=${this.state.search}',
+ * 'abv=${this.state.abv}', etc.
+ * When the form is submitted, it will need to concatenate all the search-related state variables with '&':
+ * this.state.search + "&" + this.state.abv
+ * Might be cooler to store everything an array and using array.join("&") to build the query...
+ * 
+ *******************/
 
 // Currently set up to use test search field component
 class SearchBeers extends Component {
@@ -22,7 +31,7 @@ class SearchBeers extends Component {
 
   // Takes value from search input 
   handleInputChange = event => {
-    this.setState({ search: event.target.value });
+    this.setState({ search: `q=${event.target.value}` });
   };
 
   // Function to handle form submit

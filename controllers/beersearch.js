@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 const keyString = `&key=${process.env.BREWERY_DB_KEY}`
-const searchURL = 'http://api.brewerydb.com/v2/search?&format=json&q='
+const searchURL = 'http://sandbox-api.brewerydb.com/v2/search?'
 
 module.exports = {
     searchBeer: function (req, res) {
