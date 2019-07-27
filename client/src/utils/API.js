@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // Sets up key variable for API call, sandbox keys are stored locally in .env
-const key = 'process.env.REACT_APP_YOUR_API_KEY_NAME';
+// const key = process.env.REACT_APP_YOUR_API_KEY_NAME;
+console.log(process.env);
 
 // Oy, this is a lot.  Dunno if we can split into one file per collection?
 // I think it might be accessed like 'API.users.getUsers()' if we did
@@ -72,12 +73,10 @@ export default {
 
     // Search external beer API
     // Going to use the Brewerydb sandbox API for now, we can fall back on the free Open Beer Database if needed 
-    searchBeerAPI: function(query) {
+    searchBeerAPI: function (query) {
         return axios.get(
             // `https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${query}`
-            
-            // For brewery db API, key needs to be in this format at end of query
-            'http://api.brewerydb.com/v2/search?&format=json&q=' + query + '&key=' + key
+            "/api/beersearch/" + query
         );
     }
 };

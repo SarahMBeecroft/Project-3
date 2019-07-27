@@ -139,7 +139,7 @@ class Style extends Component {
     }
 
     return (
-      <Fragment>
+      <div className="dropdown2">
         <input
           type="text"
           onChange={onChange}
@@ -147,8 +147,7 @@ class Style extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
-
-      </Fragment>
+      </div>
     );
   }
 }

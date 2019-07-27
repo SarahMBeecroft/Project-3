@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const cors = require('cors');
+const routes = require("./routes");
 // Require cookie packages
 var cookieParser = require("cookie-parser");
 
@@ -19,17 +21,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// app.use(routes);
-/*** Pull this 'routes' section into its own directory
-// Define API routes here
-app.use(routes);
-
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-***/
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hoptoitdb");
@@ -41,14 +32,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hoptoitdb");
 //   mongoose.connect('mongodb://localhost/APIAuthentication', { useNewUrlParser: true });
 // }
 
-// Middleware
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
-
-// app.use(express.static("public"));
-
-
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(cors({
   origin: 'http://localhost:3000',
   credentials: true
@@ -57,8 +41,9 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Routes
-app.use('/users', require('./routes/users'));
-
+// app.use('/users', require('./routes/users'));
+app.use(routes);
+// console.log(process.env);
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });

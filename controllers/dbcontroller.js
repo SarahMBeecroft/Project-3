@@ -8,14 +8,17 @@ module.exports = {
     /* ***** */
     createUser: function (req, res) {
         db.User.create(req.body).
-        then((dbRes) => { res.json(dbRes); }).
-        catch((err) => { res.status(422).json(err); });
-},
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
     findUsers: function (req, res) {
         // pass an empty object ({}) in req.query to find all users.
         // pass {username: the_username} or {email: the_email} to search by username or email
         db.User.find(req.query).
-            then((dbRes) => { res.json(dbRes); }).
+            then((dbRes) => {
+                console.log(dbRes);
+                res.json(dbRes);
+            }).
             catch((err) => { res.status(422).json(err); });
     },
     findUserByID: function (req, res) {
@@ -38,9 +41,9 @@ module.exports = {
     /* ***** */
     createBeer: function (req, res) {
         db.Beer.create(req.body).
-        then((dbRes) => { res.json(dbRes); }).
-        catch((err) => { res.status(422).json(err); });
-},
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
     findBeer: function (req, res) {
         // pass an empty object ({}) in req.query to find all beers.
         db.Beer.find(req.query).
@@ -68,9 +71,9 @@ module.exports = {
     /* ******** */
     createComment: function (req, res) {
         db.Comment.create(req.body).
-        then((dbRes) => { res.json(dbRes); }).
-        catch((err) => { res.status(422).json(err); });
-},
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
     findComments: function (req, res) {
         // pass an empty object ({}) in req.query to find all comments.
         db.Comment.find(req.query).
