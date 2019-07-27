@@ -10,7 +10,6 @@ import AvatarImg from './components/AvatarImg';
 
 
 import Search from './pages/Search';
-import Results from './pages/Results';
 import myBeers from './pages/myBeers';
 import AppContainer from './components/AppContainer';
 import SignUp from './pages/SignUp';
@@ -38,7 +37,6 @@ function App() {
           <Route exact path='/signin' component={SignIn} />
           <Route exact path="/dashboard" component={authGuard(Search)} />
           <Route exact path='/search' component={Search} />
-          <Route exact path='/results' component={Results} />
           <Route exact path='/mybeers' component={myBeers} />
           <Route exact path='/mybeers/:id' component={myBeers} />
           {/* <Route component={noMatch} /> */}
