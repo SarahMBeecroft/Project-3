@@ -33,17 +33,17 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hoptoitdb");
 // }
 
 app.use(cookieParser());
-// app.use(cors({
-//   origin: 'http://localhost:3000',
-//   credentials: true
-// }));
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 
 app.use(bodyParser.json());
 
 // Routes
 // app.use('/users', require('./routes/users'));
 app.use(routes);
-
+// console.log(process.env);
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
