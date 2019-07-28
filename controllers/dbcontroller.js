@@ -66,6 +66,36 @@ module.exports = {
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },
+    /* ***** */
+    // Bars //
+    /* ***** */
+    createBar: function (req, res) {
+        db.Bar.create(req.body).
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
+    findBar: function (req, res) {
+        // pass an empty object ({}) in req.query to find all bars.
+        db.Bar.find(req.query).
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
+    findBarByID: function (req, res) {
+        db.Bar.findById(req.params.id).
+            populate().
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
+    updateBar: function (req, res) {
+        db.Bar.findByIdAndUpdate(req.params.id, req.body).
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
+    removeBar: function (req, res) {
+        db.Bar.findByIdAndDelete(req.params.id).
+            then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
     /* ******** */
     // Comments //
     /* ******** */
