@@ -65,6 +65,21 @@ class SearchBeers extends Component {
     .catch(err => this.setState({ error: err.items }));
   };
 
+  // Handled saved button to save beers to "My Beers"
+  handleSavedButton = event => {
+    console.log(event);
+    event.preventDefault();
+    console.log(this.state.beers);
+    let savedBeers = this.state.beers.filter(beer => beer.id === event.target.id)
+    savedBeers = savedBeers[0];
+    API.updateBeer(savedBeers)
+      .then(this.setState(
+        {
+          message: alert('Beer saved to "My Beers')
+        }))
+      .catch(err => console.log(err));
+  }
+
   // Renders content onto main search page
   render() {
     return (

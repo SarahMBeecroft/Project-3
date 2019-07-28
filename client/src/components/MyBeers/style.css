@@ -1,0 +1,38 @@
+.card {
+  background-color: white;
+  max-width: 340px;
+}
+
+.card-body {
+  margin: 0px 20px 0px 20px;
+}
+
+img {
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.description {
+  width: 300px;
+}
+
+hr {
+  margin-top: 20px;
+}
+
+.description {
+ margin-top: -20px;
+}
+
+.abv {
+  margin-top: -20px;
+}
+
+.deleteBtn {
+  margin-top: -80px;
+}
+
