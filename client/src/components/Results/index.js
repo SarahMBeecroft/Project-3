@@ -25,17 +25,13 @@ const SearchResults = props => {
                       <Row>
                         <h3 className='beerName'>{beer.name}</h3>
                       </Row>
-                      <Row>
-                        <h4 className='brewery'>{beer.name_breweries}</h4>
-                      </Row>
-                      <Row>
-                        <h4 className='styleName'>{beer.style_name}</h4>
-                      </Row>
+              
                       <Row>
                         <p className='abv'>{beer.abv}</p>
                       </Row>
+
                       <Row>
-                        <p className='beerDescription'>{beer.descript}</p>
+                        <p className='beerDescription'>{beer.description}</p>
                       </Row>
 
                     </Col>

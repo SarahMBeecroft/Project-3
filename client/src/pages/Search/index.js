@@ -4,6 +4,7 @@ import { Container, Row, Col } from '../../components/Grid';
 import Style from '../../components/BeerStyle';
 import API from '../../utils/API';
 import './style.css';
+import SearchResults from '../../components/Results';
 
 /*******************
  * 
@@ -30,7 +31,6 @@ class SearchBeers extends Component {
   handleInputChange = event => {
     this.setState({ search: `q=${event.target.value}` });
   };
-
   // Function to handle form submit
   handleFormSubmit = event => {
     // Prevents page from reloading 
@@ -45,7 +45,7 @@ class SearchBeers extends Component {
           let results = res.data.data;
           console.log(results);
           // Maps through the array 
-          results = results.map(result => {
+          this.state.beers = results.map(result => {
             // Stores beer data in new object 
             result = {
               key: result.id,
@@ -122,6 +122,9 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
+      <SearchResults
+      beers = {this.state.beers}
+      />
       </Container>
     );
   }
