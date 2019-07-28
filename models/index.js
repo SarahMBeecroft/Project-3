@@ -2,5 +2,6 @@
 module.exports = {
     User: require("./user"),
     Beer: require("./Beer"),
-    Comment: require("./Comment")
+    Comment: require("./Comment"),
+    Bar: require("./Bar")
 };

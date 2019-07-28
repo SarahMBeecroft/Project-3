@@ -5,6 +5,8 @@
   "private": true,
   "proxy": "http://localhost:5000/",
   "dependencies": {
+    "@material-ui/core": "^4.2.1",
+    "materialize-css": "^1.0.0",
     "passport-google-plus-token": "^2.1.0",
     "react": "^16.6.3",
     "react-dom": "^16.8.6",
