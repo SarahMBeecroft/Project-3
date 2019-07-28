@@ -45,7 +45,7 @@ class SearchBeers extends Component {
           let results = res.data.data;
           console.log(results);
           // Maps through the array 
-          this.state.beers = results.map(result => {
+          results = results.map(result => {
             // Stores beer data in new object 
             result = {
               key: result.id,
@@ -62,6 +62,7 @@ class SearchBeers extends Component {
           this.setState({ beers: results, error: '' })
         }
       })
+    .catch(err => this.setState({ error: err.items }));
   };
 
   // Renders content onto main search page

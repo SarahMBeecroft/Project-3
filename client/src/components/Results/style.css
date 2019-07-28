@@ -1,14 +1,23 @@
 .card {
   background-color: white;
-  max-width: 600px;
+  max-width: 340px;
 }
 
 .card-body {
   margin: 0px 20px 0px 20px;
 }
 
+img {
+  max-width: 300px;
+  margin-top: 10px;
+}
+
 li {
   list-style: none;
+}
+
+.description {
+  width: 300px;
 }
 
 hr {
@@ -20,5 +29,10 @@ hr {
 }
 
 .abv {
-margin-top: -20px;
+  margin-top: -20px;
 }
+
+.saveBeer {
+  margin-top: -80px;
+}
+
