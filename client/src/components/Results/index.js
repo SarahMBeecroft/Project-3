@@ -20,7 +20,10 @@ const SearchResults = props => {
                 <li className='search-list list-group-item' key={beer._id}>
                   <Row className='SearchResult row' id={beer.name + 'Card'}>
                     <Col size='2' className='beerImage'>
-                     <img src={'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'} alt='pint of beer'/> 
+                     <img src={
+                       beer.label ? beer.label :
+                       'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
+                       } alt='pint of beer'/> 
                     </Col>
                     <Col size='1' className='emptyCol' />
                     <Col size='9' className='beerInfo'>
