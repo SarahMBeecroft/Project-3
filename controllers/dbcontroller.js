@@ -67,7 +67,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     /* ***** */
-    // Bars //
+    // Bars  //
     /* ***** */
     createBar: function (req, res) {
         db.Bar.create(req.body).
