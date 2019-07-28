@@ -8,7 +8,6 @@ const SearchResults = props => {
     <div className='card'>
       <div className='card-body'>
         <div className='result'>
-          <h2>Your personalized beer results:</h2>
         </div>
       </div>
     </div>
@@ -20,27 +19,31 @@ const SearchResults = props => {
               return (
                 <li className='search-list list-group-item' key={beer._id}>
                   <Row className='SearchResult row' id={beer.name + 'Card'}>
-                    <Col size='12' className='beerInfo'>
+                    <Col size='2' className='beerImage'>
+                     {/* Working out a way to add an image here, beer.labels.medium isn't working for some reason  */}
+                    </Col>
+                    <Col size='1' className='emptyCol' />
+                    <Col size='9' className='beerInfo'>
 
                       <Row>
-                        <h3 className='beerName'>{beer.name}</h3>
-                      </Row>
-              
-                      <Row>
-                        <p className='abv'>{beer.abv}</p>
+                        <h5 className='beerName'>{beer.name}</h5>
                       </Row>
 
                       <Row>
-                        <p className='beerDescription'>{beer.description}</p>
+                        <h6 className='abv'>ABV: {beer.abv}</h6>
                       </Row>
-
+                      <Row>
+                        <p className='description'>{beer.description}</p>
+                      </Row>
                     </Col>
                   </Row>
+
                   <br></br>
                   <Row className='buttonDiv'>
                     <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(event)}>
                       Save to "My Beers"
                     </button>
+                    <hr></hr>
                   </Row>
                 </li>
               );

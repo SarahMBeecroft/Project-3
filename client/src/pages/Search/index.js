@@ -52,12 +52,14 @@ class SearchBeers extends Component {
               id: result.id,
               name: result.name,
               description: result.description,
-              abv: result.abv,
+              abv: result.abv
             }
             console.log(result);
 
             return result;
           });
+          // Sets empty beer array to new array of objects 
+          this.setState({ beers: results, error: '' })
         }
       })
   };
@@ -122,8 +124,11 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
+       <h5>Your personalized beer results:</h5>
       <SearchResults
       beers = {this.state.beers}
+      // Save button isn't functional yet
+      handleSavedButton={this.handleSavedButton}
       />
       </Container>
     );
