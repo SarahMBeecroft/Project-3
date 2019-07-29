@@ -43,7 +43,7 @@ const SearchResults = props => {
 
                   <br></br>
                   <Row className='buttonDiv'>
-                    <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(event)}>
+                    <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(beer)}>
                       Save to "My Beers"
                     </button>
                     <hr></hr>
