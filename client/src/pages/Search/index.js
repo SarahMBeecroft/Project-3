@@ -52,6 +52,7 @@ class SearchBeers extends Component {
               id: result.id,
               name: result.name,
               description: result.description,
+              label: (result.labels ? result.labels.medium : false),
               abv: result.abv
             }
             console.log(result);
@@ -62,7 +63,7 @@ class SearchBeers extends Component {
           this.setState({ beers: results, error: '' })
         }
       })
-    .catch(err => this.setState({ error: err.items }));
+      .catch(err => this.setState({ error: err.items }));
   };
 
   // Handled saved button to save beers to "My Beers"
@@ -92,7 +93,7 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-          {/* // suggestions={[
+        {/* // suggestions={[
           //   "Ale",
           //   "India Pale Ale",
           //   "IPA",
@@ -136,16 +137,16 @@ class SearchBeers extends Component {
       {/* <h1>Zip Code:</h1>
       <Zip></Zip>
       <h1>Test Search Field:</h1> */}
-      {/* <TestSearch
+        {/* <TestSearch
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-       <h5>Your personalized beer results:</h5>
-      <SearchResults
-      beers = {this.state.beers}
-      // Save button isn't functional yet
-      handleSavedButton={this.handleSavedButton}
-      />
+        <h5>Your personalized beer results:</h5>
+        <SearchResults
+          beers={this.state.beers}
+          // Save button isn't functional yet
+          handleSavedButton={this.handleSavedButton}
+        />
       </Container>
     );
   }
