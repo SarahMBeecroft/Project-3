@@ -3,11 +3,23 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import AvatarImg from '../AvatarImg';
 import './style.css';
+import M from "materialize-css/dist/js/materialize.min.js";
+
 
 
 import * as actions from '../../actions';
 
 class NavBar extends Component {
+
+    componentDidMount() {
+        var elem = document.querySelector(".sidenav");
+        var instance = M.Sidenav.init(elem, {
+            edge: "left",
+            inDuration: 250
+        });
+    }
+
+
     constructor(props) {
         super(props);
         this.signOut = this.signOut.bind(this);
@@ -17,6 +29,9 @@ class NavBar extends Component {
         this.props.signOut();
     }
 
+    
+
+    // }
     // <nav>
     //   <div class="nav-wrapper">
     //     <a href="#" class="brand-logo">Logo</a>
@@ -28,17 +43,29 @@ class NavBar extends Component {
     //   </div>
     // </nav>
 
+
     render() {
         return (
+
             <div class="navMenu">
+
                 <ul id="dropdown1" class="dropdown-content">
-                    <li><a href='#'>One</a></li>
-                    <li><a href='#'>Two</a></li>
-                    <li><a href='#'>Three</a></li>
+                    <li><a href='#'>My Beers</a></li>
+                    <li><a href='#'>Top Beers</a></li>
+                    <li><a href='#'>Logout</a></li>
                 </ul>
                 <nav>
                     <div class="nav-wrapper">
+
+                        {/* Logo */}
                         <a href="#" class="brand-logo right"><AvatarImg /></a>
+
+                        {/* Hamburger Icon */}
+                        <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                            <i class="material-icons">menu</i>
+                        </a>
+
+
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
                             <li><a href="/"><i class="material-icons right">home</i></a></li>
                             {/* <li><a href="/mybeers">My Beers</a></li> */}
@@ -47,17 +74,21 @@ class NavBar extends Component {
                         </ul>
                     </div>
                 </nav>
-                
+
+                <ul class="sidenav" id="mobile-nav">
+                    <li><a href='/'>Home</a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href='/search'>Search</a></li>
+                </ul>
 
             </div>
+
+
 
         )
     }
 
 }
-
-
-
 
 
 
