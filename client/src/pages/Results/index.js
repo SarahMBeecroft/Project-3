@@ -15,7 +15,15 @@ class BeerResults extends Component {
       <Container fluid>
         <div className="row">
           <div className="col s6">
-            
+            <h2>Your Results:</h2>
+            <div className="resultsDiv"></div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col s6">
+            <h2>Your Results:</h2>
+            <div className="resultsDiv"></div>
           </div>
         </div>
     
