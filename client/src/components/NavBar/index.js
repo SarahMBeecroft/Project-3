@@ -47,37 +47,37 @@ class NavBar extends Component {
     render() {
         return (
 
-            <div class="navMenu">
+            <div className="navMenu">
 
-                <ul id="dropdown1" class="dropdown-content">
+                <ul id="dropdown1" className="dropdown-content">
                     <li><a href='#'>My Beers</a></li>
                     <li><a href='#'>Top Beers</a></li>
                     <li><a href='#'>Logout</a></li>
                 </ul>
                 <nav>
-                    <div class="nav-wrapper">
+                    <div className="nav-wrapper">
 
                         {/* Logo */}
-                        <a href="#" class="brand-logo right"><AvatarImg /></a>
+                        <a href="#" className="brand-logo right"><AvatarImg /></a>
 
                         {/* Hamburger Icon */}
-                        <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                            <i class="material-icons">menu</i>
+                        <a href="#" className="sidenav-trigger" data-target="mobile-nav">
+                            <i className="material-icons">menu</i>
                         </a>
 
 
-                        <ul id="nav-mobile" class="left hide-on-med-and-down">
-                            <li><a href="/"><i class="material-icons right">home</i></a></li>
+                        <ul id="nav-mobile" className="left hide-on-med-and-down">
+                            <li><a href="/"><i className="material-icons right">home</i></a></li>
                             {/* <li><a href="/mybeers">My Beers</a></li> */}
-                            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="/search"><i class="material-icons right">search</i></a></li>
+                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a href="/search"><i className="material-icons right">search</i></a></li>
                         </ul>
                     </div>
                 </nav>
 
-                <ul class="sidenav" id="mobile-nav">
+                <ul className="sidenav" id="mobile-nav">
                     <li><a href='/'>Home</a></li>
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href='/search'>Search</a></li>
                 </ul>
 
