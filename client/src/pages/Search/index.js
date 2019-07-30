@@ -151,7 +151,7 @@ class SearchBeers extends Component {
         />
         </div>
         <div className='col m2'></div>
-        <div className = 'col m6'>
+        <div className = 'col m6git c'>
         
           <h1>map</h1>
           </div>
