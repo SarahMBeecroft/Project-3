@@ -2,8 +2,11 @@
     height: 90vh;
     filter: opacity(75%);
 }
-/* 
-img{
-    max-height: 600px;
- 
-} */
+
+.searchBar{
+    position: absolute;
+    top: 46%;
+    left:46%;
+    align-content: center;
+    font-size: 42px;
+}

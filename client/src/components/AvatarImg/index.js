@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
+import icon1 from './img/icon1.jpg';
 
 const useStyles = makeStyles({
   avatar: {
@@ -9,7 +10,7 @@ const useStyles = makeStyles({
 
   },
   bigAvatar: {
-    margin:3,
+    margin:2,
     width: 60,
     height: 60,
   },
@@ -20,7 +21,7 @@ export default function AvatarImg() {
 
   return (
     <Grid container justify="right" alignItems="right">
-      <Avatar alt="Hop To IT!" src="https://ibb.co/KqLPWxQ" className={classes.bigAvatar} />
+      <Avatar alt="Hop To IT!" src={icon1} className={classes.bigAvatar} />
     </Grid>
   );
 }
