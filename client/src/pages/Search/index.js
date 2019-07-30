@@ -142,11 +142,20 @@ class SearchBeers extends Component {
           handleInputChange={this.handleInputChange}
       /> */}
         <h5>Your personalized beer results:</h5>
+        <div className = 'row'>
+        <div className='col m4'>
         <SearchResults
           beers={this.state.beers}
           // Save button isn't functional yet
           handleSavedButton={this.handleSavedButton}
         />
+        </div>
+        <div className='col m2'></div>
+        <div className = 'col m6'>
+        
+          <h1>map</h1>
+          </div>
+        </div>
       </Container>
     );
   }
