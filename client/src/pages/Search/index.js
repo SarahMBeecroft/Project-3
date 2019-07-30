@@ -34,6 +34,7 @@ class SearchBeers extends Component {
       then(res => {
         this.setState({ savedBeers: res.data });
         console.log(this.state.savedBeers);
+        console.log(this.props);
       }).
       catch();
   };

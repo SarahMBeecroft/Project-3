@@ -11,8 +11,9 @@ class AppContainer extends Component {
   componentDidMount() {
     this.props.checkAuth();
   }
-
+  
   render() {
+    console.log(this.state);
     return (
       <div>
         {/* <Header /> */}

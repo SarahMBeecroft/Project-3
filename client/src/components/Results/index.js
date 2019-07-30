@@ -17,7 +17,7 @@ const SearchResults = props => {
           <div className='result'>
             {props.beers.map(beer => {
               return (
-                <li className='search-list list-group-item' key={beer._id}>
+                <li className='search-list list-group-item' key={beer.id}>
                   <Row className='SearchResult row' id={beer.name + 'Card'}>
                     <Col size='2' className='beerImage'>
                      <img src={
