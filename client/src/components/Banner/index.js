@@ -4,31 +4,32 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import './style.css';
 import M from "materialize-css/dist/js/materialize.min.js";
-// import img1 from "./img/img1.jpg";
-// import img2 from "./img/img2.jpg";
-// import img3 from "./img/img3.jpg";
-// import img4 from "./img/img4.jpg";
+import img1 from "./img/img1.jpg";
+import img2 from "./img/img2.jpg";
+import img3 from "./img/img3.jpg";
+import img4 from "./img/img4.jpg";
 
 
 class Banner extends Component {
 
     componentDidMount() {
-        var instance = M.Carousel.init({
+        var elem = document.querySelector('.carousel');
+        var instance = M.Carousel.init(elem, {
+            duration: 100,
             fullWidth: true,
-            indicators: true
-          });
+            indicators: true,
+            dist: 0
+        });
     }
 
     render() {
         return (
-
-            <div className="carousel carousel-slider">
-                <a className="carousel-item" ><img src="https://ibb.co/M2NJPT0"></img></a>
-                <a className="carousel-item" ><img src="https://ibb.co/R6KR6bq"></img></a>
-                <a className="carousel-item" ><img src="https://ibb.co/9bHFZ8r"></img></a>
-                <a className="carousel-item" ><img src="https://ibb.co/hcQv64D"></img></a>
-            </div>
-
+                <div className="carousel carousel-slider">
+                    <a className="carousel-item" ><img src={img1}></img></a>
+                    <a className="carousel-item" ><img src={img2}></img></a>
+                    <a className="carousel-item" ><img src={img3}></img></a>
+                    <a className="carousel-item" ><img src={img4}></img></a>
+                </div>
 
         )
     }
