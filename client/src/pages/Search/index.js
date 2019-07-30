@@ -5,6 +5,7 @@ import Style from '../../components/BeerStyle';
 import API from '../../utils/API';
 import './style.css';
 import SearchResults from '../../components/Results';
+import { set } from 'mongoose';
 
 /*******************
  * 
@@ -24,7 +25,17 @@ class SearchBeers extends Component {
     search: '',
     beers: [],
     error: '',
-    message: ''
+    message: '',
+    savedBeers: []
+  };
+
+  componentDidMount() {
+    API.getBeers().
+      then(res => {
+        this.setState({ savedBeers: res.data });
+        console.log(this.state.savedBeers);
+      }).
+      catch();
   };
 
   // Takes value from search input 
@@ -67,18 +78,21 @@ class SearchBeers extends Component {
   };
 
   // Handled saved button to save beers to "My Beers"
-  handleSavedButton = event => {
-    console.log(event);
-    event.preventDefault();
+  // Pass it a beer object rather than an event
+  handleSavedButton = theBeer => {
+    console.log(theBeer);
+    // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
-    let savedBeers = this.state.beers.filter(beer => beer.id === event.target.id)
-    savedBeers = savedBeers[0];
-    API.updateBeer(savedBeers)
-      .then(this.setState(
-        {
-          message: alert('Beer saved to "My Beers')
-        }))
-      .catch(err => console.log(err));
+    // let savedBeers = this.state.beers.filter(beer => beer.id === theBeer.id)
+    // savedBeers = savedBeers[0];
+    API.createBeer(theBeer).
+      then(() => {
+        let savedBeers = this.state.savedBeers;
+        savedBeers.push(theBeer);
+        this.setState({savedBeers});
+        alert('Beer saved to "My Beers');
+      }).
+      catch(err => console.log(err));
   }
 
   // Renders content onto main search page
