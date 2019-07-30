@@ -64,7 +64,8 @@ class SearchBeers extends Component {
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
-              abv: result.abv
+              abv: result.abv,
+              brewery: result.breweries[0].name
             }
             console.log(result);
 

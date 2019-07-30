@@ -33,6 +33,10 @@ const SavedBeer = props => {
                       </Row>
 
                       <Row>
+                        <h6 className='breweryName'><b>Brewery:</b> {savedBeer.brewery}</h6>
+                      </Row>
+
+                      <Row>
                         <h6 className='abv'>ABV: {savedBeer.abv}</h6>
                       </Row>
                       <Row>

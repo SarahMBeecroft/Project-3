@@ -33,8 +33,15 @@ const SearchResults = props => {
                       </Row>
 
                       <Row>
-                        <h6 className='abv'>ABV: {beer.abv}</h6>
+                        <h6 className='breweryName'><b>Brewery:</b> {beer.brewery}</h6>
                       </Row>
+
+                      <br></br>
+                      <Row>
+                        <h6 className='abv'><b>ABV:</b> {beer.abv}</h6>
+                      </Row>
+                      
+                      <br></br>
                       <Row>
                         <p className='description'>{beer.description}</p>
                       </Row>
