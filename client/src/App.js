@@ -25,26 +25,26 @@ axios.defaults.withCredentials = true;
 function App() {
   return (
     <Provider store={createStore(reducers, {}, applyMiddleware(reduxThunk))}>
-    <Router>
-    <AppContainer>
-      <div>
-        {/* Navbar can go here */}
-        
-        <Switch>
-          {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
-          <Route exact path='/' component={Search} />
-          <Route exact path='/signup' component={SignUp} />
-          <Route exact path='/signin' component={SignIn} />
-          <Route exact path="/dashboard" component={authGuard(Search)} />
-          <Route exact path='/search' component={Search} />
-          <Route exact path='/mybeers' component={myBeers} />
-          <Route exact path='/mybeers/:id' component={myBeers} />
-          {/* <Route component={noMatch} /> */}
-        </Switch>
-      {/* Footer can go here */}
-      </div>
-      </AppContainer>
-    </Router>
+      <Router>
+        <AppContainer>
+          {/* <div> */}
+          {/* Navbar can go here */}
+
+          <Switch>
+            {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
+            <Route exact path='/' component={Search} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/signin' component={SignIn} />
+            <Route exact path="/dashboard" component={authGuard(Search)} />
+            <Route exact path='/search' component={Search} />
+            <Route exact path='/mybeers' component={myBeers} />
+            <Route exact path='/mybeers/:id' component={myBeers} />
+            {/* <Route component={noMatch} /> */}
+          </Switch>
+          {/* Footer can go here */}
+          {/* </div> */}
+        </AppContainer>
+      </Router>
     </Provider>
   );
 }

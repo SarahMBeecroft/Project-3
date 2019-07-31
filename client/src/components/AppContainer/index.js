@@ -7,21 +7,27 @@ import NavBar from '../NavBar';
 import * as actions from '../../actions';
 // import ResponsiveDrawer from '../Drawer';
 
+// context.  Adding more stuff we haven't dealt with...
+export const AppContext = React.createContext(null);
+
 class AppContainer extends Component {
   componentDidMount() {
     this.props.checkAuth();
   }
-  
+
   render() {
-    console.log(this.state);
+    console.log(this.props.userId);
     return (
-      <div>
-        {/* <Header /> */}
-        <NavBar />
-        <div className="container">
-        { this.props.children }
+      // this should make our userId available to the application...
+      <AppContext.Provider value={this.props.userId}>
+        <div>
+          {/* <Header /> */}
+          <NavBar />
+          <div className="container">
+            {this.props.children}
+          </div>
         </div>
-      </div>
+      </AppContext.Provider>
     );
   }
 }
