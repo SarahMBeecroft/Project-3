@@ -97,11 +97,11 @@ class SearchBeers extends Component {
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
 
-    API.getBeerDetail(theBeer._id).
+    API.getBeers({_id: theBeer._id}).
       then(res => {
         console.log(res.data);
         // If the selected beer does not exist in the DB, add it.
-        if (!res.data) {
+        if (!res.data.length) {
           API.createBeer(theBeer).
             then((res) => {
               if (res.data) {

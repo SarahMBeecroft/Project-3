@@ -30,8 +30,8 @@ export default {
     },
     // Beers
     // Get all beers
-    getBeers: function () {
-        return axios.get("/api/beers");
+    getBeers: function (query) {
+        return axios.get("/api/beers/?" + query);
     },
     // Create a beer
     createBeer: function (beerData) {

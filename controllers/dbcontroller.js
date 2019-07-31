@@ -47,6 +47,7 @@ module.exports = {
     },
     findBeer: function (req, res) {
         // pass an empty object ({}) in req.query to find all beers.
+        console.log(req);
         db.Beer.find(req.query).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
