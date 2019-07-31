@@ -6,6 +6,7 @@ import API from '../../utils/API';
 import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
+import GoogleApiWrapper from '../../components/CurrentLocation'
 
 /*******************
  * 
@@ -90,7 +91,7 @@ class SearchBeers extends Component {
       then(() => {
         let savedBeers = this.state.savedBeers;
         savedBeers.push(theBeer);
-        this.setState({savedBeers});
+        this.setState({ savedBeers });
         alert('Beer saved to "My Beers');
       }).
       catch(err => console.log(err));
@@ -156,12 +157,22 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-        <h5>Your personalized beer results:</h5>
-        <SearchResults
-          beers={this.state.beers}
-          // Save button isn't functional yet
-          handleSavedButton={this.handleSavedButton}
-        />
+        <div className='container'>
+          <div className='row'>
+            <div className='col m6'>
+              <h5>Your personalized beer results:</h5>
+              <SearchResults
+                beers={this.state.beers}
+                // Save button isn't functional yet
+                handleSavedButton={this.handleSavedButton}
+              />
+            </div>
+            <div className='col m4'>
+              <h5>Your current location:</h5>
+              <GoogleApiWrapper></GoogleApiWrapper>
+            </div>
+          </div>
+        </div>
       </Container>
     );
   }
