@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const beerSchema = new Schema({
+    _id: {type: String, required: true},
     name: {type: String, required: true},
-    id: {type: String, required: true},
+    // id: {type: String, required: true},
     // user: {type: mongoose.ObjectId, required: true},
     brewery: {type: String},
     bars: {type: Array},

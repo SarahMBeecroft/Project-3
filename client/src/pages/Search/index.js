@@ -36,6 +36,9 @@ class SearchBeers extends Component {
     API.getUserDetail(this.context).
       then(res => {
         console.log(res.data.favorites);
+        if (!this.state.savedBeers) {
+          this.setState({savedBeers: res.data.favorites});
+        }
       }).
     // API.getBeers().
     //   then(res => {
@@ -89,22 +92,21 @@ class SearchBeers extends Component {
   // Handled saved button to save beers to "My Beers"
   // Pass it a beer object rather than an event
   handleSavedButton = theBeer => {
+    theBeer._id = theBeer.id;
     console.log(theBeer);
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
-    // let savedBeers = this.state.beers.filter(beer => beer.id === theBeer.id)
-    // savedBeers = savedBeers[0];
-    API.getBeers({id: theBeer.id}).
+
+    API.getBeerDetail(theBeer._id).
       then(res => {
         console.log(res.data);
         // If the selected beer does not exist in the DB, add it.
-        if (!res.data.length) {
+        if (!res.data) {
           API.createBeer(theBeer).
             then((res) => {
               if (res.data) {
-                let savedBeers = this.state.savedBeers;
-                savedBeers.push(theBeer);
-                this.setState({ savedBeers });
+                // get the beer _id and push it to the User's favorites.
+                // I don't like any of my attempts so far, gonna rethink it.
                 alert('Beer saved to "My Beers');
               }
             }).
@@ -122,6 +124,7 @@ class SearchBeers extends Component {
   // Renders content onto main search page
   render() {
     console.log(this.context);
+
     return (
       <Container fluid>
         <Jumbotron>
