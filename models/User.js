@@ -25,7 +25,9 @@ const userSchema = new Schema({
       type: String,
       lowercase: true
     }
-  }
+  },
+  favorites: {type: Array},
+  comments: {type: Array},
 });
 
 userSchema.pre('save', async function (next) {

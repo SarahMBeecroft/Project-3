@@ -17,7 +17,7 @@ const SearchResults = props => {
           <div className='result'>
             {props.beers.map(beer => {
               return (
-                <li className='search-list list-group-item' key={beer._id}>
+                <li className='search-list list-group-item' key={beer.id}>
                   <Row className='SearchResult row' id={beer.name + 'Card'}>
                     <Col size='2' className='beerImage'>
                      <img src={
@@ -43,7 +43,7 @@ const SearchResults = props => {
 
                   <br></br>
                   <Row className='buttonDiv'>
-                    <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(event)}>
+                    <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(beer)}>
                       Save to "My Beers"
                     </button>
                     <hr></hr>

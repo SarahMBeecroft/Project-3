@@ -40,6 +40,7 @@ module.exports = {
     // Beers //
     /* ***** */
     createBeer: function (req, res) {
+        console.log(req);
         db.Beer.create(req.body).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
