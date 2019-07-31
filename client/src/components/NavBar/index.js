@@ -3,13 +3,23 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import AvatarImg from '../AvatarImg';
 import './style.css';
-import M from "materialize-css";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 
 
 import * as actions from '../../actions';
 
 class NavBar extends Component {
+
+    componentDidMount() {
+        var elem = document.querySelector(".sidenav");
+        var instance = M.Sidenav.init(elem, {
+            edge: "left",
+            inDuration: 250
+        });
+    }
+
+
     constructor(props) {
         super(props);
         this.signOut = this.signOut.bind(this);
@@ -19,6 +29,9 @@ class NavBar extends Component {
         this.props.signOut();
     }
 
+
+
+    // }
     // <nav>
     //   <div class="nav-wrapper">
     //     <a href="#" class="brand-logo">Logo</a>
@@ -52,6 +65,7 @@ class NavBar extends Component {
         M.Dropdown.init(this.Dropdown, options);
     }
 
+
     render() {
         return (
             <div>
@@ -63,11 +77,20 @@ class NavBar extends Component {
                         <li><a href='/signin'>Logout</a></li>
                     </ul>
 
+
                     {/* Nav Contents */}
                     <nav>
-                        <div className="nav-wrapper">
-                            <a href="#" className="brand-logo right"></a>
-                            <ul id="nav-mobile" className="left hide-on-med-and-down">
+
+                        {/* Logo */}
+                        <a href="#" className="brand-logo right"><AvatarImg /></a>
+
+                        {/* Hamburger Icon */}
+                        <a href="#" className="sidenav-trigger" data-target="mobile-nav">
+                            <i className="material-icons">menu</i>
+                        </a>
+
+                        <div className="nav-wrapper" id="mobile-nav">
+                            <ul id="mobile-nav" className="left hide-on-med-and-down">
                                 <li><a href="/">
                                     {/* <i class="material-icons right">home</i> */}
                                     Home
@@ -88,6 +111,12 @@ class NavBar extends Component {
                         </div>
                     </nav>
 
+                    <ul className="sidenav" id="mobile-nav">
+                        <li><a href='/'>Home</a></li>
+                        <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a href='/search'>Search</a></li>
+                    </ul>
+
                 </div>
 
             </div>
@@ -97,9 +126,6 @@ class NavBar extends Component {
     }
 
 }
-
-
-
 
 
 
