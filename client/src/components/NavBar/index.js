@@ -29,7 +29,7 @@ class NavBar extends Component {
         this.props.signOut();
     }
 
-
+    
 
     // }
     // <nav>
@@ -42,44 +42,20 @@ class NavBar extends Component {
     //     </ul>
     //   </div>
     // </nav>
-    componentDidMount() {
-        const options = {
-            // hover: true,
-            closeOnClick: true,
-            alignment: "right",
-            onOpenStart: () => {
-                console.log("onOpenStart");
-            },
-            onOpenEnd: () => {
-                console.log("onOpenEnd");
-            },
-            onCloseStart: () => {
-                console.log("onCloseStart");
-            },
-            onCloseEnd: () => {
-                console.log("onCloseEnd");
-            },
-            inDuration: 300,
-            outDuration: 200
-        };
-        M.Dropdown.init(this.Dropdown, options);
-    }
 
 
     render() {
         return (
-            <div>
-                <div className="navMenu">
-                    {/* Dropdown Contents */}
-                    <ul id="dropdown1" className="dropdown-content">
-                        <li><a href='/mybeers'>My Beers</a></li>
-                        <li><a href='/topbeers'>Top Beers</a></li>
-                        <li><a href='/signin'>Logout</a></li>
-                    </ul>
 
+            <div className="navMenu">
 
-                    {/* Nav Contents */}
-                    <nav>
+                <ul id="dropdown1" className="dropdown-content">
+                    <li><a href='#'>My Beers</a></li>
+                    <li><a href='#'>Top Beers</a></li>
+                    <li><a href='#'>Logout</a></li>
+                </ul>
+                <nav>
+                    <div className="nav-wrapper">
 
                         {/* Logo */}
                         <a href="#" className="brand-logo right"><AvatarImg /></a>
@@ -89,37 +65,24 @@ class NavBar extends Component {
                             <i className="material-icons">menu</i>
                         </a>
 
-                        <div className="nav-wrapper" id="mobile-nav">
-                            <ul id="mobile-nav" className="left hide-on-med-and-down">
-                                <li><a href="/">
-                                    {/* <i class="material-icons right">home</i> */}
-                                    Home
-                                </a></li>
 
-                                <li><a ref={Dropdown => {
-                                    this.Dropdown = Dropdown;
-                                }} className="dropdown-trigger" href="#!" data-target="dropdown1">
-                                    {/* <i class="material-icons right">account_circle</i> */}
-                                    Profile
-                                </a>
-                                </li>
-                                <li><a href="/search">
-                                    {/* <i class="material-icons right">search</i> */}
-                                    Search
-                                </a></li>
-                            </ul>
-                        </div>
-                    </nav>
+                        <ul id="nav-mobile" className="left hide-on-med-and-down">
+                            <li><a href="/"><i className="material-icons right">home</i></a></li>
+                            {/* <li><a href="/mybeers">My Beers</a></li> */}
+                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a href="/search"><i className="material-icons right">search</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
 
-                    <ul className="sidenav" id="mobile-nav">
-                        <li><a href='/'>Home</a></li>
-                        <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a href='/search'>Search</a></li>
-                    </ul>
-
-                </div>
+                <ul className="sidenav" id="mobile-nav">
+                    <li><a href='/'>Home</a></li>
+                    <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href='/search'>Search</a></li>
+                </ul>
 
             </div>
+
 
 
         )

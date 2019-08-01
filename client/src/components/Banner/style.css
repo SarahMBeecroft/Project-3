@@ -1,6 +1,7 @@
 .carousel{
-    height: 90vh;
+    height: 400px!important;
     filter: opacity(75%);
+    width: 100%;
 }
 
 .searchBar{
@@ -9,4 +10,8 @@
     left:46%;
     align-content: center;
     font-size: 42px;
+}
+
+.carousel-item{
+    width: 100%!important;
 }

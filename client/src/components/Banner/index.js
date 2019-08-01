@@ -19,7 +19,7 @@ class Banner extends Component {
     componentDidMount() {
         var elem = document.querySelector('.carousel');
         var instance = M.Carousel.init(elem, {
-            duration: 100,
+            duration: 2000,
             fullWidth: true,
             indicators: true,
             dist: 0
@@ -36,11 +36,7 @@ class Banner extends Component {
                     <a className="carousel-item" ><img src={img4}></img></a>
                 </div>
                 
-                <div className="searchBar">
-                    <div className="row">
-                        <Style />
-                    </div>
-                </div>
+                
             </div>
 
 
