@@ -23,7 +23,7 @@ const SearchResults = props => {
                      <img src={
                        beer.label ? beer.label :
                        'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
-                       } alt='pint of beer'/> 
+                       } className="beer-img" alt='pint of beer'/> 
                     </Col>
                     <Col size='1' className='emptyCol' />
                     <Col size='9' className='beerInfo'>
