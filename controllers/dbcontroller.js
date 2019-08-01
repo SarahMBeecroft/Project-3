@@ -143,7 +143,7 @@ module.exports = {
                         then(addBeerRes => {
                             console.log(addBeerRes);
                             db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: addBeerRes._id } }, { new: true }).
-                                // populate("favorites").
+                                populate("favorites").
                                 then(userFavRes => {
                                     console.log(userFavRes);
                                     res.json(userFavRes.favorites);
@@ -154,7 +154,7 @@ module.exports = {
                 }
                 else {
                     db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: beerDBRes._id } }, { new: true}).
-                        // populate("favorites").
+                        populate("favorites").
                         then(userFavRes => {
                             console.log(userFavRes);
                             res.json(userFavRes.favorites);

@@ -13,6 +13,7 @@ import AvatarImg from './components/AvatarImg';
 import Search from './pages/Search';
 import Results from './pages/Results';
 import myBeers from './pages/myBeers';
+// AppContainerContainer links the Redux state with React
 import AppContainer from './components/AppContainer/AppContainerContainer';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
