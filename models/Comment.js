@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     note: {type: String, required: true},
-    username: {type: String, required: true},
-    beer: {type: String, required: true},
+    username: {type: Schema.Types.ObjectId, ref: "User"},
+    beer: {type: String, ref: "Beer"},
     timestamp: {type: Date},
 });
 

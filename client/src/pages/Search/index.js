@@ -33,19 +33,24 @@ class SearchBeers extends Component {
     savedBeers: []
   };
 
-  componentDidUpdate() {
-    API.getUserDetail(this.context).
-      then(res => {
-        console.log(res.data.favorites);
-      }).
-    // API.getBeers().
-    //   then(res => {
-    //     this.setState({ savedBeers: res.data });
-    //     console.log(this.state.savedBeers);
-    //     console.log("search page props:")
-    //     console.log(this.props);
-    //   }).
-      catch();
+  componentDidMount() {
+    if (this.context) {
+      API.getUserDetail(this.context).
+        then(res => {
+          console.log(res.data.favorites);
+          if (!this.state.savedBeers) {
+            this.setState({savedBeers: res.data.favorites});
+          }
+        }).
+      // API.getBeers().
+      //   then(res => {
+      //     this.setState({ savedBeers: res.data });
+      //     console.log(this.state.savedBeers);
+      //     console.log("search page props:")
+      //     console.log(this.props);
+      //   }).
+        catch();
+    }
   };
   // Takes value from search input 
   handleInputChange = event => {
@@ -70,8 +75,8 @@ class SearchBeers extends Component {
           results = results.map(result => {
             // Stores beer data in new object 
             result = {
-              key: result.id,
-              id: result.id,
+              // key: result.id,
+              _id: result.id,
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
@@ -110,29 +115,10 @@ class SearchBeers extends Component {
     console.log(theBeer);
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
-    // let savedBeers = this.state.beers.filter(beer => beer.id === theBeer.id)
-    // savedBeers = savedBeers[0];
-    API.getBeers({id: theBeer.id}).
+
+      API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
-        // If the selected beer does not exist in the DB, add it.
-        if (!res.data.length) {
-          API.createBeer(theBeer).
-            then((res) => {
-              if (res.data) {
-                let savedBeers = this.state.savedBeers;
-                savedBeers.push(theBeer);
-                this.setState({ savedBeers });
-                alert('Beer saved to "My Beers');
-              }
-            }).
-            catch(err => console.log(err));
-        }
-        else {
-          alert("already saved, homes");
-          // Don't save the beer to the DB twice;
-          // Do *something* to add it to the user's favorites.
-        }
       }).
       catch(err => console.log(err));
   }
@@ -140,6 +126,11 @@ class SearchBeers extends Component {
   // Renders content onto main search page
   render() {
     console.log(this.context);
+    if (this.context === undefined) {
+      // context doesn't seem to get userID properly on sign in.  Forcing a reload is sloppy, but it works.
+      window.location.reload();
+    }
+
     return (
       <Container fluid>
         <Jumbotron>

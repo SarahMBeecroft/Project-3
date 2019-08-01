@@ -20,7 +20,7 @@ export default function AvatarImg() {
   const classes = useStyles();
 
   return (
-    <Grid container justify="right" alignItems="right">
+    <Grid container justify="flex-end" alignItems="flex-end">
       <Avatar alt="Hop To IT!" src={icon1} className={classes.bigAvatar} />
     </Grid>
   );

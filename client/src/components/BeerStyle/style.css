@@ -1,0 +1,14 @@
+.beerSearchBar{
+    justify-content: center;
+    align-content: center;
+}
+
+.submitBtnDiv{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group{
+    margin-top: 10%;
+}
