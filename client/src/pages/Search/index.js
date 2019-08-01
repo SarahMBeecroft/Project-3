@@ -6,7 +6,8 @@ import API from '../../utils/API';
 import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
-import GoogleApiWrapper from '../../components/CurrentLocation'
+import GoogleApiWrapper from '../../components/CurrentLocation';
+import { AppContext } from "../../components/AppContainer";
 
 /*******************
  * 
@@ -32,16 +33,20 @@ class SearchBeers extends Component {
     savedBeers: []
   };
 
-  componentDidMount() {
-    API.getBeers().
+  componentDidUpdate() {
+    API.getUserDetail(this.context).
       then(res => {
-        this.setState({ savedBeers: res.data });
-        console.log(this.state.savedBeers);
-        console.log(this.props);
+        console.log(res.data.favorites);
       }).
+    // API.getBeers().
+    //   then(res => {
+    //     this.setState({ savedBeers: res.data });
+    //     console.log(this.state.savedBeers);
+    //     console.log("search page props:")
+    //     console.log(this.props);
+    //   }).
       catch();
   };
-
   // Takes value from search input 
   handleInputChange = event => {
     this.setState({ search: `q=${event.target.value}` });
@@ -56,52 +61,44 @@ class SearchBeers extends Component {
         if (res.data.data === 'error') {
           throw new Error(res.data.data);
         } else {
+
           // Stores responses in array
           let results = res.data.data;
           console.log(results);
           // Maps through the array 
-          const response = results.map(result => {
-            
+          // Maps through the array 
+          results = results.map(result => {
             // Stores beer data in new object 
-            const info = {
+            result = {
               key: result.id,
               id: result.id,
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
               abv: result.abv,
-              // breweries: [...result.breweries]
-              
-            }         
+              breweries:[...result.breweries]}
+
+         
+            
+          
             
            console.log(result)
            console.log(result.breweries)
-           console.log(response);
+           return result;
 
                   
             
-            info.breweries = result.breweries.map(breweryResult => {
-              return {
-                breweryName: breweryResult.name,
-                locationLat: breweryResult.location[0].latitude,
-                locationLon: breweryResult.location[0].longitude
-              }
-            })
+            
+    
             
          
             
 
-            //   }
-            // })
-          
-            // console.log(breweryResult)
-
-            return info;
-            
+        
           });
-          console.log(response);
+         
           // Sets empty beer array to new array of objects 
-          this.setState({ beers: response, error: '' })
+          this.setState({ beers: results, error: '' })
         }
       })
       .catch(err => this.setState({ error: err.items }));

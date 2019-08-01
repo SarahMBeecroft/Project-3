@@ -5,13 +5,11 @@ import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk';
 import axios from 'axios';
 import AvatarImg from './components/AvatarImg';
-
-
+// import ResponsiveDrawer from './components/Drawer';
 
 
 
 import Search from './pages/Search';
-import Results from './pages/Results';
 import myBeers from './pages/myBeers';
 import AppContainer from './components/AppContainer/AppContainerContainer';
 import SignUp from './pages/SignUp';
@@ -21,8 +19,6 @@ import reducers from './reducers';
 import authGuard from './components/HOCs/authGuard';
 // import noMatch from './pages/noMatch';
 import './App.css'
-
-
 
 axios.defaults.withCredentials = true;
 
@@ -36,12 +32,11 @@ function App() {
         
         <Switch>
           {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
-          <Route exact path='/' component={SignIn} />
+          <Route exact path='/' component={Search} />
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/signin' component={SignIn} />
           <Route exact path="/dashboard" component={authGuard(Search)} />
           <Route exact path='/search' component={Search} />
-          <Route exact path='/results' component={Results} />
           <Route exact path='/mybeers' component={myBeers} />
           <Route exact path='/mybeers/:id' component={myBeers} />
           {/* <Route component={noMatch} /> */}
