@@ -13,7 +13,7 @@ import AvatarImg from './components/AvatarImg';
 import Search from './pages/Search';
 import Results from './pages/Results';
 import myBeers from './pages/myBeers';
-import AppContainer from './components/AppContainer';
+import AppContainer from './components/AppContainer/AppContainerContainer';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
@@ -36,7 +36,7 @@ function App() {
         
         <Switch>
           {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
-          <Route exact path='/' component={Search} />
+          <Route exact path='/' component={SignIn} />
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/signin' component={SignIn} />
           <Route exact path="/dashboard" component={authGuard(Search)} />
