@@ -24,14 +24,11 @@ module.exports = {
     findUserByID: function (req, res) {
         db.User.findById(req.params.id).
             populate("Beer").
-            exec((err, dbRes) => {
+            then((dbRes) => {
                 console.log(dbRes);
-            });
-            // then((dbRes) => {
-            //     console.log(dbRes);
-            //     res.json(dbRes);
-            // }).
-            // catch((err) => { res.status(422).json(err); });
+                res.json(dbRes);
+            }).
+            catch((err) => { res.status(422).json(err); });
     },
     updateUser: function (req, res) {
         db.User.findByIdAndUpdate(req.params.id, req.body).
