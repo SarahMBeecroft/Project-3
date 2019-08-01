@@ -36,8 +36,11 @@ export class CurrentLocation extends React.Component {
             
           });
           console.log(pos.coords)
+          
         });
        
+        
+
       }
       
     }

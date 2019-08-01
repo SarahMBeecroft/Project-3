@@ -32,7 +32,7 @@ function App() {
         
         <Switch>
           {/* <Route exact path='/' component={Login} /> */} {/* User will only hit this route if they aren't already logged in */}
-          <Route exact path='/' component={Search} />
+          <Route exact path='/' component={SignIn} />
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/signin' component={SignIn} />
           <Route exact path="/dashboard" component={authGuard(Search)} />

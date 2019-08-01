@@ -58,22 +58,48 @@ class SearchBeers extends Component {
           let results = res.data.data;
           console.log(results);
           // Maps through the array 
-          results = results.map(result => {
+          const response = results.map(result => {
+            
             // Stores beer data in new object 
-            result = {
+            const info = {
               key: result.id,
               id: result.id,
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
-              abv: result.abv
-            }
-            console.log(result);
+              abv: result.abv,
+              // breweries: [...result.breweries]
+              
+            }         
+            
+           console.log(result)
+           console.log(result.breweries)
+           console.log(response);
 
-            return result;
+                  
+            
+            info.breweries = result.breweries.map(breweryResult => {
+              return {
+                breweryName: breweryResult.name,
+                locationLat: breweryResult.location[0].latitude,
+                locationLon: breweryResult.location[0].longitude
+              }
+            })
+            
+         
+            
+
+            //   }
+            // })
+          
+            // console.log(breweryResult)
+
+            return info;
+            
           });
+          console.log(response);
           // Sets empty beer array to new array of objects 
-          this.setState({ beers: results, error: '' })
+          this.setState({ beers: response, error: '' })
         }
       })
       .catch(err => this.setState({ error: err.items }));

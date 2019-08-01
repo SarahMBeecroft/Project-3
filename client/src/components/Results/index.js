@@ -39,7 +39,7 @@ const SearchResults = props => {
                         <p className='description'>{beer.description}</p>
                       </Row>
                       {/* <Row>
-                        <p className='brewery'>{beer.breweries[0].location[0]}</p>
+                        <p className='brewery'>{res.data.data}</p>
                       </Row> */}
                     </Col>
                   </Row>
