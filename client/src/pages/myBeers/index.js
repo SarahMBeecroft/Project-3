@@ -20,9 +20,11 @@ class MyBeers extends Component {
   }
 
   handleDeleteButton = id => {
-    API.deleteBeers(id).
-      then(res => this.componentDidMount()).
-      catch(err => console.log(err));
+
+    API.deleteBeer(id)
+      .then(res => this.componentDidMount())
+      .catch(err => console.log(err))
+
   }
 
   render() {
