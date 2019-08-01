@@ -19,19 +19,14 @@ class AppContainer extends Component {
     // console.log(this.props.userId);
     return (
       // this should make our userId available to the application...
-
       <AppContext.Provider value={this.props.userId}>
 
-        <div>
           <NavBar />
           <Banner />
           <div className="container">
             {this.props.children}
-
-
           </div>
 
-        </div>
       </AppContext.Provider>
     );
   }

@@ -33,7 +33,7 @@ class SearchBeers extends Component {
   };
 
   componentDidMount() {
-    if (this.context) {
+    // if (this.context) {
       API.getUserDetail(this.context).
         then(res => {
           console.log(res.data.favorites);
@@ -49,7 +49,7 @@ class SearchBeers extends Component {
       //     console.log(this.props);
       //   }).
         catch();
-    }
+    // }
   };
 
   // Takes value from search input 
