@@ -67,10 +67,12 @@ class NavBar extends Component {
 
 
                         <ul id="nav-mobile" className="left hide-on-med-and-down">
-                            <li><a href="/"><i className="material-icons right">home</i></a></li>
-                            {/* <li><a href="/mybeers">My Beers</a></li> */}
-                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="/search"><i className="material-icons right">search</i></a></li>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/mybeers">My Beers</a></li>
+                            <li><a href="/topbeers">Top Beers</a></li>
+                            <li><a href="/search">Search</a></li>
+                            <li><a href="/signin">Logut</a></li>
+
                         </ul>
                     </div>
                 </nav>
