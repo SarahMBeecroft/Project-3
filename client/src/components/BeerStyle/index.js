@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 
 const Style = props => {
   return (
-      <form>
+      <form className="beerSearchBar">
           <div className='form-group'>
               <input className='col-12 form-control'
                   value={props.search}
@@ -14,9 +15,12 @@ const Style = props => {
               />
           </div>
           <br></br>
-          <button type='submit' className='submitBtn btn btn-primary' onClick={props.handleFormSubmit}>
-              Submit
+          <div className="submitBtnDiv">
+            <button type='submit' className="waves-effect waves-light btn-large" onClick={props.handleFormSubmit}>
+              Search<i className="material-icons">search</i>
           </button>
+          </div>
+          
       </form>
   )
 }

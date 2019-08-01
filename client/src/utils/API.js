@@ -9,8 +9,8 @@ console.log(process.env);
 export default {
     // Users
     // Get all users
-    getUsers: function () {
-        return axios.get("/api/users");
+    getUsers: function (query) {
+        return axios.get("/api/users/?" + query);
     },
     // Create a user
     createUser: function (userData) {
@@ -30,8 +30,8 @@ export default {
     },
     // Beers
     // Get all beers
-    getBeers: function () {
-        return axios.get("/api/beers");
+    getBeers: function (query) {
+        return axios.get("/api/beers/?" + query);
     },
     // Create a beer
     createBeer: function (beerData) {
@@ -51,8 +51,8 @@ export default {
     },
     // Comments
     // Get all comments
-    getComments: function () {
-        return axios.get("/api/comments");
+    getComments: function (query) {
+        return axios.get("/api/comments/?" + query);
     },
     // Create a comment
     createComment: function (commentData) {
@@ -69,6 +69,10 @@ export default {
     // Deletes comment by id
     deleteComment: function (id) {
         return axios.delete("/api/comments/" + id);
+    },
+
+    addFav: function (userId, beer) {
+        return axios.put(`/api/users/${userId}/addfav`, beer);
     },
 
     // Search external beer API

@@ -89,7 +89,7 @@ export const signUp = data => {
       await axios.post('http://localhost:5000/users/signup', data);
 
       dispatch({
-        type: AUTH_SIGN_UP
+        type: AUTH_SIGN_UP,
       });
     } catch (err) {
       dispatch({
@@ -103,10 +103,15 @@ export const signUp = data => {
 export const signIn = data => {
   return async dispatch => {
     try {
-      await axios.post('http://localhost:5000/users/signin', data);
+      let userID;
+      await axios.post('http://localhost:5000/users/signin', data).
+        then(res => {
+          userID = res.data.userID;
+        });
 
       dispatch({
-        type: AUTH_SIGN_IN
+        type: AUTH_SIGN_IN,
+        payload: userID
       });
     } catch (err) {
       dispatch({
@@ -122,7 +127,9 @@ export const checkAuth = () => {
     try {
       let userID;
       await axios.get('http://localhost:5000/users/status').
-        then(res => { userID = res.data.userID; });
+        then(res => {
+          userID = res.data.userID;
+        });
 
       dispatch({
         type: AUTH_SIGN_IN,
