@@ -13,7 +13,7 @@ import AvatarImg from './components/AvatarImg';
 import Search from './pages/Search';
 import Results from './pages/Results';
 import myBeers from './pages/myBeers';
-import AppContainer from './components/AppContainer';
+import AppContainer from './components/AppContainer/AppContainerContainer';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
