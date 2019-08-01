@@ -6,6 +6,7 @@ import API from '../../utils/API';
 import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
+import { AppContext } from "../../components/AppContainer";
 
 /*******************
  * 
@@ -20,21 +21,29 @@ import { set } from 'mongoose';
 
 // Currently set up to use test search field component
 class SearchBeers extends Component {
+  // Context
+  static contextType = AppContext;
   // Creates state
   state = {
     search: '',
     beers: [],
     error: '',
     message: '',
-    savedBeers: []
+    savedBeers: [],
   };
 
-  componentDidMount() {
-    API.getBeers().
+  componentDidUpdate() {
+    API.getUserDetail(this.context).
       then(res => {
-        this.setState({ savedBeers: res.data });
-        console.log(this.state.savedBeers);
+        console.log(res.data.favorites);
       }).
+    // API.getBeers().
+    //   then(res => {
+    //     this.setState({ savedBeers: res.data });
+    //     console.log(this.state.savedBeers);
+    //     console.log("search page props:")
+    //     console.log(this.props);
+    //   }).
       catch();
   };
 
@@ -85,18 +94,34 @@ class SearchBeers extends Component {
     console.log(this.state.beers);
     // let savedBeers = this.state.beers.filter(beer => beer.id === theBeer.id)
     // savedBeers = savedBeers[0];
-    API.createBeer(theBeer).
-      then(() => {
-        let savedBeers = this.state.savedBeers;
-        savedBeers.push(theBeer);
-        this.setState({savedBeers});
-        alert('Beer saved to "My Beers');
+    API.getBeers({id: theBeer.id}).
+      then(res => {
+        console.log(res.data);
+        // If the selected beer does not exist in the DB, add it.
+        if (!res.data.length) {
+          API.createBeer(theBeer).
+            then((res) => {
+              if (res.data) {
+                let savedBeers = this.state.savedBeers;
+                savedBeers.push(theBeer);
+                this.setState({ savedBeers });
+                alert('Beer saved to "My Beers');
+              }
+            }).
+            catch(err => console.log(err));
+        }
+        else {
+          alert("already saved, homes");
+          // Don't save the beer to the DB twice;
+          // Do *something* to add it to the user's favorites.
+        }
       }).
       catch(err => console.log(err));
   }
 
   // Renders content onto main search page
   render() {
+    console.log(this.context);
     return (
       <Container fluid>
         <Jumbotron>
