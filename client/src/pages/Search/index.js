@@ -98,27 +98,6 @@ class SearchBeers extends Component {
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
 
-    // API.getBeers({_id: theBeer._id}).
-    //   then(res => {
-    //     console.log(res.data);
-    //     // If the selected beer does not exist in the DB, add it.
-    //     if (!res.data.length) {
-    //       API.createBeer(theBeer).
-    //         then((res) => {
-    //           if (res.data) {
-    //             // get the beer _id and push it to the User's favorites.
-    //             // I don't like any of my attempts so far, gonna rethink it.
-    //             alert('Beer saved to "My Beers');
-    //           }
-    //         }).
-    //         catch(err => console.log(err));
-    //     }
-    //     else {
-    //       alert("already saved, homes");
-    //       // Don't save the beer to the DB twice;
-    //       // Do *something* to add it to the user's favorites.
-    //     }
-    //   }).
       API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
@@ -129,6 +108,10 @@ class SearchBeers extends Component {
   // Renders content onto main search page
   render() {
     console.log(this.context);
+    if (this.context === undefined) {
+      // context doesn't seem to get userID properly on sign in.  Forcing a reload is sloppy, but it works.
+      window.location.reload();
+    }
 
     return (
       <Container fluid>

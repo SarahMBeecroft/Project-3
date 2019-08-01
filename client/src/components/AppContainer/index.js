@@ -16,7 +16,7 @@ class AppContainer extends Component {
   }
 
   render() {
-    console.log(this.props.userId);
+    // console.log(this.props.userId);
     return (
       // this should make our userId available to the application...
       <AppContext.Provider value={this.props.userId}>

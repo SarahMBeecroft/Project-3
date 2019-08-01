@@ -13,7 +13,7 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
   switch(action.type) {
     case AUTH_SIGN_UP:
-      return { ...state, isAuthenticated: true, errorMessage: '', userId: action.payload }
+      return { ...state, isAuthenticated: true, errorMessage: '' }
     case AUTH_SIGN_IN:
       return { ...state, isAuthenticated: true, errorMessage: '', userId: action.payload }
     case AUTH_SIGN_OUT:

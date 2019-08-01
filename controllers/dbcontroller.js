@@ -23,7 +23,7 @@ module.exports = {
     },
     findUserByID: function (req, res) {
         db.User.findById(req.params.id).
-            populate("Beer").
+            populate("favorites", db.Beer).
             then((dbRes) => {
                 console.log(dbRes);
                 res.json(dbRes);
@@ -136,16 +136,17 @@ module.exports = {
     // Specials //
     /* ******** */
     addFav: function (req, res) {
-        db.Beer.findOne({id: req.body.id}).
+        db.Beer.findOne({ id: req.body.id }).
             then(beerDBRes => {
                 if (!beerDBRes) {
                     db.Beer.create(req.body).
                         then(addBeerRes => {
                             console.log(addBeerRes);
-                            db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: addBeerRes._id } }).
+                            db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: addBeerRes._id } }, { new: true }).
+                                // populate("favorites").
                                 then(userFavRes => {
                                     console.log(userFavRes);
-                                    res.json(userFavRes);
+                                    res.json(userFavRes.favorites);
                                 }).
                                 catch((err) => { res.status(422).json(err); });
                         }).
@@ -153,9 +154,10 @@ module.exports = {
                 }
                 else {
                     db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: beerDBRes._id } }).
+                        // populate("favorites").
                         then(userFavRes => {
                             console.log(userFavRes);
-                            res.json(userFavRes);
+                            res.json(userFavRes.favorites);
                         }).
                         catch((err) => { res.status(422).json(err); });
                 }
