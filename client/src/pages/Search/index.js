@@ -33,21 +33,23 @@ class SearchBeers extends Component {
   };
 
   componentDidUpdate() {
-    API.getUserDetail(this.context).
-      then(res => {
-        console.log(res.data.favorites);
-        if (!this.state.savedBeers) {
-          this.setState({savedBeers: res.data.favorites});
-        }
-      }).
-    // API.getBeers().
-    //   then(res => {
-    //     this.setState({ savedBeers: res.data });
-    //     console.log(this.state.savedBeers);
-    //     console.log("search page props:")
-    //     console.log(this.props);
-    //   }).
-      catch();
+    if (this.context) {
+      API.getUserDetail(this.context).
+        then(res => {
+          console.log(res.data.favorites);
+          if (!this.state.savedBeers) {
+            this.setState({savedBeers: res.data.favorites});
+          }
+        }).
+      // API.getBeers().
+      //   then(res => {
+      //     this.setState({ savedBeers: res.data });
+      //     console.log(this.state.savedBeers);
+      //     console.log("search page props:")
+      //     console.log(this.props);
+      //   }).
+        catch();
+    }
   };
 
   // Takes value from search input 
@@ -71,7 +73,7 @@ class SearchBeers extends Component {
           results = results.map(result => {
             // Stores beer data in new object 
             result = {
-              key: result.id,
+              // key: result.id,
               id: result.id,
               name: result.name,
               description: result.description,
@@ -92,31 +94,34 @@ class SearchBeers extends Component {
   // Handled saved button to save beers to "My Beers"
   // Pass it a beer object rather than an event
   handleSavedButton = theBeer => {
-    theBeer._id = theBeer.id;
     console.log(theBeer);
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
 
-    API.getBeers({_id: theBeer._id}).
+    // API.getBeers({_id: theBeer._id}).
+    //   then(res => {
+    //     console.log(res.data);
+    //     // If the selected beer does not exist in the DB, add it.
+    //     if (!res.data.length) {
+    //       API.createBeer(theBeer).
+    //         then((res) => {
+    //           if (res.data) {
+    //             // get the beer _id and push it to the User's favorites.
+    //             // I don't like any of my attempts so far, gonna rethink it.
+    //             alert('Beer saved to "My Beers');
+    //           }
+    //         }).
+    //         catch(err => console.log(err));
+    //     }
+    //     else {
+    //       alert("already saved, homes");
+    //       // Don't save the beer to the DB twice;
+    //       // Do *something* to add it to the user's favorites.
+    //     }
+    //   }).
+      API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
-        // If the selected beer does not exist in the DB, add it.
-        if (!res.data.length) {
-          API.createBeer(theBeer).
-            then((res) => {
-              if (res.data) {
-                // get the beer _id and push it to the User's favorites.
-                // I don't like any of my attempts so far, gonna rethink it.
-                alert('Beer saved to "My Beers');
-              }
-            }).
-            catch(err => console.log(err));
-        }
-        else {
-          alert("already saved, homes");
-          // Don't save the beer to the DB twice;
-          // Do *something* to add it to the user's favorites.
-        }
       }).
       catch(err => console.log(err));
   }

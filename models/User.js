@@ -26,8 +26,8 @@ const userSchema = new Schema({
       lowercase: true
     }
   },
-  favorites: {type: Array},
-  comments: {type: Array},
+  favorites: [{type: Schema.Types.ObjectId, ref: "Beer"}],
+  comments: [{type: Schema.Types.ObjectId, ref: "Comments"}],
 });
 
 userSchema.pre('save', async function (next) {

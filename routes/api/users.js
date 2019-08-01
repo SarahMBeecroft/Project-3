@@ -12,4 +12,8 @@ router.route("/:id").
   put(dbCon.updateUser).
   delete(dbCon.removeUser);
 
+// "/api/users/:id/addfav"
+router.route("/:id/addfav").
+  put(dbCon.addFav);
+
 module.exports = router;

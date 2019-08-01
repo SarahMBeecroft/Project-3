@@ -22,8 +22,15 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     findUserByID: function (req, res) {
-        db.User.findById(req.params.id).populate().
-            then((dbRes) => { res.json(dbRes); }).
+        db.User.findById(req.params.id).
+            populate("Beer").
+            exec((err, dbRes) => {  // trying to get populate working
+                console.log(dbRes);
+            }).
+            // then((dbRes) => {
+            //     console.log(dbRes);
+            //     res.json(dbRes);
+            // }).
             catch((err) => { res.status(422).json(err); });
     },
     updateUser: function (req, res) {
@@ -126,6 +133,36 @@ module.exports = {
     removeComment: function (req, res) {
         db.Comment.findByIdAndDelete(req.params.id).
             then((dbRes) => { res.json(dbRes); }).
+            catch((err) => { res.status(422).json(err); });
+    },
+    /* ******** */
+    // Specials //
+    /* ******** */
+    addFav: function (req, res) {
+        db.Beer.findOne({id: req.body.id}).
+            then(beerDBRes => {
+                if (!beerDBRes) {
+                    db.Beer.create(req.body).
+                        then(addBeerRes => {
+                            console.log(addBeerRes);
+                            db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: addBeerRes._id } }).
+                                then(userFavRes => {
+                                    console.log(userFavRes);
+                                    res.json(userFavRes);
+                                }).
+                                catch((err) => { res.status(422).json(err); });
+                        }).
+                        catch((err) => { res.status(422).json(err); });
+                }
+                else {
+                    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: beerDBRes._id } }).
+                        then(userFavRes => {
+                            console.log(userFavRes);
+                            res.json(userFavRes);
+                        }).
+                        catch((err) => { res.status(422).json(err); });
+                }
+            }).
             catch((err) => { res.status(422).json(err); });
     }
 };
