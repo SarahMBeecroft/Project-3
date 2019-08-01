@@ -8,7 +8,7 @@ import img1 from "./img/img1.jpg";
 import img2 from "./img/img2.jpg";
 import img3 from "./img/img3.jpg";
 import img4 from "./img/img4.jpg";
-import icon2 from "./img/icon2.png";
+import icon1 from "./img/icon1.jpg";
 // import Search from "../Search";
 import Style from '../../components/BeerStyle';
 import ABV from '../../components/BeerABV';
@@ -36,9 +36,9 @@ class Banner extends Component {
                     <a className="carousel-item" ><img src={img3}></img></a>
                     <a className="carousel-item" ><img src={img4}></img></a>
 
-                    {/* <div className="logo-overlay">
-                        <a className="big-logo" ><img src={icon2}></img></a>
-                    </div> */}
+                    <div className="logo-overlay">
+                        <a className="big-logo" ><img src={icon1} className="circle responsive-img"></img></a>
+                    </div>
 
                     <div className="searchBar">
                         <div className="row">
