@@ -32,7 +32,7 @@ class SearchBeers extends Component {
     savedBeers: [],
   };
 
-  componentDidUpdate() {
+  componentDidMount() {
     if (this.context) {
       API.getUserDetail(this.context).
         then(res => {
@@ -74,7 +74,7 @@ class SearchBeers extends Component {
             // Stores beer data in new object 
             result = {
               // key: result.id,
-              id: result.id,
+              _id: result.id,
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),

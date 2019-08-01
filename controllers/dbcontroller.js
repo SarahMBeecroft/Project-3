@@ -136,7 +136,7 @@ module.exports = {
     // Specials //
     /* ******** */
     addFav: function (req, res) {
-        db.Beer.findOne({ id: req.body.id }).
+        db.Beer.findOne({ _id: req.body._id }).
             then(beerDBRes => {
                 if (!beerDBRes) {
                     db.Beer.create(req.body).
@@ -153,7 +153,7 @@ module.exports = {
                         catch((err) => { res.status(422).json(err); });
                 }
                 else {
-                    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: beerDBRes._id } }).
+                    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: beerDBRes._id } }, { new: true}).
                         // populate("favorites").
                         then(userFavRes => {
                             console.log(userFavRes);

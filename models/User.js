@@ -26,7 +26,7 @@ const userSchema = new Schema({
       lowercase: true
     }
   },
-  favorites: [{type: Schema.Types.ObjectId, ref: "Beer"}],
+  favorites: [{type: String, ref: "Beer"}],
   comments: [{type: Schema.Types.ObjectId, ref: "Comments"}],
 });
 

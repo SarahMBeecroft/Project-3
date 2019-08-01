@@ -107,12 +107,12 @@ export const signIn = data => {
       await axios.post('http://localhost:5000/users/signin', data).
         then(res => {
           userID = res.data.userID;
-
-          dispatch({
-            type: AUTH_SIGN_IN,
-            payload: userID
-          });
         });
+
+      dispatch({
+        type: AUTH_SIGN_IN,
+        payload: userID
+      });
     } catch (err) {
       dispatch({
         type: AUTH_ERROR,
@@ -129,12 +129,12 @@ export const checkAuth = () => {
       await axios.get('http://localhost:5000/users/status').
         then(res => {
           userID = res.data.userID;
-
-          dispatch({
-            type: AUTH_SIGN_IN,
-            payload: userID
-          });
         });
+
+      dispatch({
+        type: AUTH_SIGN_IN,
+        payload: userID
+      });
 
       console.log('user is auth-ed')
     } catch (err) {
