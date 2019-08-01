@@ -38,9 +38,6 @@ const SearchResults = props => {
                       <Row>
                         <p className='description'>{beer.description}</p>
                       </Row>
-                      {/* <Row>
-                        <p className='brewery'>{res.data.data}</p>
-                      </Row> */}
                     </Col>
                   </Row>
 

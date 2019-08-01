@@ -6,7 +6,6 @@ import API from '../../utils/API';
 import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
-import GoogleApiWrapper from '../../components/CurrentLocation';
 import { AppContext } from "../../components/AppContainer";
 
 /*******************
@@ -30,7 +29,7 @@ class SearchBeers extends Component {
     beers: [],
     error: '',
     message: '',
-    savedBeers: []
+    savedBeers: [],
   };
 
   componentDidMount() {
@@ -52,6 +51,7 @@ class SearchBeers extends Component {
         catch();
     }
   };
+
   // Takes value from search input 
   handleInputChange = event => {
     this.setState({ search: `q=${event.target.value}` });
@@ -66,11 +66,9 @@ class SearchBeers extends Component {
         if (res.data.data === 'error') {
           throw new Error(res.data.data);
         } else {
-
           // Stores responses in array
           let results = res.data.data;
           console.log(results);
-          // Maps through the array 
           // Maps through the array 
           results = results.map(result => {
             // Stores beer data in new object 
@@ -80,28 +78,12 @@ class SearchBeers extends Component {
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
-              abv: result.abv,
-              breweries:[...result.breweries]}
+              abv: result.abv
+            }
+            console.log(result);
 
-         
-            
-          
-            
-           console.log(result)
-           console.log(result.breweries)
-           return result;
-
-                  
-            
-            
-    
-            
-         
-            
-
-        
+            return result;
           });
-         
           // Sets empty beer array to new array of objects 
           this.setState({ beers: results, error: '' })
         }
@@ -189,22 +171,12 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-        <div className='container'>
-          <div className='row'>
-            <div className='col m6'>
-              <h5>Your personalized beer results:</h5>
-              <SearchResults
-                beers={this.state.beers}
-                // Save button isn't functional yet
-                handleSavedButton={this.handleSavedButton}
-              />
-            </div>
-            <div className='col m4'>
-              <h5>Your current location:</h5>
-              <GoogleApiWrapper></GoogleApiWrapper>
-            </div>
-          </div>
-        </div>
+        <h5>Your personalized beer results:</h5>
+        <SearchResults
+          beers={this.state.beers}
+          // Save button isn't functional yet
+          handleSavedButton={this.handleSavedButton}
+        />
       </Container>
     );
   }

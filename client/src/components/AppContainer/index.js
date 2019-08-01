@@ -14,9 +14,9 @@ class AppContainer extends Component {
   componentDidMount() {
     this.props.checkAuth();
   }
-  
+
   render() {
-    console.log(this.state);
+    // console.log(this.props.userId);
     return (
       // this should make our userId available to the application...
 
