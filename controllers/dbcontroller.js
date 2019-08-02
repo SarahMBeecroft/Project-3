@@ -23,7 +23,7 @@ module.exports = {
     },
     findUserByID: function (req, res) {
         db.User.findById(req.params.id).
-            populate("favorites", db.Beer).
+            populate("favorites").
             then((dbRes) => {
                 // console.log(dbRes);
                 res.json(dbRes);
@@ -32,6 +32,7 @@ module.exports = {
     },
     updateUser: function (req, res) {
         db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}).
+            populate("favorites").
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },
