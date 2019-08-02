@@ -7,6 +7,9 @@ import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
 import { AppContext } from "../../components/AppContainer";
+import GoogleApiWrapper from '../../components/CurrentLocation';
+import CurrentLocation from '../../components/CurrentLocation/Map';
+
 
 /*******************
  * 
@@ -71,11 +74,14 @@ class SearchBeers extends Component {
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
-              abv: result.abv
+              abv: result.abv,
+              breweryName: result.breweries[0].name,
+              breweryLocation: result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode
+              // breweryGeo: {lat: result.breweries[0].locations.latitude[0], lon: result.breweries[0].locations[0].longitude }
             }
-            console.log(result);
-
-            return result;
+            console.log(result)
+           
+            return result;           
           });
           // Sets empty beer array to new array of objects 
           this.setState({ beers: results, error: '' })
@@ -83,6 +89,21 @@ class SearchBeers extends Component {
       })
       .catch(err => this.setState({ error: err.items }));
   };
+
+  // googleMapLink = breweryLocation => {
+  //   const directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + pos.coords.latitude +','+ pos.coords.longitude
+  //   +"&destination=" + replaceSpace(breweryLocation) + "&travelmode=driving";
+  //   return directionQuery;
+  //   }
+
+    
+  
+  // replaceSpace = loc => {
+  //   return loc.split(' ').join('+');
+  // }
+ 
+ 
+
 
   // Handled saved button to save beers to "My Beers"
   // Pass it a beer object rather than an event
@@ -182,6 +203,10 @@ class SearchBeers extends Component {
           // Save button isn't functional yet
           handleSavedButton={this.handleSavedButton}
         />
+        <div className='map'>
+         {/* <h5>Your current location:</h5> */}
+         <GoogleApiWrapper></GoogleApiWrapper>
+         </div>
       </Container>
     );
   }
