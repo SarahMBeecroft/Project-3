@@ -137,14 +137,16 @@ module.exports = {
     // Specials //
     /* ******** */
     addFav: function (req, res) {
-        db.Beer.findOne({ _id: req.body._id }).
+        const userID = req.params.id;
+        const beerID = req.body._id;
+        db.Beer.findById(beerID).
             then(beerDBRes => {
                 if (!beerDBRes) {
                     db.Beer.create(req.body).
                         then(addBeerRes => {
                             console.log(addBeerRes);
-                            db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: addBeerRes._id } }, { new: true }).
-                                populate("favorites").
+                            db.User.findByIdAndUpdate(userID, { $addToSet: { favorites: addBeerRes._id } }, { new: true }).
+                                // populate("favorites").
                                 then(userFavRes => {
                                     console.log(userFavRes);
                                     res.json(userFavRes.favorites);
@@ -154,15 +156,18 @@ module.exports = {
                         catch((err) => { res.status(422).json(err); });
                 }
                 else {
-                    db.User.findByIdAndUpdate(req.params.id, { $addToSet: { favorites: beerDBRes._id } }, { new: true}).
-                        populate("favorites").
+                    db.User.findByIdAndUpdate(userID, { $addToSet: { favorites: beerDBRes._id } }, { new: true}).
+                        // populate("favorites").
                         then(userFavRes => {
                             console.log(userFavRes);
                             res.json(userFavRes.favorites);
                         }).
                         catch((err) => { res.status(422).json(err); });
                 }
-            }).
+                db.Beer.findByIdAndUpdate(beerID, { $addToSet: { favorited: userID }}, {new: true}).
+                    then(dbRes => { console.log(dbRes); }).
+                    catch((err) => { console.log(err); });
+                }).
             catch((err) => { res.status(422).json(err); });
     }
 };
