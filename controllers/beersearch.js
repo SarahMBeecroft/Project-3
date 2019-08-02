@@ -11,6 +11,8 @@ module.exports = {
             then((beer) => { 
                 // console.log(beer.data);
                 res.json(beer.data);
+                
+                
             }).
             catch((err) => { res.json(err); });
 }

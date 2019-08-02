@@ -38,6 +38,12 @@ const SearchResults = props => {
                       <Row>
                         <p className='description'>{beer.description}</p>
                       </Row>
+                      <Row>
+                        <p className='breweryName'>Brewery: {beer.breweryName}</p>
+                      </Row>
+                      <Row>
+                        <p className='brewerylocation'>Brewery Address: {beer.breweryLocation}</p>
+                      </Row>
                     </Col>
                   </Row>
 
