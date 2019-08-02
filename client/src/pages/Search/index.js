@@ -32,12 +32,12 @@ class SearchBeers extends Component {
     savedBeers: [],
   };
 
-  componentDidMount() {
+  componentDidUpdate() {
     // if (this.context) {
       API.getUserDetail(this.context).
         then(res => {
           console.log(res.data.favorites);
-          if (!this.state.savedBeers) {
+          if (this.state.savedBeers.length !== res.data.favorites.length) {
             this.setState({savedBeers: res.data.favorites});
           }
         }).
