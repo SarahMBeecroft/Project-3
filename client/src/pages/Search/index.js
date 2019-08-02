@@ -32,25 +32,18 @@ class SearchBeers extends Component {
     savedBeers: [],
   };
 
-  componentDidUpdate() {
-    // if (this.context) {
-      API.getUserDetail(this.context).
-        then(res => {
-          console.log(res.data.favorites);
-          if (this.state.savedBeers.length !== res.data.favorites.length) {
-            this.setState({savedBeers: res.data.favorites});
-          }
-        }).
-      // API.getBeers().
-      //   then(res => {
-      //     this.setState({ savedBeers: res.data });
-      //     console.log(this.state.savedBeers);
-      //     console.log("search page props:")
-      //     console.log(this.props);
-      //   }).
-        catch();
-    // }
-  };
+  // componentDidUpdate() {
+  //   // if (this.context) {
+  //     API.getUserDetail(this.context).
+  //       then(res => {
+  //         console.log(res.data.favorites);
+  //         if (this.state.savedBeers.length !== res.data.favorites.length) {
+  //           this.setState({savedBeers: res.data.favorites});
+  //         }
+  //       }).
+  //       catch();
+  //   // }
+  // };
 
   // Takes value from search input 
   handleInputChange = event => {
@@ -98,7 +91,7 @@ class SearchBeers extends Component {
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
 
-      API.addFav(this.context, theBeer).
+    API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
       }).
@@ -111,6 +104,18 @@ class SearchBeers extends Component {
     if (this.context === undefined) {
       // context doesn't seem to get userID properly on sign in.  Forcing a reload is sloppy, but it works.
       window.location.reload();
+    }
+    else {
+      API.getUserDetail(this.context).
+        then(res => {
+          console.log(res.data.favorites);
+          if (res.data.favorites) {
+            if (this.state.savedBeers.length !== res.data.favorites.length) {
+              this.setState({ savedBeers: res.data.favorites });
+            }
+          }
+        }).
+        catch();
     }
 
     return (

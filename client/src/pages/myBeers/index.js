@@ -42,9 +42,11 @@ class MyBeers extends Component {
     if (this.context) {
       API.getUserDetail(this.context).
         then(res => {
-          if (!this.state.savedBeers.length) {
-            this.setState({ savedBeers: res.data.favorites })
-            console.log(this.state.savedBeers);
+          if (res.data.favorites) {
+            if (!this.state.savedBeers.length) {
+              this.setState({ savedBeers: res.data.favorites })
+              console.log(this.state.savedBeers);
+            }
           }
         }).
         catch(err => { console.log(err) });
