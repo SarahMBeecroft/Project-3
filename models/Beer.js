@@ -6,7 +6,10 @@ const beerSchema = new Schema({
     _id: { type: String, required: true },
     name: { type: String, required: true },
     // user: {type: mongoose.ObjectId, required: true},
-    brewery: { type: String },
+    brewery: { 
+        name: String,
+        website: String
+     },
     bars: [{ type: Schema.Types.ObjectId, ref: "Bar" }],
     description: { type: String },
     label: { type: String },
