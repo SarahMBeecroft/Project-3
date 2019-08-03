@@ -39,10 +39,13 @@ const SearchResults = props => {
                         <p className='description'>{beer.description}</p>
                       </Row>
                       <Row>
-                        <p className='breweryName'>Brewery: {beer.breweryName}</p>
+                        <p className='breweryName'>Brewery: {beer.brewery.name}</p>
                       </Row>
                       <Row>
-                        <p className='brewerylocation'>Brewery Address: {beer.breweryLocation}</p>
+                        <p className='breweryweb'>Website: {beer.brewery.website}</p>
+                      </Row>
+                      <Row>
+                        <p className='brewerylocation'>Brewery Address: {beer.brewery.location}</p>
                       </Row>
                     </Col>
                   </Row>
