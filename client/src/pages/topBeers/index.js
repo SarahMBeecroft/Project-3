@@ -67,6 +67,7 @@ class TopBeers extends Component {
         </Jumbotron>
         <TopBeer
           topBeers={this.state.topBeers}
+          userFavs={this.state.savedBeers}
           handleSavedButton={this.handleSavedButton}
         />
       </Container>
