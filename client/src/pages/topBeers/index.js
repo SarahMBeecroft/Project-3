@@ -35,6 +35,7 @@ class TopBeers extends Component {
     API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
+        this.setState({savedBeers: res.data});
       }).
       catch(err => console.log(err));
   }
@@ -67,6 +68,7 @@ class TopBeers extends Component {
         </Jumbotron>
         <TopBeer
           topBeers={this.state.topBeers}
+          userFavs={this.state.savedBeers}
           handleSavedButton={this.handleSavedButton}
         />
       </Container>
