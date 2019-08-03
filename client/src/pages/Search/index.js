@@ -67,7 +67,7 @@ class SearchBeers extends Component {
           console.log(results);
           // Maps through the array 
           results = results.map(result => {
-            
+
             // Stores beer data in new object 
             let address;
             if (result.breweries[0].locations) {
@@ -76,6 +76,20 @@ class SearchBeers extends Component {
             else {
               address = "No address provided.";
             }
+            //map url
+            var originLat = window.localStorage.getItem('userLat');
+            var originLon = window.localStorage.getItem('userLon');
+
+            function createGoogleMapsLink(address) {	
+              var directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + originLat +','+ originLon+ "&destination=" + replaceSpace(address) + "&travelmode=driving";
+              return directionQuery;
+              }
+              //function to replace space with + for the url
+              function replaceSpace(loc) {
+              return loc.split(' ').join('+');
+              }
+            
+
             result = {
               // key: result.id,
               _id: result.id,
@@ -86,6 +100,7 @@ class SearchBeers extends Component {
               brewery: {
                 name: result.breweries[0].name,
                 location: address,
+                mapURL: createGoogleMapsLink(address),
                 website: result.breweries[0].website
               }
               // breweryName: result.breweries[0].name,
@@ -104,17 +119,7 @@ class SearchBeers extends Component {
       .catch(err => this.setState({ error: err.items }));
   };
 
-  // googleMapLink = breweryLocation => {
-  //   const directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + pos.coords.latitude +','+ pos.coords.longitude
-  //   +"&destination=" + replaceSpace(breweryLocation) + "&travelmode=driving";
-  //   return directionQuery;
-  //   }
 
-
-
-  // replaceSpace = loc => {
-  //   return loc.split(' ').join('+');
-  // }
 
 
 
@@ -223,6 +228,7 @@ class SearchBeers extends Component {
             <GoogleApiWrapper></GoogleApiWrapper>
           </div>
         </Container></section>
+
     );
   }
 }
