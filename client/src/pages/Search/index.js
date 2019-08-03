@@ -78,7 +78,7 @@ class SearchBeers extends Component {
             // Stores beer data in new object 
             let address;
             if (result.breweries[0].locations) {
-              address = result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode;
+              address = result.breweries[0].locations[0].streetAddress + ', ' + result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region + ' ' + result.breweries[0].locations[0].postalCode;
             }
             else {
               address = "No address provided.";
@@ -161,16 +161,17 @@ class SearchBeers extends Component {
     }
 
     return (
-      <Container fluid>
-        <Jumbotron>
-          <h1>Hop to It</h1>
-        </Jumbotron>
-        <h4>What kind of beer are you looking for?</h4>
-        <Style
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-        {/* // suggestions={[
+      <section id="search" className="section section-search darken-1 scrollspy">
+        <Container fluid>
+          <Jumbotron>
+            <h1 className="title">Hop to It</h1>
+          </Jumbotron>
+          <h4>What kind of beer are you looking for?</h4>
+          <Style
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
+          />
+          {/* // suggestions={[
           //   "Ale",
           //   "India Pale Ale",
           //   "IPA",
@@ -214,21 +215,21 @@ class SearchBeers extends Component {
       {/* <h1>Zip Code:</h1>
       <Zip></Zip>
       <h1>Test Search Field:</h1> */}
-        {/* <TestSearch
+          {/* <TestSearch
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-        <h5>Your personalized beer results:</h5>
-        <SearchResults
-          beers={this.state.beers}
-          // Save button isn't functional yet
-          handleSavedButton={this.handleSavedButton}
-        />
-        <div className='map'>
-          {/* <h5>Your current location:</h5> */}
-          <GoogleApiWrapper></GoogleApiWrapper>
-        </div>
-      </Container>
+          <h5>Your personalized beer results:</h5>
+          <SearchResults
+            beers={this.state.beers}
+            // Save button isn't functional yet
+            handleSavedButton={this.handleSavedButton}
+          />
+          <div className='map'>
+            {/* <h5>Your current location:</h5> */}
+            <GoogleApiWrapper></GoogleApiWrapper>
+          </div>
+        </Container></section>
     );
   }
 }

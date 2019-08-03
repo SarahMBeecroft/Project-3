@@ -71,10 +71,12 @@ class NavBar extends Component {
                             <li><a href="/mybeers">My Beers</a></li>
                             <li><a href="/topbeers">Top Beers</a></li>
                             <li><a href="/search">Search</a></li>
-                            <li><a href="/signin">Logut</a></li>
+                            <li><a href="/signin">Logout</a></li>
 
                         </ul>
                     </div>
+
+                    
                 </nav>
 
                 <ul className="sidenav" id="mobile-nav">
