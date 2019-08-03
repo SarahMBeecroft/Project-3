@@ -238,12 +238,11 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
+      
+          {/* <h5>Your personalized beer results:</h5> */}
           <h5>Your personalized beer results:</h5>
           <Wrapper>
           <SearchResults 
-
-          {/* <h5>Your personalized beer results:</h5> */}
-          <SearchResults
             beers={this.state.beers}
             userFavs={this.state.savedBeers}
             handleSavedButton={this.handleSavedButton}
@@ -255,6 +254,7 @@ class SearchBeers extends Component {
           </div>
           </Wrapper>
         </Container></section>
+        
     );
   }
 }
