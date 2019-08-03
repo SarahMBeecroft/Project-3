@@ -1,6 +1,5 @@
-.carousel{
-    height: 650px!important;
-    filter: opacity(75%);
+.slider{
+    filter: opacity(85%);
     width: 100%;
     position: relative;
     display: inline-block;
@@ -15,17 +14,15 @@
     width:75%;
 }
 
-.searchBar{
-    position: absolute;
-    width: 100%;
-    align-content: center;
-    align-self: center;
-    font-size: 42px;
+.bigBannerCaption{
+    color: white;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 100px;
 }
-
-.carousel-item{
-    width: 100%!important;
-
+.bannerCaption{
+    color: white;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 91px;
 }
 
 .bigBanner{

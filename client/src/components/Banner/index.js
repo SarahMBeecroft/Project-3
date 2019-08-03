@@ -10,51 +10,63 @@ import img3 from "./img/img3.jpg";
 import img4 from "./img/img4.jpg";
 import icon1 from "./img/icon1.jpg";
 // import Search from "../Search";
-import Style from '../../components/BeerStyle';
-import ABV from '../../components/BeerABV';
-import Zip from '../../components/ZipCode';
+import Style from '../BeerStyle';
+import ABV from '../BeerABV';
+import Zip from '../ZipCode';
+import transitions from '@material-ui/core/styles/transitions';
 
 
 class Banner extends Component {
 
     componentDidMount() {
-        var elem = document.querySelector('.carousel');
-        var instance = M.Carousel.init(elem, {
-            duration: 2000,
-            fullWidth: true,
-            indicators: true,
-            dist: 0
+        const slider = document.querySelectorAll('.slider');
+        M.Slider.init(slider, {
+            indicators: false,
+            height: 600,
+            transition: 500,
+            interval: 5000
         });
+
     }
 
     render() {
         return (
-            <div className="bigBanner">
-                <div className="carousel carousel-slider">
-                    <a className="carousel-item" ><img src={img1}></img></a>
-                    <a className="carousel-item" ><img src={img2}></img></a>
-                    <a className="carousel-item" ><img src={img3}></img></a>
-                    <a className="carousel-item" ><img src={img4}></img></a>
+            <section className="slider">
+                <ul className="slides">
+                    <li>
+                        <img src={img1}></img>
+                        <div className="caption center-align">
+                            <h1 className="bigBannerCaption">Hop to It!</h1>
+                            <a href="#search" class="waves-effect waves-light googlebtn btn-large">Get Started</a>
 
-                    <div className="logo-overlay">
-                        <a className="big-logo" ><img src={icon1} className="circle responsive-img"></img></a>
-                    </div>
-
-                    <div className="searchBar">
-                        <div className="row">
-                            <div className="col s12">
-                                <Style />
-                            </div>
                         </div>
+                    </li>
+                    <li>
+                        <img src={img2}></img>
+                        <div className="caption left-align">
+                            <h1 className="bannerCaption">Find your perfect beer</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <img src={img3}></img>
+                        <div className="caption right-align">
+                            <h1 className="bannerCaption">Try it at your local bar</h1>
+                        </div>
+                    </li>
+                    <li>
+                        <img src={img4}></img>
+                        <div className="caption center-align">
+                            <h1 className="bannerCaption">Hop to It!</h1>
+                        </div>
+                    </li>
 
-                    </div>
-                </div>
+                </ul>
 
 
 
 
 
-            </div>
+            </section>
 
 
 

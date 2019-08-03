@@ -5,7 +5,8 @@ body {
   margin-left: 50px;
 }
 
-h1 {
+
+.title {
   color: #4d4d4d;
 }
 
@@ -46,3 +47,4 @@ input {
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
 }
+
