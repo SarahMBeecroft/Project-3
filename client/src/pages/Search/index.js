@@ -68,6 +68,13 @@ class SearchBeers extends Component {
           // Maps through the array 
           results = results.map(result => {
             // Stores beer data in new object 
+            let address;
+            if (result.breweries[0].locations) {
+              address = result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode;
+            }
+            else {
+              address = "No address provided.";
+            }
             result = {
               // key: result.id,
               _id: result.id,
@@ -76,7 +83,8 @@ class SearchBeers extends Component {
               label: (result.labels ? result.labels.medium : false),
               abv: result.abv,
               breweryName: result.breweries[0].name,
-              breweryLocation: result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode
+              breweryLocation: address
+              // breweryLocation: result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode
               // breweryGeo: {lat: result.breweries[0].locations.latitude[0], lon: result.breweries[0].locations[0].longitude }
             }
             console.log(result)
