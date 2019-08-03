@@ -67,6 +67,7 @@ class SearchBeers extends Component {
           console.log(results);
           // Maps through the array 
           results = results.map(result => {
+            
             // Stores beer data in new object 
             let address;
             if (result.breweries[0].locations) {
