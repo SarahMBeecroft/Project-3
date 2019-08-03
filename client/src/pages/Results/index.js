@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
+import Wrapper from '../../components/Wrapper';
 import { Container, Row, Col } from '../../components/Grid';
 
 class BeerResults extends Component {
 
-
-
-  
   // Creates state
   state = {
     beers: [],
@@ -17,21 +15,13 @@ class BeerResults extends Component {
   render() {
     return (
       <Container fluid>
-        <div className="row">
-          <div className="col s6">
-            <h2>Your Results:</h2>
-            <div className="resultsDiv"></div>
-          </div>
+      <div className="row">
+        <div className="col s6">
+          <h2>Your Results:</h2>
+          <div className="resultsDiv"></div>
         </div>
-
-        <div className="row">
-          <div className="col s6">
-            <h2>Your Results:</h2>
-            <div className="resultsDiv"></div>
-          </div>
-        </div>
-    
-      </Container>
+      </div>
+    </Container>
     );
   }
 }

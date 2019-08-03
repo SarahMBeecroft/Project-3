@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
+import Wrapper from '../../components/Wrapper'
 import Style from '../../components/BeerStyle';
 import API from '../../utils/API';
 import './style.css';
@@ -237,19 +238,23 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-      
+          <h5>Your personalized beer results:</h5>
+          <Wrapper>
+          <SearchResults 
+
           {/* <h5>Your personalized beer results:</h5> */}
           <SearchResults
             beers={this.state.beers}
             userFavs={this.state.savedBeers}
             handleSavedButton={this.handleSavedButton}
           />
+        
           <div className='map'>
             {/* <h5>Your current location:</h5> */}
             <GoogleApiWrapper></GoogleApiWrapper>
           </div>
+          </Wrapper>
         </Container></section>
-
     );
   }
 }
