@@ -82,8 +82,13 @@ class SearchBeers extends Component {
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
               abv: result.abv,
-              breweryName: result.breweries[0].name,
-              breweryLocation: address
+              brewery: {
+                name: result.breweries[0].name,
+                location: address,
+                website: result.breweries[0].website
+              }
+              // breweryName: result.breweries[0].name,
+              // breweryLocation: address
               // breweryLocation: result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode
               // breweryGeo: {lat: result.breweries[0].locations.latitude[0], lon: result.breweries[0].locations[0].longitude }
             }
