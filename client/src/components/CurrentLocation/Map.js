@@ -36,7 +36,8 @@ export class CurrentLocation extends React.Component {
             
           });
           console.log(pos.coords)
-          
+          window.localStorage.setItem('userLat', pos.coords.latitude)
+          window.localStorage.setItem('userLon', pos.coords.longitude)
         });
        
         

@@ -11,6 +11,7 @@ import { AppContext } from "../../components/AppContainer";
 import GoogleApiWrapper from '../../components/CurrentLocation';
 import CurrentLocation from '../../components/CurrentLocation/Map';
 
+import icon4 from "../../components/AvatarImg/img/icon4.png";
 
 /*******************
  * 
@@ -68,7 +69,7 @@ class SearchBeers extends Component {
           console.log(results);
           // Maps through the array 
           results = results.map(result => {
-            
+
             // Stores beer data in new object 
             let address;
             if (result.breweries[0].locations) {
@@ -77,6 +78,20 @@ class SearchBeers extends Component {
             else {
               address = "No address provided.";
             }
+            //map url
+            var originLat = window.localStorage.getItem('userLat');
+            var originLon = window.localStorage.getItem('userLon');
+
+            function createGoogleMapsLink(address) {	
+              var directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + originLat +','+ originLon+ "&destination=" + replaceSpace(address) + "&travelmode=driving";
+              return directionQuery;
+              }
+              //function to replace space with + for the url
+              function replaceSpace(loc) {
+              return loc.split(' ').join('+');
+              }
+            
+
             result = {
               // key: result.id,
               _id: result.id,
@@ -87,6 +102,7 @@ class SearchBeers extends Component {
               brewery: {
                 name: result.breweries[0].name,
                 location: address,
+                mapURL: createGoogleMapsLink(address),
                 website: result.breweries[0].website
               }
               // breweryName: result.breweries[0].name,
@@ -105,17 +121,7 @@ class SearchBeers extends Component {
       .catch(err => this.setState({ error: err.items }));
   };
 
-  // googleMapLink = breweryLocation => {
-  //   const directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + pos.coords.latitude +','+ pos.coords.longitude
-  //   +"&destination=" + replaceSpace(breweryLocation) + "&travelmode=driving";
-  //   return directionQuery;
-  //   }
 
-
-
-  // replaceSpace = loc => {
-  //   return loc.split(' ').join('+');
-  // }
 
 
 
@@ -130,6 +136,7 @@ class SearchBeers extends Component {
     API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
+        this.setState({savedBeers: res.data});
       }).
       catch(err => console.log(err));
   }
@@ -147,7 +154,7 @@ class SearchBeers extends Component {
           console.log(res.data.favorites);
           if (res.data.favorites) {
             if (this.state.savedBeers.length !== res.data.favorites.length) {
-              this.setState({ savedBeers: res.data.favorites });
+              this.setState({ savedBeers: res.data.favorites.map(beer => beer._id) });
             }
           }
         }).
@@ -157,14 +164,32 @@ class SearchBeers extends Component {
     return (
       <section id="search" className="section section-search darken-1 scrollspy">
         <Container fluid>
-          <Jumbotron>
-            <h1 className="title">Hop to It</h1>
-          </Jumbotron>
-          <h4>What kind of beer are you looking for?</h4>
-          <Style
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
+          <div className="row">
+            <div className="col s12">
+              <Jumbotron>
+                <h1 className="title">Hop to It</h1>
+
+                <img className="circle bigIcon center-align" src={icon4}></img>
+
+              </Jumbotron>
+            </div>
+          </div>
+
+          <div className="row jumbotron2">
+            <div className="col s12">
+              <Jumbotron>
+                <h4>What kind of beer are you looking for?</h4>
+                <Style
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+              </Jumbotron>
+            </div>
+          </div>
+
+
+
+
           {/* // suggestions={[
           //   "Ale",
           //   "India Pale Ale",
@@ -216,8 +241,11 @@ class SearchBeers extends Component {
           <h5>Your personalized beer results:</h5>
           <Wrapper>
           <SearchResults 
+
+          {/* <h5>Your personalized beer results:</h5> */}
+          <SearchResults
             beers={this.state.beers}
-            // Save button isn't functional yet
+            userFavs={this.state.savedBeers}
             handleSavedButton={this.handleSavedButton}
           />
         
@@ -227,7 +255,6 @@ class SearchBeers extends Component {
           </div>
           </Wrapper>
         </Container></section>
-        
     );
   }
 }

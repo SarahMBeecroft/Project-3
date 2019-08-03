@@ -39,6 +39,9 @@ li {
   margin-top: -20px;
 }
 
+.mapDirection {
+  background-color: #de5246;
+}
 .saveBeer {
   margin-top: -80px;
 }

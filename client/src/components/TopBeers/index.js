@@ -3,6 +3,8 @@ import './style.css';
 import { Row, Col } from '../Grid';
 
 const TopBeer = props => {
+  console.log(props.topBeers);
+  console.log(props.userFavs);
   return (props.topBeers.length === 0) ? (
     <div className='card'>
       <div className='card-body player'>
@@ -18,7 +20,7 @@ const TopBeer = props => {
           {props.topBeers.map(topBeer => {
             return (
                 <li className='search-list list-group-item' key={topBeer._id}>
-                  <Row className='SearchResult row' id={topBeer.name + 'Card'}>
+                  <Row className='SearchResult row' id={topBeer._id + 'Card'}>
                     <Col size='2' className='beerImage'>
     
                     <img src={
@@ -44,8 +46,8 @@ const TopBeer = props => {
                   </Row>
                 <br></br>
                 <Row className='buttonDiv'>
-                <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(beer)}>
-                    Favorite
+                <button className={props.userFavs.indexOf(topBeer._id) === -1 ? "saveBeer btn btn-primary": "saveBeer btn btn-primary disabled"} id={topBeer._id} onClick={(event) => props.handleSavedButton(topBeer)}>
+                    {props.userFavs.indexOf(topBeer._id) === -1 ? "Favorite": "Favorited"}
                 </button>
                 </Row>
               </li>
