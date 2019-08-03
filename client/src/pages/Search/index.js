@@ -153,7 +153,7 @@ class SearchBeers extends Component {
     }
 
     return (
-      <section id="search" className="section section-search darken-1 white-text scrollspy">
+      <section id="search" className="section section-search darken-1 scrollspy">
         <Container fluid>
           <Jumbotron>
             <h1 className="title">Hop to It</h1>
