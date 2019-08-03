@@ -37,7 +37,7 @@ class Banner extends Component {
                         <img src={img1}></img>
                         <div className="caption center-align">
                             <h1 className="bigBannerCaption">Hop to It!</h1>
-                            <a href="#search" class="waves-effect waves-light googlebtn btn-large">Get Started</a>
+                            <a href="#search" className="waves-effect waves-light googlebtn btn-large">Get Started</a>
 
                         </div>
                     </li>
