@@ -135,6 +135,7 @@ class SearchBeers extends Component {
     API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
+        this.setState({savedBeers: res.data});
       }).
       catch(err => console.log(err));
   }
@@ -152,7 +153,7 @@ class SearchBeers extends Component {
           console.log(res.data.favorites);
           if (res.data.favorites) {
             if (this.state.savedBeers.length !== res.data.favorites.length) {
-              this.setState({ savedBeers: res.data.favorites });
+              this.setState({ savedBeers: res.data.favorites.map(beer => beer._id) });
             }
           }
         }).
@@ -240,7 +241,7 @@ class SearchBeers extends Component {
           {/* <h5>Your personalized beer results:</h5> */}
           <SearchResults
             beers={this.state.beers}
-            // Save button isn't functional yet
+            userFavs={this.state.savedBeers}
             handleSavedButton={this.handleSavedButton}
           />
           <div className='map'>

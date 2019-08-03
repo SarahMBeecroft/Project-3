@@ -35,6 +35,7 @@ class TopBeers extends Component {
     API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
+        this.setState({savedBeers: res.data});
       }).
       catch(err => console.log(err));
   }
