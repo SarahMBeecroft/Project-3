@@ -54,6 +54,8 @@ module.exports = {
         // pass an empty object ({}) in req.query to find all beers.
         console.log(req.query);
         db.Beer.find(req.query).
+            sort({favorited: -1}).
+            limit(20).
             then((dbRes) => {
                 console.log(dbRes);
                 res.json(dbRes);
