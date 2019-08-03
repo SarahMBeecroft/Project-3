@@ -67,11 +67,11 @@ class NavBar extends Component {
 
 
                         <ul id="nav-mobile" className="left hide-on-med-and-down">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/mybeers">My Beers</a></li>
-                            <li><a href="/topbeers">Top Beers</a></li>
-                            <li><a href="/search">Search</a></li>
-                            <li><a href="/signin">Logout</a></li>
+                            <li className="navLink1"><a href="/">Home</a></li>
+                            <li className="navLink1"><a href="/mybeers">My Beers</a></li>
+                            <li className="navLink1"><a href="/topbeers">Top Beers</a></li>
+                            <li className="navLink1"><a href="/search">Search</a></li>
+                            <li className="navLink1"><a href="/signin">Logout</a></li>
 
                         </ul>
                     </div>

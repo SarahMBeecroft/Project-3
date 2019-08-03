@@ -10,6 +10,7 @@ import { AppContext } from "../../components/AppContainer";
 import GoogleApiWrapper from '../../components/CurrentLocation';
 import CurrentLocation from '../../components/CurrentLocation/Map';
 
+import icon4 from "../../components/AvatarImg/img/icon4.png";
 
 /*******************
  * 
@@ -161,14 +162,32 @@ class SearchBeers extends Component {
     return (
       <section id="search" className="section section-search darken-1 scrollspy">
         <Container fluid>
-          <Jumbotron>
-            <h1 className="title">Hop to It</h1>
-          </Jumbotron>
-          <h4>What kind of beer are you looking for?</h4>
-          <Style
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
+          <div className="row">
+            <div className="col s12">
+              <Jumbotron>
+                <h1 className="title">Hop to It</h1>
+
+                <img className="circle bigIcon center-align" src={icon4}></img>
+
+              </Jumbotron>
+            </div>
+          </div>
+
+          <div className="row jumbotron2">
+            <div className="col s12">
+              <Jumbotron>
+                <h4>What kind of beer are you looking for?</h4>
+                <Style
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+              </Jumbotron>
+            </div>
+          </div>
+
+
+
+
           {/* // suggestions={[
           //   "Ale",
           //   "India Pale Ale",
@@ -217,7 +236,8 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-          <h5>Your personalized beer results:</h5>
+      
+          {/* <h5>Your personalized beer results:</h5> */}
           <SearchResults
             beers={this.state.beers}
             // Save button isn't functional yet
