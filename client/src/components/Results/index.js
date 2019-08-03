@@ -2,21 +2,23 @@
 import React from 'react';
 import './style.css';
 import { Row, Col } from '../Grid';
+import Wrapper from '../Wrapper';
 
 const SearchResults = props => {
   return (props.beers.length === 0) ? (
-    <div className='card'>
+    <div className='card grid-container'>
       <div className='card-body'>
         <div className='result'>
         </div>
       </div>
     </div>
-  ) : (
-      <div className='card'>
+  ) : ( 
+      <div className='cards'>
         <div className='card-body'>
           <div className='result'>
             {props.beers.map(beer => {
               return (
+                <div className='border'>
                 <li className='search-list list-group-item' key={beer._id}>
                   <Row className='SearchResult row' id={beer.name + 'Card'}>
                     <Col size='2' className='beerImage'>
@@ -56,9 +58,9 @@ const SearchResults = props => {
                     <button className='saveBeer btn btn-primary' id={beer.id} onClick={(event) => props.handleSavedButton(beer)}>
                       Favorite
                     </button>
-                    <hr></hr>
                   </Row>
                 </li>
+                </div>
               );
             })}
           </div>

@@ -1,3 +1,14 @@
+.grid-container {
+  display: grid;
+  grid-gap: 50px;  
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.border {
+  border: solid 1px grey;
+  margin: 20px;
+}
+
 .card {
   background-color: white;
   max-width: 340px;
@@ -18,10 +29,6 @@ li {
 
 .description {
   width: 300px;
-}
-
-hr {
-  margin-top: 20px;
 }
 
 .description {
