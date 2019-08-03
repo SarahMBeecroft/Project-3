@@ -45,7 +45,9 @@ const SearchResults = props => {
                         <p className='breweryweb'>Website: {beer.brewery.website}</p>
                       </Row>
                       <Row>
-                        <p className='brewerylocation'>Brewery Address: {beer.brewery.location}</p>
+                      
+                      
+                      <a href="https://google.com"><p className='brewerylocation'>Brewery Address: {beer.breweryLocation}</p></a>
                       </Row>
                     </Col>
                   </Row>
