@@ -52,9 +52,12 @@ module.exports = {
     },
     findBeer: function (req, res) {
         // pass an empty object ({}) in req.query to find all beers.
-        console.log(req);
+        console.log(req.query);
         db.Beer.find(req.query).
-            then((dbRes) => { res.json(dbRes); }).
+            then((dbRes) => {
+                console.log(dbRes);
+                res.json(dbRes);
+            }).
             catch((err) => { res.status(422).json(err); });
     },
     findBeerByID: function (req, res) {
@@ -144,11 +147,11 @@ module.exports = {
                 if (!beerDBRes) {
                     db.Beer.create(req.body).
                         then(addBeerRes => {
-                            console.log(addBeerRes);
+                            // console.log(addBeerRes);
                             db.User.findByIdAndUpdate(userID, { $addToSet: { favorites: addBeerRes._id } }, { new: true }).
                                 // populate("favorites").
                                 then(userFavRes => {
-                                    console.log(userFavRes);
+                                    // console.log(userFavRes);
                                     res.json(userFavRes.favorites);
                                 }).
                                 catch((err) => { res.status(422).json(err); });
@@ -159,7 +162,7 @@ module.exports = {
                     db.User.findByIdAndUpdate(userID, { $addToSet: { favorites: beerDBRes._id } }, { new: true}).
                         // populate("favorites").
                         then(userFavRes => {
-                            console.log(userFavRes);
+                            // console.log(userFavRes);
                             res.json(userFavRes.favorites);
                         }).
                         catch((err) => { res.status(422).json(err); });

@@ -22,6 +22,7 @@ import reducers from './reducers';
 import authGuard from './components/HOCs/authGuard';
 // import noMatch from './pages/noMatch';
 import './App.css'
+import TopBeers from './pages/topBeers';
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route exact path='/results' component={Results} />
           <Route exact path='/mybeers' component={myBeers} />
           <Route exact path='/mybeers/:id' component={myBeers} />
+          <Route exact path='/topbeers' component={TopBeers} />
           {/* <Route component={noMatch} /> */}
         </Switch>
       {/* Footer can go here */}
