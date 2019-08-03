@@ -44,9 +44,10 @@ const SearchResults = props => {
                       <Row>
                         <p className='breweryweb'>Website: {beer.brewery.website}</p>
                       </Row>
-                      <Row>
-                                          
-                      <a href="https://google.com"><p className='brewerylocation'>Brewery Address: {beer.breweryLocation}</p></a>
+                      <Row>                                          
+                      <p className='brewerylocation'>Brewery Address: {beer.brewery.location}</p>
+                      <a href={beer.brewery.mapURL} target = 'new'><button className='mapDirection btn btn-primary'>Direction</button></a>
+                     
                       </Row>
                     </Col>
                   </Row>
