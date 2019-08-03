@@ -42,7 +42,8 @@ const SearchResults = props => {
                         <p className='breweryName'>Brewery: {beer.breweryName}</p>
                       </Row>
                       <Row>
-                        <p className='brewerylocation'>Brewery Address: {beer.breweryLocation}</p>
+                      
+                      <a href="https://google.com"><p className='brewerylocation'>Brewery Address: {beer.breweryLocation}</p></a>
                       </Row>
                     </Col>
                   </Row>

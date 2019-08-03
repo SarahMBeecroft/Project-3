@@ -67,6 +67,14 @@ class SearchBeers extends Component {
           console.log(results);
           // Maps through the array 
           results = results.map(result => {
+            let address;
+            const location = result.breweries[0].locations[0]
+            if (location) {
+              address = location.streetAddress + ', ' + location.locality + ', ' + location.region + ' ' + location.postalCode
+}
+            else {
+              address = "no address provided"
+            }
             // Stores beer data in new object 
             result = {
               // key: result.id,
@@ -76,12 +84,12 @@ class SearchBeers extends Component {
               label: (result.labels ? result.labels.medium : false),
               abv: result.abv,
               breweryName: result.breweries[0].name,
-              breweryLocation: result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode
+              breweryLocation:address 
               // breweryGeo: {lat: result.breweries[0].locations.latitude[0], lon: result.breweries[0].locations[0].longitude }
             }
             console.log(result)
-           
-            return result;           
+
+            return result;
           });
           // Sets empty beer array to new array of objects 
           this.setState({ beers: results, error: '' })
@@ -96,13 +104,13 @@ class SearchBeers extends Component {
   //   return directionQuery;
   //   }
 
-    
-  
+
+
   // replaceSpace = loc => {
   //   return loc.split(' ').join('+');
   // }
- 
- 
+
+
 
 
   // Handled saved button to save beers to "My Beers"
@@ -204,9 +212,9 @@ class SearchBeers extends Component {
           handleSavedButton={this.handleSavedButton}
         />
         <div className='map'>
-         {/* <h5>Your current location:</h5> */}
-         <GoogleApiWrapper></GoogleApiWrapper>
-         </div>
+          {/* <h5>Your current location:</h5> */}
+          <GoogleApiWrapper></GoogleApiWrapper>
+        </div>
       </Container>
     );
   }
