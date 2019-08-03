@@ -22,7 +22,7 @@ class Banner extends Component {
         const slider = document.querySelectorAll('.slider');
         M.Slider.init(slider, {
             indicators: false,
-            height: 600,
+            height: 700,
             transition: 500,
             interval: 5000
         });
