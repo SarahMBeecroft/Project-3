@@ -1,12 +1,15 @@
 .grid-container {
   display: grid;
   grid-gap: 50px;  
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .border {
+  text-align: center;
   border: solid 1px grey;
-  margin: 20px;
+  margin: 1px;
+  box-shadow: 3px 3px 2px #888888;
+  max-height: 700px;
 }
 
 .card {
@@ -20,26 +23,40 @@
 
 .beer-img {
   max-width: 300px;
-  margin-top: 10px;
+  display: inline-block;
 }
 
 li {
   list-style: none;
 }
 
-.description {
-  width: 300px;
+.breweryName {
+  display: inline-block;
+  margin-bottom: -30px;
+
 }
 
 .description {
- margin-top: -20px;
+  width: 300px;
+  display: inline-block;
+}
+
+.description {
+  display: inline-block;
 }
 
 .abv {
-  margin-top: -20px;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.brewerylocation {
+  display: inline-block;
+  margin-bottom: -40px;
 }
 
 .saveBeer {
-  margin-top: -80px;
+ float: right;
+ margin-right: 20px;
 }
 
