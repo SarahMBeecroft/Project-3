@@ -4,12 +4,19 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+/* Hides scroll bar */
+.element::-webkit-scrollbar { width: 0 !important }
+
 .border {
   text-align: center;
   border: solid 1px grey;
   margin: 1px;
-  box-shadow: 3px 3px 2px #888888;
-  max-height: 700px;
+  box-shadow: 2px 3px 2px #888888;
+  height: auto;
+}
+
+.cardContent {
+  display: inline-block;
 }
 
 .card {
@@ -22,27 +29,11 @@
 }
 
 .beer-img {
-  max-width: 300px;
-  display: inline-block;
+  max-width: 340px;
 }
 
 li {
   list-style: none;
-}
-
-.breweryName {
-  display: inline-block;
-  margin-bottom: -30px;
-
-}
-
-.description {
-  width: 300px;
-  display: inline-block;
-}
-
-.description {
-  display: inline-block;
 }
 
 .abv {
@@ -50,16 +41,27 @@ li {
   margin-bottom: 30px;
 }
 
-.brewerylocation {
-  display: inline-block;
-  margin-bottom: -40px;
+.description {
+  padding: 10px;
 }
 
+.buttonDiv {
+  text-align: center;
+}
+
+.buttons {
+  display: inline-block;
+}
+
+/* Aligns direction button with favorite button and adds space between buttons */
 .mapDirection {
+  margin-bottom: 80px;
+  margin-right: 10px;
   background-color: #de5246;
 }
-.saveBeer {
- float: right;
- margin-right: 20px;
+
+.mapDirection:hover { 
+  background-color: lightcoral;
 }
+
 
