@@ -4,23 +4,24 @@ import { Row, Col } from '../Grid';
 
 const SavedBeer = props => {
   return (props.savedBeers.length === 0) ? (
-    <div className='card'>
+    <div className='card grid-container'>
       <div className='card-body player'>
         <div className='result'>
-          <h3>My Beers:</h3>
         </div>
       </div>
     </div>
   ) : (
-      <div className='card-body player'>
-        <div className='result'>
-          <h3>My Beers:</h3>
+    <div className='cards'>
+      <div className='card-body'>
+        <div className='result grid-container'>
           {props.savedBeers.map(savedBeer => {
             return (
-              <li className='search-list list-group-item' key={savedBeer._id}>
-                <Row className='SearchResult row' id={savedBeer.name + 'Card'}>
-                  <Col size='2' className='beerImage'>
-
+                <div className='border'>
+                <div className='cardContent'>
+                <li className='search-list list-group-item' key={savedBeer._id}>
+                  <Row className='SearchResult row' id={savedBeer.name + 'Card'}>
+                    <Col size='2' className='beerImage'>
+    
                     <img src={
                       savedBeer.label !== 'false' ? savedBeer.label :
                         'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
@@ -30,19 +31,24 @@ const SavedBeer = props => {
                   <Col size='1' className='emptyCol' />
                   <Col size='9' className='beerInfo'>
 
-                    <Row>
-                      <h5 className='beerName'>{savedBeer.name}</h5>
-                    </Row>
+                      <Row className='beerInfo'>
 
-                    <Row>
-                      <h6 className='abv'>ABV: {savedBeer.abv}</h6>
-                    </Row>
-                    <Row>
-                      <p className='description'>{savedBeer.description}</p>
-                    </Row>
-                  </Col>
-                </Row>
-                {/* <br></br> */}
+                        <h5 className='beerName'>{savedBeer.name}</h5>
+                 
+                        <h6 className='abv'>ABV: {savedBeer.abv}</h6>
+                     
+                        <p className='description'>{savedBeer.description}</p>     
+               
+                        <p className='breweryName'><b>Brewery:</b> {savedBeer.brewery.name}</p>
+               
+                        <a href={savedBeer.brewery.website} target='_blank'><p className='breweryweb'>Brewery Website</p></a>  
+
+                        <p className='brewerylocation'><b>Brewery Address:</b> {savedBeer.brewery.location}</p> 
+
+                      </Row>
+                    </Col>
+                  </Row>
+                <br></br>
                 <Row className='buttonDiv'>
                   <div className="col">
                     <button className='btn' onClick={() => props.handleDeleteButton(savedBeer._id)}>
@@ -57,10 +63,13 @@ const SavedBeer = props => {
                   </div>
                 </Row>
               </li>
+              </div>
+              </div>
             );
           })}
         </div>
       </div>
+    </div>
     )
 }
 
