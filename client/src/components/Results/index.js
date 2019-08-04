@@ -2,7 +2,6 @@
 import React from 'react';
 import './style.css';
 import { Row, Col } from '../Grid';
-import Wrapper from '../Wrapper';
 
 const SearchResults = props => {
   console.log(props.userFavs);
@@ -19,7 +18,8 @@ const SearchResults = props => {
           <div className='result grid-container'>
             {props.beers.map(beer => {
               return (
-                <div className='border fluid'>
+                <div className='border'>
+                <div className='cardContent'>
                 <li className='search-list list-group-item' key={beer._id}>
                   <Row className='SearchResult row' id={beer.name + 'Card'}>
                     <Col size='2' className='beerImage'>
@@ -38,26 +38,29 @@ const SearchResults = props => {
                      
                         <p className='description'>{beer.description}</p>     
                
-                        <p className='breweryName'>Brewery: {beer.brewery.name}</p>
+                        <p className='breweryName'><b>Brewery:</b> {beer.brewery.name}</p>
                
-                        <p className='breweryweb'>Website: {beer.brewery.website}</p>
-                      </Row>
-                      <Row>
-                        <p className='brewerylocation'>Brewery Address: {beer.brewery.location}</p>
-                        <a href={beer.brewery.mapURL} target='new'><button className='mapDirection btn btn-primary'>Direction</button></a>
+                        <a href={beer.brewery.website} target='_blank'><p className='breweryweb'>Brewery Website</p></a>  
+
+                        <p className='brewerylocation'><b>Brewery Address:</b> {beer.brewery.location}</p>
 
                       </Row>
                     </Col>
                   </Row>
 
                   <Row className='buttonDiv'>
+                    
+                    <div className='buttons'>
+                    <a href={beer.brewery.mapURL} target='new'><button className='mapDirection btn btn-primary'>Direction</button></a>  
+
                     <button className={props.userFavs.indexOf(beer._id) === -1 ? "saveBeer btn btn-primary": "saveBeer btn btn-primary disabled"} id={beer._id} onClick={(event) => props.handleSavedButton(beer)}>
                       {props.userFavs.indexOf(beer._id) === -1 ? "Favorite" : "Favorited"}
                     </button>
-                    <hr></hr>
+                    </div>
 
                   </Row>
                 </li>
+                </div>
                 </div>
               );
             })}
