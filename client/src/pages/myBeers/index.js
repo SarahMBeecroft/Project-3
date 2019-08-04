@@ -10,7 +10,8 @@ class MyBeers extends Component {
   static contextType = AppContext;
   // Creates state
   state = {
-    savedBeers: []
+    savedBeers: [],
+    showModal: false
   };
   // API.getBeers() returns all the beers in the DB, which won't be the personalized list.
   // API.getUserDetail(this.context) will get the current user information, including the favorites list.
@@ -34,7 +35,12 @@ class MyBeers extends Component {
     API.updateUser(this.context, { $pull: { favorites: id } }).
       then(res => { this.setState({ savedBeers: res.data.favorites }) }).
       catch(err => console.log(err))
-
+  }
+  handleBarButton = id => {
+    // do a thing with a modal, I think.
+    // Could go to another page, though.
+    console.log(this.state.showModal);
+    this.setState({showModal: true});
   }
 
   render() {
@@ -57,9 +63,19 @@ class MyBeers extends Component {
           <h1>Hop to It</h1>
         </Jumbotron>
         <SavedBeer
-            savedBeers={this.state.savedBeers}
-            handleDeleteButton={this.handleDeleteButton}
-          />
+          savedBeers={this.state.savedBeers}
+          handleDeleteButton={this.handleDeleteButton}
+          handleBarButton={this.handleBarButton}
+        />
+        <div id="bar-modal" className="modal" style={this.state.showModal? {display: "block"}: {display: "hide"}}>
+          <div className="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+          </div>
+          <div className="modal-footer">
+            <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
       </Container>
     );
   }
