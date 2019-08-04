@@ -4,9 +4,6 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* Hides scroll bar */
-.element::-webkit-scrollbar { width: 0 !important }
-
 .border {
   text-align: center;
   border: solid 1px grey;
@@ -17,15 +14,12 @@
 
 .cardContent {
   display: inline-block;
+  padding: 8px;
 }
 
 .card {
   background-color: white;
   max-width: 340px;
-}
-
-.card-body {
-  margin: 0px 20px 0px 20px;
 }
 
 .beer-img {
