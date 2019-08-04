@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
+import Wrapper from '../../components/Wrapper'
 import API from '../../utils/API';
 import SavedBeer from '../../components/MyBeers';
 import { AppContext } from '../../components/AppContainer';
@@ -56,10 +57,13 @@ class MyBeers extends Component {
         <Jumbotron>
           <h1>Hop to It</h1>
         </Jumbotron>
+        <h5>Beers you've favorited:</h5>
+        <Wrapper>
         <SavedBeer
             savedBeers={this.state.savedBeers}
             handleDeleteButton={this.handleDeleteButton}
           />
+        </Wrapper>
       </Container>
     );
   }

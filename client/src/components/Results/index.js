@@ -51,7 +51,7 @@ const SearchResults = props => {
                   <Row className='buttonDiv'>
                     
                     <div className='buttons'>
-                    <a href={beer.brewery.mapURL} target='new'><button className='mapDirection btn btn-primary'>Direction</button></a>  
+                    <a href={beer.brewery.mapURL} target='new'><button className='mapDirection btn btn-primary'>Directions</button></a>  
 
                     <button className={props.userFavs.indexOf(beer._id) === -1 ? "saveBeer btn btn-primary": "saveBeer btn btn-primary disabled"} id={beer._id} onClick={(event) => props.handleSavedButton(beer)}>
                       {props.userFavs.indexOf(beer._id) === -1 ? "Favorite" : "Favorited"}
