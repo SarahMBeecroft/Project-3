@@ -8,7 +8,7 @@ import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
 import { AppContext } from "../../components/AppContainer";
 import GoogleApiWrapper from '../../components/CurrentLocation';
-import CurrentLocation from '../../components/CurrentLocation/Map';
+import BreweryMap from '../../components/BreweryMap';
 
 
 /*******************
@@ -225,7 +225,8 @@ class SearchBeers extends Component {
           />
           <div className='map'>
             {/* <h5>Your current location:</h5> */}
-            <GoogleApiWrapper></GoogleApiWrapper>
+            {/* <GoogleApiWrapper></GoogleApiWrapper> */}
+            <BreweryMap></BreweryMap>
           </div>
         </Container></section>
 

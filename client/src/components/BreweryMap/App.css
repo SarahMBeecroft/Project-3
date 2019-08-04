@@ -1,0 +1,149 @@
+@import url(https://fonts.googleapis.com/css?family=Encode+Sans);
+
+html,
+body,
+#root,
+.app-container,
+.map-container {
+  height: 100%;
+  margin: 0;
+  font-family: 'Encode Sans', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+}
+
+.place-list {
+  width: 250px;
+  height: calc(100% - 120px);
+  position: fixed;
+  background: #3e3e3e;
+  z-index: 1;
+  overflow-y: auto;
+  margin-top: 120px;
+}
+
+.places {
+  list-style: none;
+  padding: 0;
+}
+
+.place {
+  padding: 10px 15px;
+  color: #b9b9b9;
+  cursor: pointer;
+}
+
+.place:hover {
+  background-color: #fff;
+  color: #3e3e3e;
+}
+
+.heading {
+  position: fixed;
+  width: 250px;
+  background: #3e3e3e;
+}
+
+.filter-places {
+  width: 230px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: inherit;
+  border: 0;
+}
+
+.sandwich {
+  margin: 0;
+  position: absolute;
+  background: #fff;
+  opacity: 0.7;
+  z-index: 5;
+  padding: 25px;
+  cursor: pointer;
+}
+
+.sandwich img {
+  width: 32px;
+}
+
+.map-container,
+.sandwich {
+  transition: 0.3s ease all;
+}
+
+.info-window {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(150px, 0);
+  width: 300px;
+  background: rgb(255, 255, 255);
+  cursor: move;
+  padding: 0 20px 20px;
+}
+
+.close-window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+  font-size: 1.5em;
+  margin: 0;
+  cursor: pointer;
+  color: #9a9a9a;
+}
+
+.info-name {
+  margin-top: 50px;
+}
+
+.info-name,
+.info-address {
+  margin-bottom: 0;
+}
+
+.info-address,
+.info-category {
+  margin: 0;
+}
+
+.info-category
+{
+  color: #9a9a9a;
+  margin-bottom: 10px;
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 40px;
+  background: #ff4040;
+  color: #fff;
+  transition: 0.3s ease all;
+}
+
+.attribution {
+  font-size: small;
+  color: #9a9a9a;
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  .sandwich {
+    padding: 25px 20px;
+  }
+
+  .info-window,
+  .info-window img {
+    width: 250px;
+  }
+}

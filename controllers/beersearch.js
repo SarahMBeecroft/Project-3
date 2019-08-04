@@ -4,6 +4,7 @@ const keyString = `&key=${process.env.BREWERY_DB_KEY}`;
 const searchURL = 'http://sandbox-api.brewerydb.com/v2/search?';
 const breweries = '&withBreweries=Y';   // we're probably going to want the brewery info...
 
+
 module.exports = {
     searchBeer: function (req, res) {
         console.log(req.params);

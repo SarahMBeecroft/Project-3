@@ -82,5 +82,15 @@ export default {
             // `https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${query}`
             "/api/beersearch/" + query
         );
+    },
+
+    
+    breweryMapAPI: function () {
+        
+        return axios.get(
+           
+            "/api/brewerymapsearch/"         );
     }
+
+
 };
