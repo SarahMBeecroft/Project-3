@@ -23,6 +23,7 @@ import authGuard from './components/HOCs/authGuard';
 // import noMatch from './pages/noMatch';
 import './App.css'
 import TopBeers from './pages/topBeers';
+import AddBarPage from './pages/AddBar';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route exact path='/mybeers' component={myBeers} />
           <Route exact path='/mybeers/:id' component={myBeers} />
           <Route exact path='/topbeers' component={TopBeers} />
+          <Route exact path="/addbar" component={AddBarPage} />
           {/* <Route component={noMatch} /> */}
         </Switch>
       {/* Footer can go here */}

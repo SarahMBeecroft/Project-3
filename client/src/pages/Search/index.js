@@ -242,19 +242,19 @@ class SearchBeers extends Component {
           {/* <h5>Your personalized beer results:</h5> */}
           <h5>Your personalized beer results:</h5>
           <Wrapper>
-          <SearchResults 
-            beers={this.state.beers}
-            userFavs={this.state.savedBeers}
-            handleSavedButton={this.handleSavedButton}
-          />
-        
-          <div className='map'>
-            {/* <h5>Your current location:</h5> */}
-            <GoogleApiWrapper></GoogleApiWrapper>
-          </div>
+            <SearchResults
+              beers={this.state.beers}
+              userFavs={this.state.savedBeers}
+              handleSavedButton={this.handleSavedButton}
+            />
+
+            <div className='map'>
+              {/* <h5>Your current location:</h5> */}
+              <GoogleApiWrapper></GoogleApiWrapper>
+            </div>
           </Wrapper>
-        </Container></section>
-        
+        </Container>
+      </section>
     );
   }
 }
