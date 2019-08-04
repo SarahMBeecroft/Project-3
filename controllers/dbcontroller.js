@@ -69,7 +69,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     updateBeer: function (req, res) {
-        db.Beer.findByIdAndUpdate(req.params.id, req.body).
+        db.Beer.findByIdAndUpdate(req.params.id, req.body, {new: true}).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },

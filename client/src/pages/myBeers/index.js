@@ -35,13 +35,23 @@ class MyBeers extends Component {
     //   then(res => this.componentDidMount()).
     API.updateUser(this.context, { $pull: { favorites: id } }).
       then(res => { this.setState({ savedBeers: res.data.favorites }) }).
-      catch(err => console.log(err))
+      catch(err => { console.log(err); });
+    API.updateBeer(id, { $pull: { favorited: this.context } }).
+      then(res => {
+        console.log(res.data.favorited);
+        if (!res.data.favorited.length) {
+          API.deleteBeer(id).
+            then(res => { console.log(`Deleted ${res.data._id}`); }).
+            catch(err => { console.log(err); })
+        }
+      }).
+      catch(err => { console.log(err); });
   }
   handleBarButton = id => {
     // do a thing with a modal, I think.
     // Could go to another page, though.
     console.log(this.state.showModal);
-    this.setState({showModal: true});
+    this.setState({ showModal: true });
   }
 
   render() {
@@ -50,7 +60,7 @@ class MyBeers extends Component {
       API.getUserDetail(this.context).
         then(res => {
           if (res.data.favorites) {
-            if (!this.state.savedBeers.length) {
+            if (this.state.savedBeers.length !== res.data.favorites.length) {
               this.setState({ savedBeers: res.data.favorites })
               console.log(this.state.savedBeers);
             }
@@ -65,7 +75,7 @@ class MyBeers extends Component {
         </Jumbotron>
         <h5>Beers you've favorited:</h5>
         <Wrapper>
-        <SavedBeer
+          <SavedBeer
             savedBeers={this.state.savedBeers}
             handleDeleteButton={this.handleDeleteButton}
           />
