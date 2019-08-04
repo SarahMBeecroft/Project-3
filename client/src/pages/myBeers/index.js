@@ -60,9 +60,6 @@ class MyBeers extends Component {
     }
     return (
       <Container fluid>
-        <Jumbotron>
-          <h1>Hop to It</h1>
-        </Jumbotron>
         <h5>Beers you've favorited:</h5>
         <Wrapper>
         <SavedBeer
