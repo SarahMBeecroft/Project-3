@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
+import Wrapper from '../../components/Wrapper'
 import API from '../../utils/API';
 import TopBeer from '../../components/TopBeers';
 import { AppContext } from '../../components/AppContainer';
+import GoogleApiWrapper from '../../components/CurrentLocation';
+import CurrentLocation from '../../components/CurrentLocation/Map';
 
 
 class TopBeers extends Component {
@@ -35,7 +38,7 @@ class TopBeers extends Component {
     API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
-        this.setState({savedBeers: res.data});
+        this.setState({ savedBeers: res.data });
       }).
       catch(err => console.log(err));
   }
@@ -63,14 +66,18 @@ class TopBeers extends Component {
 
     return (
       <Container fluid>
-        <Jumbotron>
-          <h1>Hop to It</h1>
-        </Jumbotron>
-        <TopBeer
-          topBeers={this.state.topBeers}
-          userFavs={this.state.savedBeers}
-          handleSavedButton={this.handleSavedButton}
-        />
+        <h5>Beers all users have favorited:</h5>
+        <Wrapper>
+          <TopBeer
+            topBeers={this.state.topBeers}
+            userFavs={this.state.savedBeers}
+            handleSavedButton={this.handleSavedButton}
+          />
+          <div className='map'>
+            {/* <h5>Your current location:</h5> */}
+            <GoogleApiWrapper></GoogleApiWrapper>
+          </div>
+        </Wrapper>
       </Container>
     );
   }
