@@ -28,7 +28,7 @@ body,
   width: 250px;
   height: calc(100% - 120px);
   /* position: relative; */
-  background: #3e3e3e;
+  background: #005826;
   z-index: 1;
   overflow-y: auto;
   margin-top: 0px;
@@ -41,7 +41,7 @@ body,
 
 .place {
   padding: 10px 15px;
-  color: #b9b9b9;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -53,7 +53,7 @@ body,
 .heading {
   position: absolute;
   width: 250px;
-  background: #3e3e3e;
+  background: #005826;
 }
 
 .filter-places {
