@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import Geocode from 'react-geocode';
 import escapeRegExp from 'escape-string-regexp';
 
-// Geocode.setApiKey('AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo');
 
 class List extends Component {
   state = {
@@ -24,6 +23,7 @@ class List extends Component {
         this.props.foursquare.venues.getVenues({
           'll': `${lat},${lng}`,
           'categoryId': '50327c8591d4c4b30a586d5d'
+          //foursquare brewery categoryID:https://developer.foursquare.com/docs/resources/categories
         }).then(fsResponse => {
           const venues = fsResponse.response.venues;
           this.props.setMarkers(venues);

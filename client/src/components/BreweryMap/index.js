@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import List from './List';
 import Map from './Map';
 import InfoWindow from './InfoWindow';
-import './App.css';
+import './style.css';
 
 const FOURSQUARE = require('react-foursquare')({
   clientID: 'DF30QCC2OFQ3EO5L2JYYYZODPV0A4MIDY10HPD0HEI20MOHB',
