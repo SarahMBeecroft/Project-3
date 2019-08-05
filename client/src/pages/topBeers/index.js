@@ -4,7 +4,7 @@ import { Container, Row, Col } from '../../components/Grid';
 import API from '../../utils/API';
 import TopBeer from '../../components/TopBeers';
 import { AppContext } from '../../components/AppContainer';
-import GoogleApiWrapper from '../../components/CurrentLocation';
+// import GoogleApiWrapper from '../../components/CurrentLocation';
 import CurrentLocation from '../../components/CurrentLocation/Map';
 
 
@@ -73,7 +73,7 @@ class TopBeers extends Component {
           />
           <div className='map'>
             {/* <h5>Your current location:</h5> */}
-            <GoogleApiWrapper></GoogleApiWrapper>
+            {/* <GoogleApiWrapper></GoogleApiWrapper> */}
           </div>
       </Container>
     );
