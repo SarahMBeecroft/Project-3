@@ -48,20 +48,21 @@ const SavedBeer = props => {
                       </Row>
                     </Col>
                   </Row>
-                <br></br>
+  
                 <Row className='buttonDiv'>
-                  <div className="col">
-                    <button className='btn' onClick={() => props.handleDeleteButton(savedBeer._id)}>
+                  <div className='buttons'>
+                    <button className='btn removeBeer' onClick={() => props.handleDeleteButton(savedBeer._id)}>
                       Remove Beer
                   </button>
-                  </div>
-                  <div className="col">
-                    <button className="btn modal-trigger" data-target="bar-modal" onClick={() => props.handleBarButton(savedBeer._id)}>
+              
+               
+                    <button className="btn modal-trigger addLocation" data-target="bar-modal" onClick={() => props.handleBarButton(savedBeer._id)}>
                     {/* <button className="btn modal-trigger" data-target="bar-modal"> */}
                       Add a Location
                   </button>
                   </div>
                 </Row>
+
               </li>
               </div>
               </div>

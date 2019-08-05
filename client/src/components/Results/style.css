@@ -9,12 +9,15 @@
   border: solid 1px grey;
   margin: 1px;
   box-shadow: 2px 3px 2px #888888;
-  height: auto;
+  max-height: 750px;
+  overflow: hidden;
 }
 
 .cardContent {
   display: inline-block;
   padding: 8px;
+  line-height: 20px; /* Height / no. of lines to display */
+  overflow:hidden;
 }
 
 .card {
@@ -23,7 +26,9 @@
 }
 
 .beer-img {
-  max-width: 300px;
+  max-width: 260px;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 li {
@@ -37,7 +42,14 @@ li {
 
 .description {
   padding: 10px;
+  overflow: hidden; 
+  max-height: 124px;
+  line-height: 16px; 
+  position: relative;
+  word-wrap: break-word;
 }
+
+.description:after { content: "..."; background: white; position :absolute;}
 
 .buttonDiv {
   text-align: center;
@@ -57,5 +69,6 @@ li {
 .mapDirection:hover { 
   background-color: lightcoral;
 }
+
 
 
