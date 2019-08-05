@@ -7,8 +7,8 @@ import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
 import { AppContext } from "../../components/AppContainer";
-import GoogleApiWrapper from '../../components/CurrentLocation';
-import CurrentLocation from '../../components/CurrentLocation/Map';
+// import GoogleApiWrapper from '../../components/CurrentLocation';
+import BreweryMap from '../../components/BreweryMap';
 
 import icon4 from "../../components/AvatarImg/img/icon4.png";
 
@@ -119,11 +119,6 @@ class SearchBeers extends Component {
       })
       .catch(err => this.setState({ error: err.items }));
   };
-
-
-
-
-
 
   // Handled saved button to save beers to "My Beers"
   // Pass it a beer object rather than an event
@@ -245,6 +240,7 @@ class SearchBeers extends Component {
               userFavs={this.state.savedBeers}
               handleSavedButton={this.handleSavedButton}
             />
+
             <div className='map'>
               {/* <h5>Your current location:</h5> */}
               <GoogleApiWrapper></GoogleApiWrapper>
