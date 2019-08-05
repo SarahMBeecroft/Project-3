@@ -51,13 +51,13 @@ class List extends Component {
    * Handles click on sandwich button
    * to show and hide sidebar
    */
-  handleSandwichClick = () => {
-    const map = document.querySelector('.map-container');
-    map.style.marginLeft = map.style.marginLeft === '250px' ? '0' : '250px';
+  // handleSandwichClick = () => {
+  //   const map = document.querySelector('.map-container');
+  //   map.style.marginLeft = map.style.marginLeft === '250px' ? '0' : '250px';
 
-    const sandwich = document.querySelector('.sandwich');
-    sandwich.style.left = sandwich.style.left === '250px' ? '0' : '250px';
-  }
+  //   const sandwich = document.querySelector('.sandwich');
+  //   sandwich.style.left = sandwich.style.left === '250px' ? '0' : '250px';
+  // }
 
   /**
    * FUNCTIONS
@@ -129,19 +129,19 @@ class List extends Component {
             </h1>
             {this.getInputField()}
           </div>
-          <div className='place-list' role='region' style={{height: '50%'}}>
+          <div className='place-list' role='region' style={{height: '20%'}}>
             {this.getPlaceList()}
           </div>
         </div>
-        <div
+        {/* <div
           tabIndex='-1'
           style={{left: '250px'}}
           className='sandwich'
-          onClick={this.handleSandwichClick}>
-          <img
+          onClick={this.handleSandwichClick}> */}
+          {/* <img
             src='menu.png'
-            alt='Toggle menu' />
-        </div>
+            alt='Toggle menu' /> */}
+        {/* </div> */}
       </div>
     );
   }

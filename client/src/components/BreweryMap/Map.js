@@ -113,8 +113,8 @@ class Map extends Component {
         isMarkerShown={this.props.places.length > 0}
         googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo&v=3.exp&libraries=geometry,drawing,places&callback=onMapLoaded'
         //{API.breweryMapAPI}
-        loadingElement={<div style={{ height: `100%`, width:'50%' }} />}
-        containerElement={<div style={{ height: `63%`, width:'40%' }} />}
+        loadingElement={<div style={{ height: `100%`, width:'20%' }} />}
+        containerElement={<div style={{ height: `20%`, width:'20%' }} />}
         mapElement={<div style={{ height: `100%`, }} />}
         places={this.props.places}
         hideInfoWindow={this.props.hideInfoWindow}
