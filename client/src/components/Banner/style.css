@@ -18,11 +18,14 @@
     color: white;
     font-family: 'Fira Sans', sans-serif;
     font-size: 100px;
+    text-shadow: 2px 2px 2px #000000;
 }
 .bannerCaption{
     color: white;
     font-family: 'Fira Sans', sans-serif;
     font-size: 91px;
+    margin-top: 4cm;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 .bigBanner{

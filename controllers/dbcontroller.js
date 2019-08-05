@@ -31,7 +31,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     updateUser: function (req, res) {
-        db.User.findByIdAndUpdate(req.params.id, req.body, {new: true}).
+        db.User.findByIdAndUpdate(req.params.id, req.body, { new: true }).
             populate("favorites").
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
@@ -54,6 +54,8 @@ module.exports = {
         // pass an empty object ({}) in req.query to find all beers.
         console.log(req.query);
         db.Beer.find(req.query).
+            sort({ favorited: -1 }).
+            limit(20).
             then((dbRes) => {
                 console.log(dbRes);
                 res.json(dbRes);
@@ -67,7 +69,7 @@ module.exports = {
             catch((err) => { res.status(422).json(err); });
     },
     updateBeer: function (req, res) {
-        db.Beer.findByIdAndUpdate(req.params.id, req.body).
+        db.Beer.findByIdAndUpdate(req.params.id, req.body, {new: true}).
             then((dbRes) => { res.json(dbRes); }).
             catch((err) => { res.status(422).json(err); });
     },
@@ -141,7 +143,10 @@ module.exports = {
     /* ******** */
     addFav: function (req, res) {
         const userID = req.params.id;
+        // console.log(userID);
         const beerID = req.body._id;
+        // console.log(beerID);
+
         db.Beer.findById(beerID).
             then(beerDBRes => {
                 if (!beerDBRes) {
@@ -155,22 +160,25 @@ module.exports = {
                                     res.json(userFavRes.favorites);
                                 }).
                                 catch((err) => { res.status(422).json(err); });
+                            db.Beer.findByIdAndUpdate(beerID, { $addToSet: { favorited: userID } }, { new: true }).
+                                then(dbRes => { console.log(dbRes); }).
+                                catch((err) => { console.log(err); });
                         }).
                         catch((err) => { res.status(422).json(err); });
                 }
                 else {
-                    db.User.findByIdAndUpdate(userID, { $addToSet: { favorites: beerDBRes._id } }, { new: true}).
+                    db.User.findByIdAndUpdate(userID, { $addToSet: { favorites: beerDBRes._id } }, { new: true }).
                         // populate("favorites").
                         then(userFavRes => {
                             // console.log(userFavRes);
                             res.json(userFavRes.favorites);
+                            db.Beer.findByIdAndUpdate(beerID, { $addToSet: { favorited: userID } }, { new: true }).
+                                then(dbRes => { console.log(dbRes); }).
+                                catch((err) => { console.log(err); });
                         }).
                         catch((err) => { res.status(422).json(err); });
                 }
-                db.Beer.findByIdAndUpdate(beerID, { $addToSet: { favorited: userID }}, {new: true}).
-                    then(dbRes => { console.log(dbRes); }).
-                    catch((err) => { console.log(err); });
-                }).
+            }).
             catch((err) => { res.status(422).json(err); });
     }
 };

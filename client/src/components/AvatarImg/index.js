@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import icon1 from './img/icon1.jpg';
+import icon1 from './img/icon4.png';
 
 const useStyles = makeStyles({
   avatar: {
