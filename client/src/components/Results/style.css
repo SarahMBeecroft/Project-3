@@ -4,7 +4,7 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.border {
+.border1 {
   text-align: center;
   border: solid 1px grey;
   margin: 1px;
@@ -13,21 +13,15 @@
   overflow: hidden;
 }
 
-.cardContent {
+.cardContent1 {
   display: inline-block;
   padding: 8px;
   line-height: 20px; /* Height / no. of lines to display */
-  overflow:hidden;
 }
 
-.card {
-  background-color: white;
-  max-width: 300px;
-}
-
-.beer-img {
+.beer-img1 {
   max-width: 260px;
-  max-height: 200px;
+  max-height: 260px;
   overflow: hidden;
 }
 
@@ -35,38 +29,38 @@ li {
   list-style: none;
 }
 
-.abv {
+.abv1 {
   display: inline-block;
-  margin-bottom: 30px;
 }
 
-.description {
+.description1 {
   padding: 10px;
   overflow: hidden; 
-  max-height: 124px;
+  max-height: 123px;
   line-height: 16px; 
   position: relative;
   word-wrap: break-word;
 }
 
-.description:after { content: "..."; background: white; position :absolute;}
+/* Adds elipses after description is cut off */
+.description1:after { content: "..."; background: white; position :absolute;}
 
-.buttonDiv {
+.buttonDiv1 {
   text-align: center;
 }
 
-.buttons {
+.buttons1 {
   display: inline-block;
+  bottom: auto;
 }
 
 /* Aligns direction button with favorite button and adds space between buttons */
-.mapDirection {
-  margin-bottom: 80px;
+.mapDirection1 {
   margin-right: 10px;
   background-color: #de5246;
 }
 
-.mapDirection:hover { 
+.mapDirection1:hover { 
   background-color: lightcoral;
 }
 

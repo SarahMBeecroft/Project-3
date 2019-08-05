@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Jumbotron from '../../components/Jumbotron';
 import { Container, Row, Col } from '../../components/Grid';
-import Wrapper from '../../components/Wrapper'
 import API from '../../utils/API';
 import TopBeer from '../../components/TopBeers';
 import { AppContext } from '../../components/AppContainer';
@@ -67,7 +66,6 @@ class TopBeers extends Component {
     return (
       <Container fluid>
         <h5>Beers all users have favorited:</h5>
-        <Wrapper>
           <TopBeer
             topBeers={this.state.topBeers}
             userFavs={this.state.savedBeers}
@@ -77,7 +75,6 @@ class TopBeers extends Component {
             {/* <h5>Your current location:</h5> */}
             <GoogleApiWrapper></GoogleApiWrapper>
           </div>
-        </Wrapper>
       </Container>
     );
   }

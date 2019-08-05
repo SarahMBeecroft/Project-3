@@ -4,30 +4,24 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.border {
+.border2 {
   text-align: center;
   border: solid 1px grey;
-  margin: 1px;
   box-shadow: 2px 3px 2px #888888;
   max-height: 750px;
   overflow: hidden;
+  margin-bottom: 50px;
 }
 
-.cardContent {
+.cardContent2 {
   display: inline-block;
   padding: 8px;
   line-height: 20px; /* Height / no. of lines to display */
-  overflow:hidden;
 }
 
-.card {
-  background-color: white;
-  max-width: 300px;
-}
-
-.beer-img {
+.beer-img2 {
   max-width: 260px;
-  max-height: 200px;
+  max-height: 260px;
   overflow: hidden;
 }
 
@@ -35,39 +29,35 @@ li {
   list-style: none;
 }
 
-.abv {
+.abv2 {
   display: inline-block;
-  margin-bottom: 30px;
 }
 
-.description {
+.description2 {
   padding: 10px;
   overflow: hidden; 
-  max-height: 124px;
+  max-height: 123px;
   line-height: 16px; 
   position: relative;
   word-wrap: break-word;
 }
 
-.description:after { content: "..."; background: white; position :absolute;}
+/* Adds elipses after description is cut off */
+.description2:after { content: "..."; background: white; position :absolute;}
 
-.buttonDiv {
+.buttonDiv2 {
   text-align: center;
 }
 
-.buttons {
+.buttons2 {
   display: inline-block;
-}
-
-.removeBeer {
-  margin-bottom: 80px;
+  bottom: auto;
 }
 
 /* Aligns direction button with favorite button and adds space between buttons */
 .addLocation {
-  margin-bottom: 80px;
-  margin-right: 10px;
   background-color: #de5246;
+  margin-left: 10px;
 }
 
 .addLocation:hover { 
