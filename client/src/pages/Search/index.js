@@ -119,11 +119,6 @@ class SearchBeers extends Component {
       .catch(err => this.setState({ error: err.items }));
   };
 
-
-
-
-
-
   // Handled saved button to save beers to "My Beers"
   // Pass it a beer object rather than an event
   handleSavedButton = theBeer => {

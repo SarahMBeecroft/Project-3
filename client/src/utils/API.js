@@ -84,12 +84,12 @@ export default {
         );
     },
 
-    
-    breweryMapAPI: function () {
-        
+
+    breweryMapAPI: function (callback) {
+
         return axios.get(
-           
-            "/api/brewerymapsearch/"         );
+            "/api/brewerymapsearch/" + callback
+        );
     }
 
 
