@@ -18,33 +18,33 @@ const TopBeer = props => {
         <div className='result grid-container'>
           {props.topBeers.map(topBeer => {
             return (
-                <div className='border'>
-                <div className='cardContent'>
+                <div className='border3'>
+                <div className='cardContent3'>
                 <li className='search-list list-group-item' key={topBeer._id}>
                   <Row className='SearchResult row' id={topBeer._id + 'Card'}>
-                    <Col size='2' className='beerImage'>
+                    <Col size='2' className='beerImage3'>
     
                     <img src={
                        topBeer.label !== 'false' ? topBeer.label :
                        'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
-                       } alt='pint of beer' className='beer-img'/>  
+                       } alt='pint of beer' className='beer-img3'/>  
 
                     </Col>
                     <Col size='1' className='emptyCol' />
                     <Col size='9' className='beerInfo'>
                       <Row className='beerInfo'>
 
-                        <h5 className='beerName'>{topBeer.name}</h5>
+                        <h5 className='beerName3'>{topBeer.name}</h5>
 
-                        <h6 className='abv'>ABV: {topBeer.abv}</h6>
+                        <h6 className='abv3'>ABV: {topBeer.abv}</h6>
 
-                        <p className='description'>{topBeer.description}</p>     
+                        <p className='description3'>{topBeer.description}</p>     
 
-                        <p className='breweryName'><b>Brewery:</b> {topBeer.brewery.name}</p>
+                        <p className='breweryName3'><b>Brewery:</b> {topBeer.brewery.name}</p>
 
                         <a href={topBeer.brewery.website} target='_blank'><p className='breweryweb'>Brewery Website</p></a>  
 
-                        <p className='brewerylocation'><b>Brewery Address:</b> {topBeer.brewery.location}</p>
+                        <p className='brewerylocation3'><b>Brewery Address:</b> {topBeer.brewery.location}</p>
 
                       </Row>
                     </Col>

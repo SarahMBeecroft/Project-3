@@ -16,41 +16,41 @@ const SavedBeer = props => {
         <div className='result grid-container'>
           {props.savedBeers.map(savedBeer => {
             return (
-                <div className='border'>
-                <div className='cardContent'>
+                <div className='border2'>
+                <div className='cardContent2'>
                 <li className='search-list list-group-item' key={savedBeer._id}>
                   <Row className='SearchResult row' id={savedBeer.name + 'Card'}>
-                    <Col size='2' className='beerImage'>
+                    <Col size='2' className='beerImage2'>
     
                     <img src={
                       savedBeer.label !== 'false' ? savedBeer.label :
                         'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
-                    } alt='pint of beer' className='beer-img' />
+                    } alt='pint of beer' className='beer-img2' />
 
                   </Col>
                   <Col size='1' className='emptyCol' />
                   <Col size='9' className='beerInfo'>
 
-                      <Row className='beerInfo'>
+                      <Row className='beerInfo2'>
 
-                        <h5 className='beerName'>{savedBeer.name}</h5>
+                        <h5 className='beerName2'>{savedBeer.name}</h5>
                  
-                        <h6 className='abv'>ABV: {savedBeer.abv}</h6>
+                        <h6 className='abv2'>ABV: {savedBeer.abv}</h6>
                      
-                        <p className='description'>{savedBeer.description}</p>     
+                        <p className='description2'>{savedBeer.description}</p>     
                
-                        <p className='breweryName'><b>Brewery:</b> {savedBeer.brewery.name}</p>
+                        <p className='breweryName2'><b>Brewery:</b> {savedBeer.brewery.name}</p>
                
                         <a href={savedBeer.brewery.website} target='_blank'><p className='breweryweb'>Brewery Website</p></a>  
 
-                        <p className='brewerylocation'><b>Brewery Address:</b> {savedBeer.brewery.location}</p> 
+                        <p className='brewerylocation2'><b>Brewery Address:</b> {savedBeer.brewery.location}</p> 
 
                       </Row>
                     </Col>
                   </Row>
   
-                <Row className='buttonDiv'>
-                  <div className='buttons'>
+                <Row className='buttonDiv2'>
+                  <div className='buttons2'>
                     <button className='btn removeBeer' onClick={() => props.handleDeleteButton(savedBeer._id)}>
                       Remove Beer
                   </button>
