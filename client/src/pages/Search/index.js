@@ -243,7 +243,7 @@ class SearchBeers extends Component {
 
             <div className='map'>
               {/* <h5>Your current location:</h5> */}
-              <GoogleApiWrapper></GoogleApiWrapper>
+              {/* <GoogleApiWrapper></GoogleApiWrapper> */}
             </div> 
         </Container>
       </section>
