@@ -11,6 +11,7 @@ import AvatarImg from './components/AvatarImg';
 
 
 import Search from './pages/Search';
+import Brewery from './pages/Brewery';
 import Results from './pages/Results';
 import myBeers from './pages/myBeers';
 // AppContainerContainer links the Redux state with React
@@ -44,6 +45,7 @@ function App() {
           <Route exact path='/signin' component={SignIn} />
           <Route exact path="/dashboard" component={authGuard(Search)} />
           <Route exact path='/search' component={Search} />
+          <Route exact path='/brewery' component={Brewery} />
           <Route exact path='/results' component={Results} />
           <Route exact path='/mybeers' component={myBeers} />
           <Route exact path='/mybeers/:id' component={myBeers} />

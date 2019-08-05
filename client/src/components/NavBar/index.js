@@ -52,6 +52,7 @@ class NavBar extends Component {
                 <ul id="dropdown1" className="dropdown-content">
                     <li><a href='#'>My Beers</a></li>
                     <li><a href='#'>Top Beers</a></li>
+                    <li><a href='#'>Brewery</a></li>
                     <li><a href='#'>Logout</a></li>
                 </ul>
                 <nav>
@@ -71,7 +72,9 @@ class NavBar extends Component {
                             <li className="navLink1"><a href="/mybeers">My Beers</a></li>
                             <li className="navLink1"><a href="/topbeers">Top Beers</a></li>
                             <li className="navLink1"><a href="/search">Search</a></li>
+                            <li className="navLink1"><a href="/brewery">Brewery</a></li>
                             <li className="navLink1"><a href="/signin">Logout</a></li>
+                            
 
                         </ul>
                     </div>
