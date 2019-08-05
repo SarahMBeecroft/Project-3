@@ -5,6 +5,11 @@ import API from '../../utils/API';
 /**
  * Map component itself
  */
+// function onMapLoaded() {
+//   console.log('map callback');
+//   window.isMapLoaded = true;  
+// }
+
 const MapComponent = withScriptjs(withGoogleMap(props => {
   return <GoogleMap
     defaultZoom={10}
@@ -39,9 +44,9 @@ class Map extends Component {
     }
   }
 
-  // componentWillUpdate(){
-  //   this.getGeoLocation()
-  // }
+  componentWillUpdate(){
+    this.getGeoLocation()
+  }
 
   componentDidMount() {
     this.delayedShowMarker();
@@ -49,6 +54,7 @@ class Map extends Component {
     /**
     * Set value to true on map load callback
     */
+   onMapLoaded()
     function onMapLoaded() {
       console.log('map callback');
       window.isMapLoaded = true;
@@ -62,10 +68,10 @@ class Map extends Component {
     }, 5000)
   }
 
-  // handleMarkerClick = () => {
-  //   this.setState({ isMarkerShown: false })
-  //   this.delayedShowMarker()
-  // }
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false })
+    this.delayedShowMarker()
+  }
 
   getGeoLocation = () => {
     if (navigator.geolocation) {
@@ -92,20 +98,39 @@ class Map extends Component {
   }
 
   render() {
+    
+    const MapComponent = withScriptjs(withGoogleMap(props => {
+      return <GoogleMap
+        defaultZoom={12}
+        defaultCenter={props.places.length > 0 ? props.places[0] : { lat: 47.6062, lng: -122.0841 }}
+        defaultOptions={{ mapTypeControl: false }}
+        onClick={props.hideInfoWindow}
+      >
+        {props.isMarkerShown && (props.places.map((place, index) =>
+          <Marker
+            key={index}
+            position={place}
+            animation={place.clicked ?
+              window.google.maps.Animation.BOUNCE : 0}
+            onClick={() => { props.onMarkerClick(index) }} />))
+        }
+      </GoogleMap>
+    }
+    ))
     return (
       <Fragment>
         <div
           role='region'
           aria-label='map'
           className='map-container'
-          style={{ marginLeft: '250px' }}>
+          style={{ marginLeft: '0px' }}>
           <MapComponent
             isMarkerShown={this.props.places.length > 0}
-            // googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo&v=3.exp&libraries=geometry,drawing,places&callback=onMapLoaded'
-            googleMapURL={`/api/brewerymapsearch/onMapLoaded`}
-            //{API.breweryMapAPI}
-            loadingElement={<div style={{ height: `100%`, width: '50%' }} />}
-            containerElement={<div style={{ height: `63%`, width: '40%' }} />}
+            googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo&v=3.exp&libraries=geometry,drawing,places&callback=onMapLoaded'
+            // googleMapURL={`/api/brewerymapsearch/onMapLoaded`}
+            
+            loadingElement={<div style={{ height: `1000px`, width: '1000px' }} />}
+            containerElement={<div style={{ height: `1000px`, width: '1000px' }} />}
             mapElement={<div style={{ height: `100%`, }} />}
             places={this.props.places}
             hideInfoWindow={this.props.hideInfoWindow}
@@ -113,7 +138,7 @@ class Map extends Component {
           />
         </div>
       </Fragment>
-    );
+    )
   }
 }
 

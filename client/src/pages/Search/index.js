@@ -219,11 +219,7 @@ class SearchBeers extends Component {
             // Save button isn't functional yet
             handleSavedButton={this.handleSavedButton}
           />
-          <div className='map'>
-            {/* <h5>Your current location:</h5> */}
-            {/* <GoogleApiWrapper></GoogleApiWrapper> */}
-            <BreweryMap></BreweryMap>
-          </div>
+        
         </Container></section>
 
     );

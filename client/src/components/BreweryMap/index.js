@@ -105,17 +105,23 @@ class BreweryMap extends Component {
     });
 
     return (
-      <div className='app-container'>
+      <div className='appMap-container'>
+        <div className='row'>
+          <div className='col s3'>
         <List
           foursquare={FOURSQUARE}
           setMarkers={this.handleSetMarkers}
           onPlaceClick={this.handleMarkerClick} />
+          </div>
+          <div className='col s9'>
         <Map
           places={placesInfo}
           hideInfoWindow={this.handleHidingInfoWindow}
           onMarkerClick={this.handleMarkerClick}
           onError={this.showError}
            />
+           </div>
+           </div>
         {this.state.selectedPlace && (<InfoWindow
           place={this.state.selectedPlace}
           foursquare={FOURSQUARE}

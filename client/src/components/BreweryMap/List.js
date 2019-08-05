@@ -17,8 +17,8 @@ class List extends Component {
   componentDidMount() {
     // Geocode.fromAddress("Googleplex").then(
       // geoResponse => {
-        const lat = 47.6062;
-        const lng = -122.3321;
+        const lat = window.localStorage.getItem('userLat');
+        const lng = window.localStorage.getItem('userLon');
         // const { lat, lng } = geoResponse.results[0].geometry.location;
         console.log (lat, lng)
         this.props.foursquare.venues.getVenues({
@@ -51,13 +51,13 @@ class List extends Component {
    * Handles click on sandwich button
    * to show and hide sidebar
    */
-  // handleSandwichClick = () => {
-  //   const map = document.querySelector('.map-container');
-  //   map.style.marginLeft = map.style.marginLeft === '250px' ? '0' : '250px';
+  handleSandwichClick = () => {
+    const map = document.querySelector('.map-container');
+    map.style.marginLeft = map.style.marginLeft === '250px' ? '0' : '250px';
 
-  //   const sandwich = document.querySelector('.sandwich');
-  //   sandwich.style.left = sandwich.style.left === '250px' ? '0' : '250px';
-  // }
+    const sandwich = document.querySelector('.sandwich');
+    sandwich.style.left = sandwich.style.left === '250px' ? '0' : '250px';
+  }
 
   /**
    * FUNCTIONS
@@ -121,7 +121,7 @@ class List extends Component {
 
   render() {
     return (
-      <div>
+      // <div>
         <div className='sidebar'>
           <div className='heading' role='heading'>
             <h1 className='title'>
@@ -129,19 +129,19 @@ class List extends Component {
             </h1>
             {this.getInputField()}
           </div>
-          <div className='place-list' role='region' style={{height: '20%'}}>
+          <div className='place-list' role='region' style={{height: '1000px'}}>
             {this.getPlaceList()}
           </div>
-        </div>
+        {/* </div> */}
         {/* <div
           tabIndex='-1'
           style={{left: '250px'}}
           className='sandwich'
-          onClick={this.handleSandwichClick}> */}
-          {/* <img
-            src='menu.png'
-            alt='Toggle menu' /> */}
-        {/* </div> */}
+          onClick={this.handleSandwichClick}>
+          <img
+            src='/menu.png'
+            alt='Toggle menu' />
+        </div> */}
       </div>
     );
   }
