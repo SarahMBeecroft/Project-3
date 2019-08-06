@@ -16,7 +16,7 @@ const Style = props => {
           </div>
           <br></br>
           <div className="submitBtnDiv">
-            <button type='submit' className="waves-effect waves-light btn-large" onClick={props.handleFormSubmit}>
+            <button type='submit' className="waves-effect waves-light btn-large googlebtn" onClick={props.handleFormSubmit}>
               Search<i className="material-icons">search</i>
           </button>
           </div>
