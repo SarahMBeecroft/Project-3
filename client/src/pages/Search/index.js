@@ -183,57 +183,6 @@ class SearchBeers extends Component {
           </div>
 
 
-
-
-          {/* // suggestions={[
-          //   "Ale",
-          //   "India Pale Ale",
-          //   "IPA",
-          //   "Pale Ale",
-          //   "Pilsner",
-          //   "Porter",
-          //   "Wheat Beer",
-          //   "Bitter",
-          //   "Brown Ale",
-          //   "Saison",
-          //   "Dunkel",
-          //   "Bock",
-          //   "Pale Lager",
-          //   "Lambic",
-          //   "Kolsch",
-          //   "Barley Wine",
-          //   "Gose",
-          //   "Scotch Ale",
-          //   "Tripel",
-          //   "Dubbel",
-          //   "Irish Red Ale",
-          //   "Marzen",
-          //   "Cream Ale",
-          //   "Schwarzbier",
-          //   "Old Ale",
-          //   "Berliner Weisse",
-          //   "Doppelbock",
-          //   "Steam Beer",
-          //   "Hefeweizen",
-          //   "Stout",
-          //   "Sour",
-          //   "Lager", 
-          //   "Amber Ale",
-          //   "Rye Beer",
-          //   "Vienna Lager",
-          //   "Flanders Red Ale",
-          //   "Trappist Beer",
-          //   "Belgian",
-          //   "Imperial Stout"
-          // ]}
-      {/* <h1>Zip Code:</h1>
-      <Zip></Zip>
-      <h1>Test Search Field:</h1> */}
-          {/* <TestSearch
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-      /> */}
-
           {/* <h5>Your personalized beer results:</h5> */}
           <h5>Your personalized beer results:</h5>
           <Wrapper>
