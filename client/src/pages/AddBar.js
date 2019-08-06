@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import API from "../utils/API";
 import { AppContext } from "../components/AppContainer";
-import GoogleApiWrapper from '../components/CurrentLocation';
+
 
 import Jumbotron from '../components/Jumbotron';
 import { Container, Row, Col } from '../components/Grid';
