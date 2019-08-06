@@ -7,10 +7,10 @@
 .border3 {
   text-align: center;
   border: solid 1px grey;
-  margin: 1px;
   box-shadow: 2px 3px 2px #888888;
   max-height: 750px;
   overflow: hidden;
+  margin-bottom: 50px;
 }
 
 .cardContent3 {

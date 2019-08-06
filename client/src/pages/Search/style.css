@@ -10,7 +10,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.title {
+.searchTitle {
   color: #4d4d4d;
 }
 
