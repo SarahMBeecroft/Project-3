@@ -10,7 +10,7 @@ const MapComponent = withScriptjs(withGoogleMap(props => {
   const lng = window.localStorage.getItem('userLon');
   return <GoogleMap
     defaultZoom={12}
-    defaultCenter={props.places.length > 0 ? props.places[0] : { lat: lat, lng: lng }}
+    defaultCenter={props.places.length > 0 ? props.places[0] : { lat, lng }}
     defaultOptions={{ mapTypeControl: false }}
     onClick={props.hideInfoWindow}
   >
