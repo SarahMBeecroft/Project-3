@@ -20,14 +20,12 @@ const SavedBeer = props => {
                 <div className='cardContent2'>
                 <li className='search-list list-group-item' key={savedBeer._id}>
                   <Row className='SearchResult row' id={savedBeer.name + 'Card'}>
-                    <Col size='2' className='savedBeerImage'>
-                      <img src={
-                       savedBeer.label !== 'false' ? savedBeer.label :
-                       'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
-                       } alt='pint of beer'/>  
-                    </Col>
-                    <Col size='1' className='emptyCol' />
-                    <Col size='9' className='beerInfo'>
+                    <Col size='2' className='beerImage2'>
+    
+                    <img src={
+                      savedBeer.label !== 'false' ? savedBeer.label :
+                        'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
+                    } alt='pint of beer' className='beer-img2' />
 
                   </Col>
                   <Col size='1' className='emptyCol' />
