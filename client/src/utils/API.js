@@ -9,8 +9,8 @@ console.log(process.env);
 export default {
     // Users
     // Get all users
-    getUsers: function () {
-        return axios.get("/api/users");
+    getUsers: function (query) {
+        return axios.get("/api/users/?" + query);
     },
     // Create a user
     createUser: function (userData) {
@@ -30,8 +30,8 @@ export default {
     },
     // Beers
     // Get all beers
-    getBeers: function () {
-        return axios.get("/api/beers");
+    getBeers: function (query) {
+        return axios.get("/api/beers/?" + query);
     },
     // Create a beer
     createBeer: function (beerData) {
@@ -51,8 +51,8 @@ export default {
     },
     // Comments
     // Get all comments
-    getComments: function () {
-        return axios.get("/api/comments");
+    getComments: function (query) {
+        return axios.get("/api/comments/?" + query);
     },
     // Create a comment
     createComment: function (commentData) {
@@ -71,6 +71,10 @@ export default {
         return axios.delete("/api/comments/" + id);
     },
 
+    addFav: function (userId, beer) {
+        return axios.put(`/api/users/${userId}/addfav`, beer);
+    },
+
     // Search external beer API
     // Going to use the Brewerydb sandbox API for now, we can fall back on the free Open Beer Database if needed 
     searchBeerAPI: function (query) {
@@ -78,5 +82,15 @@ export default {
             // `https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${query}`
             "/api/beersearch/" + query
         );
+    },
+
+
+    breweryMapAPI: function (callback) {
+
+        return axios.get(
+            "/api/brewerymapsearch/" + callback
+        );
     }
+
+
 };

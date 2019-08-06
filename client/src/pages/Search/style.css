@@ -1,11 +1,16 @@
 /* Form CSS */
-
 body {
   font-family: sans-serif;
   margin-left: 50px;
 }
 
-h1 {
+.grid-container {
+  display: grid;
+  grid-gap: 50px;  
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.searchTitle {
   color: #4d4d4d;
 }
 
@@ -45,4 +50,8 @@ input {
 
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
+}
+
+.jumbotron2{
+  margin-top: 3cm;
 }

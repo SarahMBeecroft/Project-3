@@ -6,7 +6,8 @@ import {
 
 const DEFAULT_STATE = {
   isAuthenticated: false,
-  errorMessage: ''
+  errorMessage: '',
+  userId: '',
 }
 
 export default (state = DEFAULT_STATE, action) => {
@@ -14,9 +15,9 @@ export default (state = DEFAULT_STATE, action) => {
     case AUTH_SIGN_UP:
       return { ...state, isAuthenticated: true, errorMessage: '' }
     case AUTH_SIGN_IN:
-      return { ...state, isAuthenticated: true, errorMessage: '' }
+      return { ...state, isAuthenticated: true, errorMessage: '', userId: action.payload }
     case AUTH_SIGN_OUT:
-      return { ...state, isAuthenticated: false, errorMessage: '' }
+      return { ...state, isAuthenticated: false, errorMessage: '', userId: '' }
     case AUTH_ERROR:
       return { ...state, errorMessage: action.payload }
     default:

@@ -8,8 +8,8 @@ const barSchema = new Schema({
         lat: Number,
         lng: Number
     },
-    addedBy: {type: mongoose.ObjectId, required: true},
-    beers: {type: Array}
+    addedBy: {type: Schema.Types.ObjectId, ref: "User"},
+    beers: [{type: String, ref: "Beer"}]
 });
 
 const Bar = mongoose.model("Bar", barSchema);

@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .page-footer{
+      background-color: #005826;
+  }
+
+  .fab, .fas{
+    font-size: 40px;
+    padding: 4px;
+  }
+
+ .footerTitle{
+   /* margin-left: 14px; */
+   text-align: center;
+ }
+ .linksContainer{
+   text-align: center;
+ }
+ .footer-copyright{
+  text-align: center;
+
+ }

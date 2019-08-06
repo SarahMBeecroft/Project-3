@@ -33,50 +33,28 @@ class NavBar extends Component {
 
     // }
     // <nav>
-    //   <div class="nav-wrapper">
-    //     <a href="#" class="brand-logo">Logo</a>
-    //     <ul id="nav-mobile" class="right hide-on-med-and-down">
+    //   <div className="nav-wrapper">
+    //     <a href="#" className="brand-logo">Logo</a>
+    //     <ul id="nav-mobile" className="right hide-on-med-and-down">
     //       <li><a href="sass.html">Sass</a></li>
     //       <li><a href="badges.html">Components</a></li>
     //       <li><a href="collapsible.html">JavaScript</a></li>
     //     </ul>
     //   </div>
     // </nav>
-    componentDidMount() {
-        const options = {
-            // hover: true,
-            closeOnClick: true,
-            alignment: "right",
-            onOpenStart: () => {
-                console.log("onOpenStart");
-            },
-            onOpenEnd: () => {
-                console.log("onOpenEnd");
-            },
-            onCloseStart: () => {
-                console.log("onCloseStart");
-            },
-            onCloseEnd: () => {
-                console.log("onCloseEnd");
-            },
-            inDuration: 300,
-            outDuration: 200
-        };
-        M.Dropdown.init(this.Dropdown, options);
-    }
 
 
     render() {
         return (
 
             <div className="navMenu">
-                {/* Dropdown Contents */}
+
                 <ul id="dropdown1" className="dropdown-content">
-                        <li><a href='/mybeers'>My Beers</a></li>
-                        <li><a href='/topbeers'>Top Beers</a></li>
-                        <li><a href='/signin'>Logout</a></li>
-                    </ul>
-                
+                    <li><a href='#'>My Beers</a></li>
+                    <li><a href='#'>Top Beers</a></li>
+                    <li><a href='#'>Brewery</a></li>
+                    <li><a href='#'>Logout</a></li>
+                </ul>
                 <nav>
                     <div className="nav-wrapper">
 
@@ -90,12 +68,18 @@ class NavBar extends Component {
 
 
                         <ul id="nav-mobile" className="left hide-on-med-and-down">
-                            <li><a href="/"><i className="material-icons right">home</i></a></li>
-                            {/* <li><a href="/mybeers">My Beers</a></li> */}
-                            <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="/search"><i className="material-icons right">search</i></a></li>
+                            <li className="navLink1"><a href="/">Home</a></li>
+                            <li className="navLink1"><a href="/mybeers">My Beers</a></li>
+                            <li className="navLink1"><a href="/topbeers">Top Beers</a></li>
+                            <li className="navLink1"><a href="/search">Search</a></li>
+                            <li className="navLink1"><a href="/brewery">Brewery</a></li>
+                            <li className="navLink1"><a href="/signin">Logout</a></li>
+                            
+
                         </ul>
                     </div>
+
+                    
                 </nav>
 
                 <ul className="sidenav" id="mobile-nav">

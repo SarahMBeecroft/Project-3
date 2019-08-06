@@ -6,6 +6,10 @@ import API from '../../utils/API';
 import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
+import { AppContext } from "../../components/AppContainer";
+
+
+import icon4 from "../../components/AvatarImg/img/icon4.png";
 
 /*******************
  * 
@@ -20,23 +24,29 @@ import { set } from 'mongoose';
 
 // Currently set up to use test search field component
 class SearchBeers extends Component {
+  // Context
+  static contextType = AppContext;
   // Creates state
   state = {
     search: '',
     beers: [],
     error: '',
     message: '',
-    savedBeers: []
+    savedBeers: [],
   };
 
-  componentDidMount() {
-    API.getBeers().
-      then(res => {
-        this.setState({ savedBeers: res.data });
-        console.log(this.state.savedBeers);
-      }).
-      catch();
-  };
+  // componentDidUpdate() {
+  //   // if (this.context) {
+  //     API.getUserDetail(this.context).
+  //       then(res => {
+  //         console.log(res.data.favorites);
+  //         if (this.state.savedBeers.length !== res.data.favorites.length) {
+  //           this.setState({savedBeers: res.data.favorites});
+  //         }
+  //       }).
+  //       catch();
+  //   // }
+  // };
 
   // Takes value from search input 
   handleInputChange = event => {
@@ -57,17 +67,48 @@ class SearchBeers extends Component {
           console.log(results);
           // Maps through the array 
           results = results.map(result => {
+
             // Stores beer data in new object 
+            let address;
+            if (result.breweries[0].locations) {
+              address = result.breweries[0].locations[0].streetAddress + ', ' + result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region + ' ' + result.breweries[0].locations[0].postalCode;
+            }
+            else {
+              address = "No address provided.";
+            }
+            //map url
+            var originLat = window.localStorage.getItem('userLat');
+            var originLon = window.localStorage.getItem('userLon');
+
+            function createGoogleMapsLink(address) {
+              var directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + originLat + ',' + originLon + "&destination=" + replaceSpace(address) + "&travelmode=driving";
+              return directionQuery;
+            }
+            //function to replace space with + for the url
+            function replaceSpace(loc) {
+              return loc.split(' ').join('+');
+            }
+
+
             result = {
-              key: result.id,
-              id: result.id,
+              // key: result.id,
+              _id: result.id,
               name: result.name,
               description: result.description,
               label: (result.labels ? result.labels.medium : false),
               abv: result.abv,
-              brewery: result.breweries[0].name
+              brewery: {
+                name: result.breweries[0].name,
+                location: address,
+                mapURL: createGoogleMapsLink(address),
+                website: result.breweries[0].website
+              }
+              // breweryName: result.breweries[0].name,
+              // breweryLocation: address
+              // breweryLocation: result.breweries[0].locations[0].streetAddress +', '+ result.breweries[0].locations[0].locality + ', ' + result.breweries[0].locations[0].region +' '+ result.breweries[0].locations[0].postalCode
+              // breweryGeo: {lat: result.breweries[0].locations.latitude[0], lon: result.breweries[0].locations[0].longitude }
             }
-            console.log(result);
+            console.log(result)
 
             return result;
           });
@@ -84,31 +125,65 @@ class SearchBeers extends Component {
     console.log(theBeer);
     // event.preventDefault();  Don't need; not a form
     console.log(this.state.beers);
-    // let savedBeers = this.state.beers.filter(beer => beer.id === theBeer.id)
-    // savedBeers = savedBeers[0];
-    API.createBeer(theBeer).
-      then(() => {
-        let savedBeers = this.state.savedBeers;
-        savedBeers.push(theBeer);
-        this.setState({savedBeers});
-        alert('Beer saved to "My Beers');
+
+    API.addFav(this.context, theBeer).
+      then(res => {
+        console.log(res.data);
+        this.setState({ savedBeers: res.data });
       }).
       catch(err => console.log(err));
   }
 
   // Renders content onto main search page
   render() {
+    console.log(this.context);
+    if (this.context === undefined) {
+      // context doesn't seem to get userID properly on sign in.  Forcing a reload is sloppy, but it works.
+      window.location.reload();
+    }
+    else {
+      API.getUserDetail(this.context).
+        then(res => {
+          console.log(res.data.favorites);
+          if (res.data.favorites) {
+            if (this.state.savedBeers.length !== res.data.favorites.length) {
+              this.setState({ savedBeers: res.data.favorites.map(beer => beer._id) });
+            }
+          }
+        }).
+        catch();
+    }
+
     return (
-      <Container fluid>
-        <Jumbotron>
-          <h1>Hop to It</h1>
-        </Jumbotron>
-        <h4>What kind of beer are you looking for?</h4>
-        <Style
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-        />
-        {/* // suggestions={[
+      <section id="search" className="section section-search darken-1 scrollspy">
+        <Container fluid>
+          <div className="row">
+            <div className="col s12">
+              <Jumbotron>
+                <h1 className="searchTitle">Hop to It</h1>
+
+                <img className="circle bigIcon center-align" src={icon4}></img>
+
+              </Jumbotron>
+            </div>
+          </div>
+
+          <div className="row jumbotron2">
+            <div className="col s12">
+              <Jumbotron>
+                <h4>What kind of beer are you looking for?</h4>
+                <Style
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+              </Jumbotron>
+            </div>
+          </div>
+
+
+
+
+          {/* // suggestions={[
           //   "Ale",
           //   "India Pale Ale",
           //   "IPA",
@@ -149,20 +224,17 @@ class SearchBeers extends Component {
           //   "Belgian",
           //   "Imperial Stout"
           // ]}
-      {/* <h1>Zip Code:</h1>
-      <Zip></Zip>
-      <h1>Test Search Field:</h1> */}
-        {/* <TestSearch
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-      /> */}
-        <h5>Your personalized beer results:</h5>
-        <SearchResults
-          beers={this.state.beers}
-          // Save button isn't functional yet
-          handleSavedButton={this.handleSavedButton}
-        />
-      </Container>
+
+
+          {/* <h5>Your personalized beer results:</h5> */}
+          <h5>Your personalized beer results:</h5>
+            <SearchResults
+              beers={this.state.beers}
+              userFavs={this.state.savedBeers}
+              handleSavedButton={this.handleSavedButton}
+            />
+        </Container>
+      </section>
     );
   }
 }

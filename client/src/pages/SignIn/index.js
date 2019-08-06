@@ -36,6 +36,7 @@ class SignIn extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+    console.log(handleSubmit);
     return (
       <Container fluid>
         <div className= "row">

@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -27,6 +29,9 @@ body{
   margin:0;
 }
 
+/* Makes it so links don't default to blue */
+a { color: inherit; } 
+/* 
 .container{
   margin:3rem;
-}
+} */
