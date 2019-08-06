@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import List from './List';
 import Map from './Map';
 import InfoWindow from './InfoWindow';
-import './App.css';
+import './style.css';
 
 const FOURSQUARE = require('react-foursquare')({
   clientID: 'DF30QCC2OFQ3EO5L2JYYYZODPV0A4MIDY10HPD0HEI20MOHB',
@@ -105,17 +105,23 @@ class BreweryMap extends Component {
     });
 
     return (
-      <div className='app-container'>
+      <div className='appMap-container'>
+        <div className='row'>
+          <div className='col s3'>
         <List
           foursquare={FOURSQUARE}
           setMarkers={this.handleSetMarkers}
           onPlaceClick={this.handleMarkerClick} />
+          </div>
+          <div className='col s9'>
         <Map
           places={placesInfo}
           hideInfoWindow={this.handleHidingInfoWindow}
           onMarkerClick={this.handleMarkerClick}
           onError={this.showError}
            />
+           </div>
+           </div>
         {this.state.selectedPlace && (<InfoWindow
           place={this.state.selectedPlace}
           foursquare={FOURSQUARE}

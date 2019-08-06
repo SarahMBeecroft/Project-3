@@ -1,38 +1,69 @@
-.card {
-  background-color: white;
-  max-width: 340px;
+.grid-container {
+  display: grid;
+  grid-gap: 50px;  
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.card-body {
-  margin: 0px 20px 0px 20px;
+.border2 {
+  text-align: center;
+  border: solid 1px grey;
+  box-shadow: 2px 3px 2px #888888;
+  max-height: 750px;
+  overflow: hidden;
+  margin-bottom: 50px;
 }
 
-.beer-img {
-  max-width: 300px;
-  margin-top: 10px;
+.cardContent2 {
+  display: inline-block;
+  padding: 8px;
+  line-height: 20px; /* Height / no. of lines to display */
+}
+
+.beer-img2 {
+  max-width: 260px;
+  max-height: 260px;
+  overflow: hidden;
 }
 
 li {
   list-style: none;
 }
 
-.description {
-  width: 300px;
+.abv2 {
+  display: inline-block;
 }
 
-hr {
-  margin-top: 20px;
+.description2 {
+  padding: 10px;
+  overflow: hidden; 
+  max-height: 123px;
+  line-height: 16px; 
+  position: relative;
+  word-wrap: break-word;
 }
 
-.description {
- margin-top: -20px;
+/* Adds elipses after description is cut off */
+.description2:after { content: "..."; background: white; position :absolute;}
+
+.buttonDiv2 {
+  text-align: center;
 }
 
-.abv {
-  margin-top: -20px;
+.buttons2 {
+  display: inline-block;
+  bottom: auto;
 }
 
-.deleteBtn {
-  margin-top: -80px;
+/* Aligns direction button with favorite button and adds space between buttons */
+.addLocation {
+  background-color: #de5246;
+  margin-left: 10px;
 }
+
+.addLocation:hover { 
+  background-color: lightcoral;
+}
+
+
+
 

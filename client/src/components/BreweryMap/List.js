@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // import Geocode from 'react-geocode';
 import escapeRegExp from 'escape-string-regexp';
 
-// Geocode.setApiKey('AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo');
 
 class List extends Component {
   state = {
@@ -17,13 +16,14 @@ class List extends Component {
   componentDidMount() {
     // Geocode.fromAddress("Googleplex").then(
       // geoResponse => {
-        const lat = 47.6062;
-        const lng = -122.3321;
+        const lat = window.localStorage.getItem('userLat');
+        const lng = window.localStorage.getItem('userLon');
         // const { lat, lng } = geoResponse.results[0].geometry.location;
         console.log (lat, lng)
         this.props.foursquare.venues.getVenues({
           'll': `${lat},${lng}`,
           'categoryId': '50327c8591d4c4b30a586d5d'
+          //foursquare brewery categoryID:https://developer.foursquare.com/docs/resources/categories
         }).then(fsResponse => {
           const venues = fsResponse.response.venues;
           this.props.setMarkers(venues);
@@ -121,7 +121,7 @@ class List extends Component {
 
   render() {
     return (
-      <div>
+      // <div>
         <div className='sidebar'>
           <div className='heading' role='heading'>
             <h1 className='title'>
@@ -129,19 +129,19 @@ class List extends Component {
             </h1>
             {this.getInputField()}
           </div>
-          <div className='place-list' role='region' style={{height: '50%'}}>
+          <div className='place-list' role='region' style={{height: '1000px'}}>
             {this.getPlaceList()}
           </div>
-        </div>
-        <div
+        {/* </div> */}
+        {/* <div
           tabIndex='-1'
           style={{left: '250px'}}
           className='sandwich'
           onClick={this.handleSandwichClick}>
           <img
-            src='menu.png'
+            src='/menu.png'
             alt='Toggle menu' />
-        </div>
+        </div> */}
       </div>
     );
   }

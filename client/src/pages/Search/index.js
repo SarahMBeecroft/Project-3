@@ -7,9 +7,9 @@ import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
 import { AppContext } from "../../components/AppContainer";
-import GoogleApiWrapper from '../../components/CurrentLocation';
-import BreweryMap from '../../components/BreweryMap';
 
+
+import icon4 from "../../components/AvatarImg/img/icon4.png";
 
 /*******************
  * 
@@ -80,15 +80,15 @@ class SearchBeers extends Component {
             var originLat = window.localStorage.getItem('userLat');
             var originLon = window.localStorage.getItem('userLon');
 
-            function createGoogleMapsLink(address) {	
-              var directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + originLat +','+ originLon+ "&destination=" + replaceSpace(address) + "&travelmode=driving";
+            function createGoogleMapsLink(address) {
+              var directionQuery = "https://www.google.com/maps/dir/?api=1&origin=" + originLat + ',' + originLon + "&destination=" + replaceSpace(address) + "&travelmode=driving";
               return directionQuery;
-              }
-              //function to replace space with + for the url
-              function replaceSpace(loc) {
+            }
+            //function to replace space with + for the url
+            function replaceSpace(loc) {
               return loc.split(' ').join('+');
-              }
-            
+            }
+
 
             result = {
               // key: result.id,
@@ -129,6 +129,7 @@ class SearchBeers extends Component {
     API.addFav(this.context, theBeer).
       then(res => {
         console.log(res.data);
+        this.setState({ savedBeers: res.data });
       }).
       catch(err => console.log(err));
   }
@@ -146,7 +147,7 @@ class SearchBeers extends Component {
           console.log(res.data.favorites);
           if (res.data.favorites) {
             if (this.state.savedBeers.length !== res.data.favorites.length) {
-              this.setState({ savedBeers: res.data.favorites });
+              this.setState({ savedBeers: res.data.favorites.map(beer => beer._id) });
             }
           }
         }).
@@ -156,14 +157,32 @@ class SearchBeers extends Component {
     return (
       <section id="search" className="section section-search darken-1 scrollspy">
         <Container fluid>
-          <Jumbotron>
-            <h1 className="title">Hop to It</h1>
-          </Jumbotron>
-          <h4>What kind of beer are you looking for?</h4>
-          <Style
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
+          <div className="row">
+            <div className="col s12">
+              <Jumbotron>
+                <h1 className="title">Hop to It</h1>
+
+                <img className="circle bigIcon center-align" src={icon4}></img>
+
+              </Jumbotron>
+            </div>
+          </div>
+
+          <div className="row jumbotron2">
+            <div className="col s12">
+              <Jumbotron>
+                <h4>What kind of beer are you looking for?</h4>
+                <Style
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+              </Jumbotron>
+            </div>
+          </div>
+
+
+
+
           {/* // suggestions={[
           //   "Ale",
           //   "India Pale Ale",
@@ -212,19 +231,18 @@ class SearchBeers extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
       /> */}
-          <h5>Your personalized beer results:</h5>
-          <SearchResults
-            beers={this.state.beers}
-            // Save button isn't functional yet
-            handleSavedButton={this.handleSavedButton}
-          />
-          <div className='map'>
-            {/* <h5>Your current location:</h5> */}
-            {/* <GoogleApiWrapper></GoogleApiWrapper> */}
-            <BreweryMap></BreweryMap>
-          </div>
-        </Container></section>
 
+          {/* <h5>Your personalized beer results:</h5> */}
+          <h5>Your personalized beer results:</h5>
+            <SearchResults
+              beers={this.state.beers}
+              userFavs={this.state.savedBeers}
+              handleSavedButton={this.handleSavedButton}
+            />
+
+           
+        </Container>
+      </section>
     );
   }
 }

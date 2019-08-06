@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Encode+Sans);
+/* @import url(https://fonts.googleapis.com/css?family=Encode+Sans); */ 
 
 html,
 body,
@@ -7,11 +7,16 @@ body,
 .map-container {
   height: 100%;
   margin: 0;
-  font-family: 'Encode Sans', sans-serif;
+  /* font-family: 'Encode Sans', sans-serif; */
+} 
+.row .col{
+  padding:0px;
 }
-
 .sidebar {
-  position: fixed;
+  /* position: fixed; */
+  width:250px;
+  margin:0px 0px auto auto;
+  padding:0px;
 }
 
 .title {
@@ -22,11 +27,11 @@ body,
 .place-list {
   width: 250px;
   height: calc(100% - 120px);
-  position: fixed;
-  background: #3e3e3e;
+  /* position: relative; */
+  background: #005826;
   z-index: 1;
   overflow-y: auto;
-  margin-top: 120px;
+  margin-top: 0px;
 }
 
 .places {
@@ -36,7 +41,7 @@ body,
 
 .place {
   padding: 10px 15px;
-  color: #b9b9b9;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -46,9 +51,9 @@ body,
 }
 
 .heading {
-  position: fixed;
+  position: absolute;
   width: 250px;
-  background: #3e3e3e;
+  background: #005826;
 }
 
 .filter-places {
@@ -75,15 +80,17 @@ body,
 
 .map-container,
 .sandwich {
+  margin-left:250px;
   transition: 0.3s ease all;
 }
 
 .info-window {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  
+  right: 150px;
+  bottom: -450px;
   transform: translate(150px, 0);
-  width: 300px;
+  width: 350px;
   background: rgb(255, 255, 255);
   cursor: move;
   padding: 0 20px 20px;
@@ -137,7 +144,7 @@ body,
   text-align: right;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .sandwich {
     padding: 25px 20px;
   }
@@ -146,4 +153,4 @@ body,
   .info-window img {
     width: 250px;
   }
-}
+} */
