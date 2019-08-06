@@ -224,13 +224,7 @@ class SearchBeers extends Component {
           //   "Belgian",
           //   "Imperial Stout"
           // ]}
-      {/* <h1>Zip Code:</h1>
-      <Zip></Zip>
-      <h1>Test Search Field:</h1> */}
-          {/* <TestSearch
-          handleFormSubmit={this.handleFormSubmit}
-          handleInputChange={this.handleInputChange}
-      /> */}
+
 
           {/* <h5>Your personalized beer results:</h5> */}
           <h5>Your personalized beer results:</h5>
@@ -239,8 +233,6 @@ class SearchBeers extends Component {
               userFavs={this.state.savedBeers}
               handleSavedButton={this.handleSavedButton}
             />
-
-           
         </Container>
       </section>
     );
