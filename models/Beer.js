@@ -9,7 +9,8 @@ const beerSchema = new Schema({
     brewery: { 
         name: String,
         location: String,
-        website: String
+        website: String,
+        mapURL: String
      },
     bars: [{ type: Schema.Types.ObjectId, ref: "Bar" }],
     description: { type: String },

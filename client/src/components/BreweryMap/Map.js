@@ -126,8 +126,8 @@ class Map extends Component {
           style={{ marginLeft: '0px' }}>
           <MapComponent
             isMarkerShown={this.props.places.length > 0}
-            googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo&v=3.exp&libraries=geometry,drawing,places&callback=onMapLoaded'
-            // googleMapURL={`/api/brewerymapsearch/onMapLoaded`}
+            // googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyAYg-4Jqya1zHBjFEP8Muuh3JcP2QraeAo&v=3.exp&libraries=geometry,drawing,places&callback=onMapLoaded'
+            googleMapURL="/api/brewerymapsearch/onMapLoaded"
             
             loadingElement={<div style={{ height: `1000px`, width: '1000px' }} />}
             containerElement={<div style={{ height: `1000px`, width: '1000px' }} />}
