@@ -9,12 +9,10 @@ module.exports = {
     searchBeer: function (req, res) {
         console.log(req.params);
         axios.get(searchURL + req.params.query + breweries + keyString).
-            then((beer) => { 
+            then((beer) => {
                 // console.log(beer.data);
                 res.json(beer.data);
-                
-                
             }).
             catch((err) => { res.json(err); });
-}
+    }
 }
