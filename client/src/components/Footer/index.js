@@ -17,7 +17,7 @@ class Footer extends Component {
                         <div className="col l6 s12">
                             <h5 className="white-text footerTitle">About Us:</h5>
                             <p className="grey-text text-lighten-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                Hop to It was created by Joshua Richardson, Se Won Park, Marcos Benitez, and Sarah Beecroft. We designed this app to help beer lovers narrow down beer selections in a sea of choice. Additionally, this app will let you favorite beers and mark when beers are available at breweries nearby to help others locate beers in their area. This cuts down on choosing time so you can spend more time enjoying a cold one with your friends. Cheers!
                             </p>
                         </div>
                         <div className="col l4 offset-l2 s12">
@@ -25,7 +25,7 @@ class Footer extends Component {
                                 <h5 className="white-text footerTitle">Links</h5>
                             </div>
                             <div className="linksContainer">
-                                <i className="fab fa-github-square"></i>
+                                <a href="https://github.com/SarahMBeecroft/Project-3" target="_blank"><i className="fab fa-github-square"></i></a>
                                 <i className="fab fa-twitter-square"></i>
                                 <i className="fas fa-envelope-square"></i>
                             </div>
@@ -34,7 +34,7 @@ class Footer extends Component {
                 </div>
                 <div className="footer-copyright">
                     <div className="container">
-                        © 2019 Copyright Hop to It inc.
+                        © 2019 Copyright Hop to It Inc.
             {/* <a className="grey-text text-lighten-4 right" href="#!">More Links</a> */}
                     </div>
                 </div>
