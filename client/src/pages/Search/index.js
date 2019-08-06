@@ -160,7 +160,7 @@ class SearchBeers extends Component {
           <div className="row">
             <div className="col s12">
               <Jumbotron>
-                <h1 className="title">Hop to It</h1>
+                <h1 className="searchTitle">Hop to It</h1>
 
                 <img className="circle bigIcon center-align" src={icon4}></img>
 
