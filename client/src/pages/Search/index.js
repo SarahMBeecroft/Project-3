@@ -7,8 +7,7 @@ import './style.css';
 import SearchResults from '../../components/Results';
 import { set } from 'mongoose';
 import { AppContext } from "../../components/AppContainer";
-// import GoogleApiWrapper from '../../components/CurrentLocation';
-import BreweryMap from '../../components/BreweryMap';
+
 
 import icon4 from "../../components/AvatarImg/img/icon4.png";
 
@@ -241,10 +240,7 @@ class SearchBeers extends Component {
               handleSavedButton={this.handleSavedButton}
             />
 
-            <div className='map'>
-              {/* <h5>Your current location:</h5> */}
-              {/* <GoogleApiWrapper></GoogleApiWrapper> */}
-            </div> 
+           
         </Container>
       </section>
     );
