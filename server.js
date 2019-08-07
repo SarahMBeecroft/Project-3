@@ -17,6 +17,7 @@ const path = require("path");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hoptoitdb");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://hoptoit:project3@ds259787.mlab.com:59787/heroku_8xswmk79");
 
 // mongoose.Promise = global.Promise;
 // if (process.env.NODE_ENV === 'test') {
