@@ -49,7 +49,7 @@ export const unlinkGoogle = data => {
 
 // export const linkFacebook = data => {
 //   return async dispatch => {
-//     const res = await axios.post('http://localhost:5000/users/oauth/link/facebook', {
+//     const res = await axios.post('users/oauth/link/facebook', {
 //       access_token: data
 //     });
 
@@ -62,7 +62,7 @@ export const unlinkGoogle = data => {
 
 // export const unlinkFacebook = data => {
 //   return async dispatch => {
-//     const res = await axios.post('http://localhost:5000/users/oauth/unlink/facebook');
+//     const res = await axios.post('users/oauth/unlink/facebook');
 
 //     dispatch({
 //       type: AUTH_UNLINK_FACEBOOK,
@@ -73,7 +73,7 @@ export const unlinkGoogle = data => {
 
 // export const oauthFacebook = data => {
 //   return async dispatch => {
-//     await axios.post('http://localhost:5000/users/oauth/facebook', {
+//     await axios.post('users/oauth/facebook', {
 //       access_token: data
 //     });
 
