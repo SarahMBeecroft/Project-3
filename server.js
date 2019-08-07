@@ -10,7 +10,8 @@ var cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-
+// ... other imports 
+const path = require("path");
 
 
 // Define middleware here
@@ -44,6 +45,10 @@ app.use(bodyParser.json());
 // app.use('/users', require('./routes/users'));
 app.use(routes);
 // console.log(process.env);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
