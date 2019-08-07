@@ -24,8 +24,8 @@ const SavedBeer = props => {
                       <img src={
                        savedBeer.label !== 'false' ? savedBeer.label :
                        'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
-                       } alt='pint of beer' className='beer-img2'/>  
-                    </Col>
+                       } alt='pint of beer' className='beer-img2'/> 
+                      </Col>
                     <Col size='1' className='emptyCol' />
                     <Col size='9' className='beerInfo'>
 
