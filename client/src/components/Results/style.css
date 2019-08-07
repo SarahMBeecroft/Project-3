@@ -1,4 +1,4 @@
-.grid-container {
+.grid-container1 {
   display: grid;
   grid-gap: 50px;  
   grid-template-columns: 1fr 1fr 1fr;
@@ -66,3 +66,49 @@ li {
 
 
 
+/* Media queries for mobile repsonsiveness on beer cards /*
+/* Changes kick in when screen is 1200px or smaller */
+@media (max-width: 1200px) {
+  
+  /* Changes grid to two columns and decreases gap */
+  .grid-container1 {
+    display: grid;
+    grid-gap: 20px;  
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-gap: 20px;  
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-container3 {
+    display: grid;
+    grid-gap: 20px;  
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 750px) {
+/* Changes kick in when screen is 750px or smaller */
+/* Changes grid to one column and decreases gap */
+  .grid-container1 {
+    display: grid;
+    grid-gap: 10px;  
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container2 {
+    display: grid;
+    grid-gap: 10px;  
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container3 {
+    display: grid;
+    grid-gap: 10px;  
+    grid-template-columns: 1fr;
+  }
+}

@@ -6,7 +6,7 @@ import { Row, Col } from '../Grid';
 const SearchResults = props => {
   console.log(props.userFavs);
   return (props.beers.length === 0) ? (
-    <div className='card grid-container'>
+    <div className='card grid-container1'>
       <div className='card-body'>
         <div className='result'>
         </div>
@@ -15,7 +15,7 @@ const SearchResults = props => {
   ) : (
       <div className='cards'>
         <div className='card-body'>
-          <div className='result grid-container'>
+          <div className='result grid-container1'>
             {props.beers.map(beer => {
               return (
                 <div className='border1'>
