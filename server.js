@@ -43,18 +43,9 @@ app.use(bodyParser.json());
 app.use(routes);
 // console.log(process.env);
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
-
-
-
-
-
 
 
 // module.exports = app;
