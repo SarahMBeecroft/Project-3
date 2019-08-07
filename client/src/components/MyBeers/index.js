@@ -4,7 +4,7 @@ import { Row, Col } from '../Grid';
 
 const SavedBeer = props => {
   return (props.savedBeers.length === 0) ? (
-    <div className='card grid-container'>
+    <div className='card grid-container2'>
       <div className='card-body player'>
         <div className='result'>
         </div>
@@ -13,19 +13,21 @@ const SavedBeer = props => {
   ) : (
     <div className='cards'>
       <div className='card-body'>
-        <div className='result grid-container'>
+        <div className='result grid-container2'>
           {props.savedBeers.map(savedBeer => {
             return (
                 <div className='border2'>
                 <div className='cardContent2'>
                 <li className='search-list list-group-item' key={savedBeer._id}>
                   <Row className='SearchResult row' id={savedBeer.name + 'Card'}>
-                    <Col size='2' className='beerImage2'>
-    
-                    <img src={
-                      savedBeer.label !== 'false' ? savedBeer.label :
-                        'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
-                    } alt='pint of beer' className='beer-img2' />
+                    <Col size='2' className='savedBeerImage'>
+                      <img src={
+                       savedBeer.label !== 'false' ? savedBeer.label :
+                       'https://cdn.pastemagazine.com/www/articles/2019/07/01/hazy-IPA-generic-main.jpg'
+                       } alt='pint of beer' className='beer-img2'/> 
+                      </Col>
+                    <Col size='1' className='emptyCol' />
+                    <Col size='9' className='beerInfo'>
 
                   </Col>
                   <Col size='1' className='emptyCol' />

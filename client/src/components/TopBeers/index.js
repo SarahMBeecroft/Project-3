@@ -7,7 +7,7 @@ const TopBeer = props => {
   console.log(props.userFavs);
   return (props.topBeers.length === 0) ? (
     <div className='card'>
-      <div className='card-body player'>
+      <div className='card-body player grid-container3'>
         <div className='result'>
         </div>
       </div>
@@ -15,7 +15,7 @@ const TopBeer = props => {
   ) : (
     <div className='cards'>
       <div className='card-body'>
-        <div className='result grid-container'>
+        <div className='result grid-container3'>
           {props.topBeers.map(topBeer => {
             return (
                 <div className='border3'>
