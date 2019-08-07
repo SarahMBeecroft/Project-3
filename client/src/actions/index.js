@@ -13,7 +13,7 @@ import {
 
 export const oauthGoogle = data => {
   return async dispatch => {
-    await axios.post('http://localhost:5000/users/oauth/google', {
+    await axios.post('users/oauth/google', {
       access_token: data
     });
 
@@ -25,7 +25,7 @@ export const oauthGoogle = data => {
 
 export const linkGoogle = data => {
   return async dispatch => {
-    const res = await axios.post('http://localhost:5000/users/oauth/link/google', {
+    const res = await axios.post('users/oauth/link/google', {
       access_token: data
     });
 
@@ -38,7 +38,7 @@ export const linkGoogle = data => {
 
 export const unlinkGoogle = data => {
   return async dispatch => {
-    const res = await axios.post('http://localhost:5000/users/oauth/unlink/google');
+    const res = await axios.post('users/oauth/unlink/google');
 
     dispatch({
       type: AUTH_UNLINK_GOOGLE,
@@ -49,7 +49,7 @@ export const unlinkGoogle = data => {
 
 // export const linkFacebook = data => {
 //   return async dispatch => {
-//     const res = await axios.post('http://localhost:5000/users/oauth/link/facebook', {
+//     const res = await axios.post('users/oauth/link/facebook', {
 //       access_token: data
 //     });
 
@@ -62,7 +62,7 @@ export const unlinkGoogle = data => {
 
 // export const unlinkFacebook = data => {
 //   return async dispatch => {
-//     const res = await axios.post('http://localhost:5000/users/oauth/unlink/facebook');
+//     const res = await axios.post('users/oauth/unlink/facebook');
 
 //     dispatch({
 //       type: AUTH_UNLINK_FACEBOOK,
@@ -73,7 +73,7 @@ export const unlinkGoogle = data => {
 
 // export const oauthFacebook = data => {
 //   return async dispatch => {
-//     await axios.post('http://localhost:5000/users/oauth/facebook', {
+//     await axios.post('users/oauth/facebook', {
 //       access_token: data
 //     });
 
@@ -86,7 +86,7 @@ export const unlinkGoogle = data => {
 export const signUp = data => {
   return async dispatch => {
     try {
-      await axios.post('http://localhost:5000/users/signup', data);
+      await axios.post('users/signup', data);
 
       dispatch({
         type: AUTH_SIGN_UP,
@@ -104,7 +104,7 @@ export const signIn = data => {
   return async dispatch => {
     try {
       let userID;
-      await axios.post('http://localhost:5000/users/signin', data).
+      await axios.post('users/signin', data).
         then(res => {
           userID = res.data.userID;
         });
@@ -126,7 +126,7 @@ export const checkAuth = () => {
   return async dispatch => {
     try {
       let userID;
-      await axios.get('http://localhost:5000/users/status').
+      await axios.get('users/status').
         then(res => {
           userID = res.data.userID;
         });
@@ -146,7 +146,7 @@ export const checkAuth = () => {
 export const getDashboard = () => {
   return async dispatch => {
     try {
-      const res = await axios.get('http://localhost:5000/users/dashboard')
+      const res = await axios.get('users/dashboard')
 
       dispatch({
         type: DASHBOARD_GET_DATA,
@@ -161,7 +161,7 @@ export const getDashboard = () => {
 
 export const signOut = () => {
   return async dispatch => {
-    await axios.get('http://localhost:5000/users/signout');
+    await axios.get('users/signout');
 
     dispatch({
       type: AUTH_SIGN_OUT

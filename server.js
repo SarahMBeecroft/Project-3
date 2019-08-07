@@ -32,10 +32,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://hoptoit:project3@ds259787
 // }
 
 app.use(cookieParser());
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
+// app.use(cors({
+//   origin: 'http://localhost:3000',
+//   credentials: true
+// }));
 
 app.use(bodyParser.json());
 
@@ -47,6 +47,3 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
-
-
-module.exports = app;
