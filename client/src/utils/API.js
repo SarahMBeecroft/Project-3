@@ -16,6 +16,12 @@ export default {
     createUser: function (userData) {
         return axios.post("/api/users", userData);
     },
+
+    // Attempting to hard code heroku address in api method 
+    createUser: function (userData) {
+        return axios.post("https://hop-to-it.herokuapp.com/api/users", userData);
+    },
+    
     // Get user by id
     getUserDetail: function (id) {
         return axios.get("/api/users/" + id);
