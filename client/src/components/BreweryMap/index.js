@@ -105,7 +105,7 @@ class BreweryMap extends Component {
     });
 
     return (
-      <div className='appMap-container'>
+      <div className='appMap-container responsive-container'>
         <div className='row'>
           <div className='col s3'>
         <List

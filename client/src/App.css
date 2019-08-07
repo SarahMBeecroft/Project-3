@@ -84,5 +84,11 @@ a { color: inherit; }
     grid-gap: 10px;  
     grid-template-columns: 1fr;
   }
+  .map-container{
+    max-width: 365px;
+  }
+  .sidebar{
+    max-width: 150px;
+  }
 
 }

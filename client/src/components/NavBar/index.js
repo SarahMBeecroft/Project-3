@@ -29,7 +29,7 @@ class NavBar extends Component {
         this.props.signOut();
     }
 
-    
+
 
     // }
     // <nav>
@@ -74,18 +74,21 @@ class NavBar extends Component {
                             <li className="navLink1"><a href="/search">Search</a></li>
                             <li className="navLink1"><a href="/brewery">Brewery</a></li>
                             <li className="navLink1"><a href="/signin">Logout</a></li>
-                            
+
 
                         </ul>
                     </div>
 
-                    
+
                 </nav>
 
                 <ul className="sidenav" id="mobile-nav">
-                    <li><a href='/'>Home</a></li>
-                    <li><a className="dropdown-trigger" href="#!" data-target="dropdown1">Profile<i className="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href='/search'>Search</a></li>
+                    <li className="navLink1"><a href="/">Home</a></li>
+                    <li className="navLink1"><a href="/mybeers">My Beers</a></li>
+                    <li className="navLink1"><a href="/topbeers">Top Beers</a></li>
+                    <li className="navLink1"><a href="/search">Search</a></li>
+                    <li className="navLink1"><a href="/brewery">Brewery</a></li>
+                    <li className="navLink1"><a href="/signin">Logout</a></li>
                 </ul>
 
             </div>
