@@ -1,0 +1,59 @@
+nav{
+  background-color:#005826;
+}
+.nav-wrapper{
+  margin:0 10px 10px 10px;
+  
+}
+.nav{
+  float:right;
+  text-align:right;
+}
+
+.nav-link{
+font-size: 1.7rem;
+}
+
+form{
+  padding-right:2rem;
+}
+
+fieldset{
+  border:none;
+  
+}
+
+label{
+  font-size:1.5rem;
+}
+
+.alert{
+  font-size:1.5rem;
+  margin-bottom:1.5rem;
+}
+
+.text-center{
+  float:right;
+  margin-left:2.5rem;
+}
+
+.signinbtn{
+  background-color:#005826
+}
+
+.googlebtn{
+  background-color:#db3236;
+  margin-top:2 rem;
+}
+
+.field1{
+  text-align: center;
+}
+
+/* .row{
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+} */

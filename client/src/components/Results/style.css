@@ -1,0 +1,114 @@
+.grid-container1 {
+  display: grid;
+  grid-gap: 50px;  
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.border1 {
+  text-align: center;
+  border: solid 1px grey;
+  margin: 1px;
+  box-shadow: 2px 3px 2px #888888;
+  max-height: 750px;
+  overflow: hidden;
+}
+
+.cardContent1 {
+  display: inline-block;
+  padding: 8px;
+  line-height: 20px; /* Height / no. of lines to display */
+}
+
+.beer-img1 {
+  max-width: 260px;
+  max-height: 260px;
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+.abv1 {
+  display: inline-block;
+}
+
+.description1 {
+  padding: 10px;
+  overflow: hidden; 
+  max-height: 123px;
+  line-height: 16px; 
+  position: relative;
+  word-wrap: break-word;
+}
+
+/* Adds elipses after description is cut off */
+.description1:after { content: "..."; background: white; position :absolute;}
+
+.buttonDiv1 {
+  text-align: center;
+}
+
+.buttons1 {
+  display: inline-block;
+  bottom: auto;
+}
+
+/* Aligns direction button with favorite button and adds space between buttons */
+.mapDirection1 {
+  margin-right: 10px;
+  background-color: #de5246;
+}
+
+.mapDirection1:hover { 
+  background-color: lightcoral;
+}
+
+
+
+/* Media queries for mobile repsonsiveness on beer cards /*
+/* Changes kick in when screen is 1200px or smaller */
+@media (max-width: 1200px) {
+  
+  /* Changes grid to two columns and decreases gap */
+  .grid-container1 {
+    display: grid;
+    grid-gap: 20px;  
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-gap: 20px;  
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-container3 {
+    display: grid;
+    grid-gap: 20px;  
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 750px) {
+/* Changes kick in when screen is 750px or smaller */
+/* Changes grid to one column and decreases gap */
+  .grid-container1 {
+    display: grid;
+    grid-gap: 10px;  
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container2 {
+    display: grid;
+    grid-gap: 10px;  
+    grid-template-columns: 1fr;
+  }
+
+  .grid-container3 {
+    display: grid;
+    grid-gap: 10px;  
+    grid-template-columns: 1fr;
+  }
+}
