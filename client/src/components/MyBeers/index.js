@@ -58,7 +58,7 @@ const SavedBeer = props => {
                   </button>
               
                
-                    <button className="btn modal-trigger addLocation" data-target="bar-modal" onClick={() => props.handleBarButton(savedBeer._id)}>
+                    <button className="btn modal-trigger addLocation disabled" data-target="bar-modal" onClick={() => props.handleBarButton(savedBeer._id)}>
                     {/* <button className="btn modal-trigger" data-target="bar-modal"> */}
                       Add a Location
                   </button>
