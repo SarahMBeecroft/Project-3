@@ -5,7 +5,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const GooglePlusTokenStrategy = require('passport-google-plus-token');
 // const FacebookTokenStrategy = require('passport-facebook-token');
 const config = require('./configuration');
-const User = require('./models/user');
+const User = require('./models/User');
 
 const cookieExtractor = req => {
   let token = null;
