@@ -1,29 +1,32 @@
-# Create React Express App
+# Hop to It 
+![Screenshot of site](/client/src/images/Capture.PNG)
 
-## About This Boilerplate
+We designed this React-based app to help beer lovers narrow down beer selections in a sea of choice. Additionally, this app will let you favorite beers and check out local breweries based on your location. This cuts down on choosing time so you can spend more time enjoying a cold one with your friends.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+## Team Members
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+* Joshua Richardson
+* Se Won Park
+* Marcos Benitez
+* Sarah Beecroft 
 
-## Starting the app locally
+## Technologies Used
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+* HTML5
+* CSS
+* Materialize
+* Material UI
+* ES6
+* React 
+* JSX
+* JavaScript
+* Express
+* MongoDB
+* Mongoose
+* Passport (user authentication)
+* BreweryDB API
+* Foursquare API
+* Google Maps (react-google-maps)
 
-```
-npm install
-```
 
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+Check out the app in action here: https://hoptoit.herokuapp.com 
